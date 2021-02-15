@@ -3137,8 +3137,8 @@ end
 if (MsgText[1]== "ايدي" or MsgText[1]=="ايدي 🆔") and msg.type == "pv" then return  "\n"..msg.sender_user_id_.."\n"  end
 
 if MsgText[1]== "قناة السورس 📡" and msg.type == "pv" then
-local inline = {{{text="Source Channel : modzx dev",url="t.me/wizard_system"}}}
-send_key(msg.sender_user_id_,'  [Source : ws](t.me/wizard_system)',nil,inline,msg.id_)
+local inline = {{{text="Source Channel : Wizard",url="t.me/wizard_system"}}}
+send_key(msg.sender_user_id_,'  [Source : WS](t.me/wizard_system)',nil,inline,msg.id_)
 return false
 end
 
