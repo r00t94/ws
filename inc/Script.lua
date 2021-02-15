@@ -3070,7 +3070,7 @@ end
 
 if (MsgText[1] == 'تحديث السورس' or MsgText[1] == 'تحديث السورس ™') then
 if not msg.SudoBase then return "📪¦ هذا الامر يخص {المطور الاساسي} فقط  \n" end
-local GetVerison = https.request('https://raw.githubusercontent.com/mhamadsu777/ws-source/main/ver.txt') or "0"
+local GetVerison = https.request('https://raw.githubusercontent.com/r00t94/r00t94.github.io/main/GetVersion.txt') or "0"
 GetVerison = GetVerison:gsub("\n",""):gsub(" ","")
 if GetVerison > version then
 UpdateSourceStart = true
@@ -3779,7 +3779,7 @@ end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
 if not msg.SudoBase then return "📪¦ هذا الامر يخص {المطور الاساسي} فقط  \n" end
-local Get_Files, res = https.request("https://wizard_system.github.io/GetFiles.json")
+local Get_Files, res = https.request("https://r00t94.github.io/GetFiles.json")
 print(Get_Files)
 print(res)
 if res == 200 then
@@ -3819,7 +3819,7 @@ TText = "📑¦ الملف موجود بالفعل \n🔖¦ تم تحديث ال
 else
 TText = "🔖¦ تم تثبيت وتفعيل الملف بنجاح \n✓"
 end
-local Get_Files, res = https.request("https://raw.githubusercontent.com/mhamadsu777/ws-source/main/plugins/"..FileName)
+local Get_Files, res = https.request("https://raw.githubusercontent.com/r00t94/ws/main/plugins/"..FileName)
 if res == 200 then
 print("DONLOADING_FROM_URL: "..FileName)
 local FileD = io.open("plugins/"..FileName,'w+')
