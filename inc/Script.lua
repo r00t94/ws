@@ -3065,7 +3065,7 @@ end
 
 
 if MsgText[1] == 'اصدار السورس' or MsgText[1] == 'الاصدار' then
-return '👨🏾‍🔧¦ اصدار سورس ويزرد : *v'..version..'* \n📡'
+return '⚶ اصدار سورس ويزرد : *v'..version..'* \n📡'
 end
 
 if (MsgText[1] == 'تحديث السورس' or MsgText[1] == 'تحديث السورس ™') then
@@ -3078,7 +3078,7 @@ sendMsg(msg.chat_id_,msg.id_,'🔛*¦* يوجد تحديث جديد الان \n�
 redis:set(ws..":VERSION",GetVerison)
 return false
 else
-return "⚶ الاصدار الحالي : *v"..version.."* \n👨🏾‍🔧*¦* لديـك احدث اصدار \n📦"
+return "⚶ الاصدار الحالي : *v"..version.."* \n👨🏾‍🔧*¦* لديـك احدث اصدار \n✮"
 end
 return false
 end
@@ -3124,7 +3124,7 @@ sendMsg(arg.chat_id_,arg.id_,'⌯ عذرا هذا ليس ملف النسحه ا�
 end 
 end,{chat_id_=msg.chat_id_,id_=msg.id_})
 else 
-return "📦*¦* ارسل ملف النسخه الاحتياطيه اولا\n📑*¦* ثم قم بالرد على الملف وارسل \" `رفع نسخه الاحتياطيه` \" "
+return "✮*¦* ارسل ملف النسخه الاحتياطيه اولا\n📑*¦* ثم قم بالرد على الملف وارسل \" `رفع نسخه الاحتياطيه` \" "
 end 
 return false
 end
@@ -4742,7 +4742,7 @@ end
 if redis:get(ws..'rulse:witting'..msg.chat_id_..msg.sender_user_id_) then --- استقبال القوانين
 redis:del(ws..'rulse:witting'..msg.chat_id_..msg.sender_user_id_) 
 redis:set(ws..'rulse:msg'..msg.chat_id_,Flter_Markdown(msg.text)) 
-return sendMsg(msg.chat_id_,msg.id_,'📜*¦* مرحبآ عزيزي\n📦¦ تم حفظ القوانين بنجاح ✓\n⚶ ارسل [[ القوانين ]] لعرضها \n🛑✓')
+return sendMsg(msg.chat_id_,msg.id_,'📜*¦* مرحبآ عزيزي\n✮¦ تم حفظ القوانين بنجاح ✓\n⚶ ارسل [[ القوانين ]] لعرضها \n🛑✓')
 end
 if redis:get(ws..'name:witting'..msg.chat_id_..msg.sender_user_id_) then --- استقبال الاسم
 redis:del(ws..'name:witting'..msg.chat_id_..msg.sender_user_id_) 
@@ -6125,7 +6125,8 @@ elseif Text== "صاكه"  then return sendMsg(msg.chat_id_,msg.id_,"اووويل
 elseif Text== "وينك"  then return sendMsg(msg.chat_id_,msg.id_,"دور بكلبك وتلكاني 😍😍❤️")
 elseif Text== "منورين"  then return sendMsg(msg.chat_id_,msg.id_,"من نورك عمري ❤️🌺")
 elseif Text== "هاي"  then return sendMsg(msg.chat_id_,msg.id_,"هايات عمري 😍🍷")
-elseif Text== "هيل" or Text== "hell" or Text== "Hell" or Text== "HELL" or Text== "ستورم" then return sendMsg(msg.chat_id_,msg.id_,"[STORM SYSTEM](HTTPS://T.ME/R00T94)")
+elseif Text== "ايكاريوس"  then return sendMsg(msg.chat_id_,msg.id_,"[ايـَكَـاريُـوس](https://t.me/ARMY7_7)")
+elseif Text== "هيل" or Text== "hell" or Text== "Hell" or Text== "HELL" or Text== "مطور السورس" then return sendMsg(msg.chat_id_,msg.id_,"[STORM SYSTEM](HTTPS://T.ME/R00T94)")
 elseif Text== "🙊"  then return sendMsg(msg.chat_id_,msg.id_,"فديت الخجول 🙊 😍")
 elseif Text== "ufO" or Text== "Ufo" or Text== "uFo" or Text== "ufo" or Text== "UFO" then return sendMsg(msg.chat_id_,msg.id_,"[UFO](HTTPS://T.ME/lIIUlI)")
 elseif Text== "😢"  then return sendMsg(msg.chat_id_,msg.id_,"لتبجي حياتي 😢")
@@ -6250,13 +6251,13 @@ if redis:get(ws..'CheckExpire::'..msg.chat_id_) then
 local ExpireDate = redis:ttl(ws..'ExpireDate:'..msg.chat_id_)
 SUDO_USER = redis:hgetall(ws..'username:'..SUDO_ID).username
 if SUDO_USER:match('@[%a%d_]+') then 
-SUDO_USERR = "\n👨🏾‍🔧¦ راسل المطور للتجديد ["..SUDO_USER.."]"
+SUDO_USERR = "\n⚶ راسل المطور للتجديد ["..SUDO_USER.."]"
 else
 SUDO_USERR = ""
 end
 if not ExpireDate and not msg.SudoUser then
 rem_data_group(msg.chat_id_)
-sendMsg(SUDO_ID,0,'🕵🏼️‍♀️¦ انتهى الاشتراك في احد المجموعات ✮\n👨🏾‍🔧¦ المجموعه : '..FlterName(redis:get(ws..'group:name'..msg.chat_id_))..'🍃\n💂🏻‍♀️¦ ايدي : '..msg.chat_id_)
+sendMsg(SUDO_ID,0,'🕵🏼️‍♀️¦ انتهى الاشتراك في احد المجموعات ✮\n⚶ المجموعه : '..FlterName(redis:get(ws..'group:name'..msg.chat_id_))..'🍃\n💂🏻‍♀️¦ ايدي : '..msg.chat_id_)
 sendMsg(msg.chat_id_,0,'🕵🏼️‍♀️¦ انتهى الاشتراك البوت✮\n💂🏻‍♀️¦ سوف اغادر المجموعه فرصه سعيده 👋🏿'..SUDO_USERR..' 🍃')
 return StatusLeft(msg.chat_id_,our_id)
 else
