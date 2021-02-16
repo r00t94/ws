@@ -1028,7 +1028,7 @@ end
 function GetListAdmin(msg)
 local list = redis:smembers(ws..'admins:'..msg.chat_id_)
 if #list==0 then  return  "⌯ لا يوجد ادمن في هذه المجموعه \n✮" end
-message = '📋*¦ قائمه الادمنيه :*\n\n'
+message = '✮ *قائمه الادمنيه :*\n\n'
 for k,v in pairs(list) do
 local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
@@ -1049,7 +1049,7 @@ end
 function whitelist(msg)
 local list = redis:smembers(ws..'whitelist:'..msg.chat_id_)
 if #list == 0 then return "*⌯ لا يوجد مميزين في القائمه *" end
-message = '📋*¦* قائمه الاعضاء المميزين :\n'   
+message = '⌯ قائمه الاعضاء المميزين :\n'   
 for k,v in pairs(list) do
 local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
@@ -1078,8 +1078,8 @@ end
 
 function MuteUser_list(msg)
 local list = redis:smembers(ws..'is_silent_users:'..msg.chat_id_)
-if #list==0 then return "📋*¦*  لايوجد اعضاء مكتومين " end
-message = '📋*¦*  قائمه الاعضاء المكتومين :\n'
+if #list==0 then return "⌯  لايوجد اعضاء مكتومين " end
+message = '⌯  قائمه الاعضاء المكتومين :\n'
 for k,v in pairs(list) do
 local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
@@ -1109,8 +1109,8 @@ end
 
 function GetListBanned(msg)
 local list = redis:smembers(ws..'banned:'..msg.chat_id_)
-if #list==0 then return "📋*¦* لايوجد أعضاء محظورين " end
-message = '📋*¦* قائمه الاعضاء المحظورين :\n'
+if #list==0 then return "⌯ لايوجد أعضاء محظورين " end
+message = '⌯ قائمه الاعضاء المحظورين :\n'
 for k,v in pairs(list) do
 local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
@@ -1140,7 +1140,7 @@ end
 function GetListGeneralBanned(msg)
 local list = redis:smembers(ws..'gban_users')
 if #list==0 then return  "*⌯ لايوجد اعضاء محظورين عام*" end
-message = '✮*¦* قائمه المحظورين عام :\n'
+message = '✮ قائمه المحظورين عام :\n'
 for k,v in pairs(list) do
 local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
@@ -1183,8 +1183,8 @@ end
 
 function FilterXList(msg)
 local list = redis:smembers(ws..':Filter_Word:'..msg.chat_id_)
-if #list == 0 then return "✮*¦* قائمه الكلمات الممنوعه فارغه" end
-filterlist = '✮*¦* قائمه الكلمات الممنوعه :\n'    
+if #list == 0 then return "✮ قائمه الكلمات الممنوعه فارغه" end
+filterlist = '✮ قائمه الكلمات الممنوعه :\n'    
 for k,v in pairs(list) do
 filterlist = filterlist..'*'..k..'* -  '..Flter_Markdown(v)..'\n'
 end
@@ -1197,19 +1197,19 @@ end
 
 function AddFilter(msg, word)
 if redis:sismember(ws..':Filter_Word:'..msg.chat_id_,word) then 
-return  "📝*¦* الكلمه *{"..word.."}* هي بالتأكيد من قائمه المنع✓️" 
+return  "⌯ الكلمه *{"..word.."}* هي بالتأكيد من قائمه المنع✓️" 
 else
 redis:sadd(ws..':Filter_Word:'..msg.chat_id_,word) 
-return  "📝*¦* الكلمه *{"..word.."}* تمت اضافتها الى قائمه المنع ✓️"
+return  "⌯ الكلمه *{"..word.."}* تمت اضافتها الى قائمه المنع ✓️"
 end
 end
 
 function RemFilter(msg, word)
 if redis:sismember(ws..':Filter_Word:'..msg.chat_id_,word) then 
 redis:srem(ws..':Filter_Word:'..msg.chat_id_,word) 
-return  "📝*¦* الكلمه *{"..word.."}* تم السماح بها ✓️" 
+return  "⌯ الكلمه *{"..word.."}* تم السماح بها ✓️" 
 else
-return  "📝*¦* الكلمه *{"..word.."}* هي بالتأكيد مسموح بها✓️" 
+return  "⌯ الكلمه *{"..word.."}* هي بالتأكيد مسموح بها✓️" 
 end
 end
 
@@ -1304,12 +1304,12 @@ end
 local Save_Data = io.open("./inc/"..Bot_User..".json","w+")
 Save_Data:write(json_data..'}}')
 Save_Data:close()
-sendDocument(msg.chat_id_,msg.id_,"./inc/"..Bot_User..".json","🚸| ملف النسخه الاحتياطيه ...\n🔖| المجموعات » { "..#All_Groups_ID.." }\n📋| للبوت » "..Bot_User.."\n📆| التاريخ » "..os.date("%Y/%m/%d").."\n",dl_cb,nil)
+sendDocument(msg.chat_id_,msg.id_,"./inc/"..Bot_User..".json","🚸| ملف النسخه الاحتياطيه ...\n🔖| المجموعات » { "..#All_Groups_ID.." }\n✮| للبوت » "..Bot_User.."\n📆| التاريخ » "..os.date("%Y/%m/%d").."\n",dl_cb,nil)
 end
 
 function chat_list(msg)
 local list = redis:smembers(ws..'group:ids')
-message = '📋*¦* قائمه المجموعات :\n\n'
+message = '⌯ قائمه المجموعات :\n\n'
 for k,v in pairs(list) do 
 local info = redis:get(ws..'group:name'..v)
 if info then 
