@@ -1995,7 +1995,7 @@ end
 
 function settingsall(msg)
 
-list_settings = "*👮🏾¦*` اعدادات المجموعه :` \n"
+list_settings = "*👮🏾¦*`اعدادات المجموعه :` \n"
 .."\n⌯  التعديل » "..(redis:get(ws..'lock_edit'..msg.chat_id_) or 'false')
 .."\n⌯  الروابط » "..(redis:get(ws..'lock_link'..msg.chat_id_) or 'false')
 .."\n⌯  التاك » "..(redis:get(ws..'lock_tag'..msg.chat_id_) or 'false')
@@ -2008,7 +2008,7 @@ list_settings = "*👮🏾¦*` اعدادات المجموعه :` \n"
 .."\n⌯  البوتات » "..(redis:get(ws..'lock_bots'..msg.chat_id_) or 'false')
 .."\n⌯  عدد التكرار » "..(redis:get(ws..'num_msg_max'..msg.chat_id_) or 'false')
 .."\n⌯  وقت التنظيف » "..(redis:get(ws..':Timer_Cleaner:'..msg.chat_id_) or '6').." ساعة ."
-.."\n\n⌯ ` اعدادات الوسائط :`\n"
+.."\n\n⌯ `اعدادات الوسائط :`\n"
 .."\n⌯  المتحركه » "..(redis:get(ws..'mute_gif'..msg.chat_id_) or 'false')
 .."\n⌯ الدردشه » "..(redis:get(ws..'mute_text'..msg.chat_id_) or 'false')
 .."\n⌯ الانلاين » "..(redis:get(ws..'mute_inline'..msg.chat_id_) or 'false')
@@ -2028,7 +2028,7 @@ list_settings = "*👮🏾¦*` اعدادات المجموعه :` \n"
 .."\n⌯ الانكليزيه » "..(redis:get(ws..'lock_lang'..msg.chat_id_) or 'false')
 .."\n⌯ الاضافه » "..(redis:get(ws..'lock_Add'..msg.chat_id_) or 'false')
 
-local eueuf = "\n\n*⚒¦*` اعدادات اخرى : `"
+local eueuf = "\n\n*⚒¦*`اعدادات اخرى : `"
 .."\n*🙋🏼‍♂️¦* الترحيب » "..(redis:get(ws..'welcome:get'..msg.chat_id_) or 'false')
 .."\n*⌯*  الردود » "..(redis:get(ws..'replay'..msg.chat_id_) or 'false')
 .."\n*⌯*  الردود العشوائيه » "..(redis:get(ws.."lock_RandomRdod"..msg.chat_id_) or 'false')
@@ -2051,7 +2051,7 @@ return sendMsg(msg.chat_id_,1,'✮\n'..list_settings..eueuf..'\n')
 end
 
 function settings(msg)
-list_settings = "👮🏾¦` اعدادات المجموعه :` "
+list_settings = "👮🏾¦`اعدادات المجموعه :`"
 .."\n\n*⌯ التاك » "..(redis:get(ws..'lock_tag'..msg.chat_id_) or 'false')
 .."\n*⌯ * المعرفات » "..(redis:get(ws..'lock_username'..msg.chat_id_) or 'false')
 .."\n*⌯ * التعديل » "..(redis:get(ws..'lock_edit'..msg.chat_id_) or 'false')
@@ -2063,7 +2063,7 @@ list_settings = "👮🏾¦` اعدادات المجموعه :` "
 .."\n*⌯ * البوتات بالطرد » "..(redis:get(ws..'lock_bots_by_kick'..msg.chat_id_) or 'false')
 .."\n*⌯ * البوتات » "..(redis:get(ws..'lock_bots'..msg.chat_id_) or 'false')
 .."\n*⌯ * عدد التكرار » "..(redis:get(ws..'num_msg_max'..msg.chat_id_) or 'false')
-.."\n\n*⌯ *` اعدادات التقـييد :`\n"
+.."\n\n*⌯ *`اعدادات التقـييد :`\n"
 .."\n*⌯* التقييد بالتوجيه » "..(redis:get(ws..':tqeed_fwd:'..msg.chat_id_) or 'false')
 .."\n*⌯* التقييد بالصور » "..(redis:get(ws..':tqeed_photo:'..msg.chat_id_) or 'false')
 .."\n*⌯ * التقييد بالروابط » "..(redis:get(ws..':tqeed_link:'..msg.chat_id_) or 'false')
@@ -2075,7 +2075,7 @@ return sendMsg(msg.chat_id_, msg.id_,'✮\n'..list_settings..'\n')
 end
 
 function media(msg)
-list_settings = "*👮🏾¦*` اعدادات الوسائط:`\n"
+list_settings = "*👮🏾¦*`اعدادات الوسائط:`\n"
 .."\n*⌯* المتحركه » "..(redis:get(ws..'mute_gif'..msg.chat_id_) or 'false')
 .."\n*⌯* الدردشه » "..(redis:get(ws..'mute_text'..msg.chat_id_) or 'false')
 .."\n*⌯* الانلاين » "..(redis:get(ws..'mute_inline'..msg.chat_id_) or 'false')
