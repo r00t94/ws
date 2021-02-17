@@ -51,7 +51,7 @@ local edited = (redis:get(ws..':edited:'..arg.chat_id_..':'..arg.sender_user_id_
 local KleshaID = '⚶ أســمـك •⊱ { '..arg.Namei..' } ⊰•\n'
 ..'⌯ ايديــك •⊱ {'..arg.sender_user_id_..'} ⊰•\n'
 ..arg.UserNameID
-..'📡¦ رتبتـــك •⊱ '..arg.TheRank..' ⊰•\n'
+..'✮¦ رتبتـــك •⊱ '..arg.TheRank..' ⊰•\n'
 ..'⭐️¦ تفاعـلك •⊱ '..Get_Ttl(arg.msgs)..'⊰•\n'
 ..'⚶ رسائلك •⊱ {'..arg.msgs..'} ⊰•\n✮'
 local Kleshaidinfo = redis:get(ws..":infoiduser_public:"..arg.chat_id_) or redis:get(ws..":infoiduser")  
@@ -1417,7 +1417,7 @@ end
 
 if MsgText[1] == "الرابط" then
 if not redis:get(ws.."lock_linkk"..msg.chat_id_) then return "⌯ الامر معطل من قبل الادارة \n^"  end
-if not redis:get(ws..'linkGroup'..msg.chat_id_) then return "⌯ اوه 🙀 لا يوجد رابط ☹️\n🔖*¦*لانشاء رابط ارسل { انشاء رابط } \n📡" end
+if not redis:get(ws..'linkGroup'..msg.chat_id_) then return "⌯ اوه 🙀 لا يوجد رابط ☹️\n⌯لانشاء رابط ارسل { انشاء رابط } \n✮" end
 local GroupName = redis:get(ws..'group:name'..msg.chat_id_)
 local GroupLink = redis:get(ws..'linkGroup'..msg.chat_id_)
 return "⌯ رابـط الـمـجـمـوعه :\n\n["..GroupLink.."]\n"
@@ -1461,7 +1461,7 @@ if not msg.SudoUser then return "⌯ هذا الامر يخص {المطور} ف�
 
 local Admins = redis:scard(ws..':MONSHA_Group:'..msg.chat_id_)
 if Admins == 0 then  
-return "⌯ اوه ☢ هنالك خطأ 🚸\n✮ عذرا لا يوجد منشئيين اساسييين ليتم مسحهم ✓" 
+return "⌯ اوه ☢ هنالك خطأ ✮\n✮ عذرا لا يوجد منشئيين اساسييين ليتم مسحهم ✓" 
 end
 redis:del(ws..':MONSHA_Group:'..msg.chat_id_)
 return "⚶ بواسطه ⋙ "..msg.TheRankCmd.."   \n✮ تم مسح {"..Admins.."} من الادمنيه في البوت \n✓"
@@ -1487,7 +1487,7 @@ if not msg.Director then return "⌯ هذا الامر يخص {المطور,ال
 
 local Admins = redis:scard(ws..'admins:'..msg.chat_id_)
 if Admins == 0 then  
-return "⌯ اوه ☢ هنالك خطأ 🚸\n✮ عذرا لا يوجد ادمنيه ليتم مسحهم ✓" 
+return "⌯ اوه ☢ هنالك خطأ ✮\n✮ عذرا لا يوجد ادمنيه ليتم مسحهم ✓" 
 end
 redis:del(ws..'admins:'..msg.chat_id_)
 return "⚶ بواسطه ⋙ "..msg.TheRankCmd.."   \n✮ تم مسح {"..Admins.."} من الادمنيه في البوت \n✓"
@@ -1518,7 +1518,7 @@ end
 if MsgText[1] == "مسح الترحيب"  then
 if not msg.Director then return "⌯ هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
 if not redis:get(ws..'welcome:msg'..msg.chat_id_) then 
-return "⌯ اوه ☢ هنالك خطأ 🚸\n✮ عذرا لا يوجد ترحيب ليتم مسحه ✓" 
+return "⌯ اوه ☢ هنالك خطأ ✮\n✮ عذرا لا يوجد ترحيب ليتم مسحه ✓" 
 end
 redis:del(ws..'welcome:msg'..msg.chat_id_)
 return "⚶ بواسطه ⋙ "..msg.TheRankCmd.."   \n✮ تم حذف الترحيب بنجاح \n✓"
@@ -1664,7 +1664,7 @@ chat_id_=arg.ChatID,
 photo_ = GetInputFile(photo_id)},
 function(arg,data)
 if data.code_ and data.code_ == 3 then
-return sendMsg(arg.ChatID,arg.MsgID,'🚸 ¦ ليس لدي صلاحيه تغيير الصوره \n🤖 ¦ يجب اعطائي صلاحيه `تغيير معلومات المجموعه ` ⠀\n✓')
+return sendMsg(arg.ChatID,arg.MsgID,'✮ ¦ ليس لدي صلاحيه تغيير الصوره \n🤖 ¦ يجب اعطائي صلاحيه `تغيير معلومات المجموعه ` ⠀\n✓')
 end
 end,{ChatID=arg.ChatID,MsgID=arg.MsgID})
 end
@@ -1891,9 +1891,9 @@ end
 NumMem = NumMem + 1
 if NumMem == Total then
 if NumMemDone >= 1 then
-sendMsg(arg.ChatID,arg.MsgID,"🚸 ¦ تم طـرد {* "..NumMemDone.." *} من آلحسـآبآت آلمـحذوفهہ‏‏ ✮")
+sendMsg(arg.ChatID,arg.MsgID,"✮ ¦ تم طـرد {* "..NumMemDone.." *} من آلحسـآبآت آلمـحذوفهہ‏‏ ✮")
 else
-sendMsg(arg.ChatID,arg.MsgID,'🚸 ¦ لا يوجد حسابات محذوفه في المجموعه ✮')
+sendMsg(arg.ChatID,arg.MsgID,'✮ ¦ لا يوجد حسابات محذوفه في المجموعه ✮')
 end
 end
 end,{ChatID=arg.ChatID,MsgID=arg.MsgID})
@@ -2771,7 +2771,7 @@ else
 SUDO_USERR = ""
 end
 sendPhoto(msg.chat_id_,msg.id_,Photo_Weloame,[[⌯ مـرحبا أنا بوت آسـمـي ]]..redis:get(ws..':NameBot:')..[[ 🎖
-⌯ آختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
+⌯ يمكنني حمايه المجموعات من السبام والتوجيه الخ....
 ✮ مـن آلسـبآم وآلتوجيهہ‏‏ وآلتكرآر وآلخ...
 ]]..SUDO_USERR) 
 return false
@@ -2848,7 +2848,7 @@ return false
 end
 
 if MsgText[1] == 'المطور' then
-return redis:get(ws..":TEXT_SUDO") or '🗃¦ لا توجد كليشه المطور .\n📰¦ يمكنك اضافه كليشه من خلال الامر\n       " `ضع كليشه المطور` " \n📡'
+return redis:get(ws..":TEXT_SUDO") or '🗃¦ لا توجد كليشه المطور .\n📰¦ يمكنك اضافه كليشه من خلال الامر\n       " `ضع كليشه المطور` " \n✮'
 end
 
 if MsgText[1] == "اذاعه بالتثبيت"  or MsgText[1] =="اذاعه بالتثبيت 📬" then
@@ -3065,7 +3065,7 @@ end
 
 
 if MsgText[1] == 'اصدار السورس' or MsgText[1] == 'الاصدار' then
-return '⚶ اصدار سورس ويزرد : *v'..version..'* \n📡'
+return '⚶ اصدار سورس ويزرد : *v'..version..'* \n✮'
 end
 
 if (MsgText[1] == 'تحديث السورس' or MsgText[1] == 'تحديث السورس ™') then
@@ -3136,7 +3136,7 @@ end
 
 if (MsgText[1]== "ايدي" or MsgText[1]=="ايدي 🆔") and msg.type == "pv" then return  "\n"..msg.sender_user_id_.."\n"  end
 
-if MsgText[1]== "قناة السورس 📡" and msg.type == "pv" then
+if MsgText[1]== "قناة السورس ✮" and msg.type == "pv" then
 local inline = {{{text="Source Channel : Wizard",url="t.me/wizard_system"}}}
 send_key(msg.sender_user_id_,'  [Source : WS](t.me/wizard_system)',nil,inline,msg.id_)
 return false
@@ -3144,7 +3144,7 @@ end
 
 if (MsgText[1]== "الاحصائيات 📈" or MsgText[1]=="الاحصائيات") then
 if not msg.SudoBase then return"⌯ هذا الامر يخص {المطور الاساسي} فقط  \n" end
-return 'الاحصائيات : 📈 \n\n👥*¦* عدد المجموعات المفعله : '..redis:scard(ws..'group:ids')..'\n⌯ عدد المشتركين في البوت : '..redis:scard(ws..'users')..'\n📡'
+return 'الاحصائيات : 📈 \n\n👥*¦* عدد المجموعات المفعله : '..redis:scard(ws..'group:ids')..'\n⌯ عدد المشتركين في البوت : '..redis:scard(ws..'users')..'\n✮'
 end
 ---------------[End Function data] -----------------------
 if MsgText[1]=="اضف رد عام" or MsgText[1]=="اضف رد عام ➕" then
@@ -3309,7 +3309,7 @@ if not msg.Director then return "⌯ هذا الامر يخص {المطور,ال
 message = "⌯ الردود العشـوائيه :\n\n"
 local AlRdod = redis:smembers(ws..':KlmatRRandom:'..msg.chat_id_) 
 if #AlRdod == 0 then 
-message = message .."✮| لا توجد ردود عشوائيه مضافه !\n"
+message = message .."✮ لا توجد ردود عشوائيه مضافه !\n"
 else
 for k,v in pairs(AlRdod) do
 local incrr = redis:scard(ws..':ReplayRandom:'..msg.chat_id_..":"..v) 
@@ -3350,7 +3350,7 @@ if not msg.SudoUser then return "⌯ هذا الامر يخص {المطور} ف�
 message = "⌯ الردود العشـوائيه العام :\n\n"
 local AlRdod = redis:smembers(ws..':KlmatRRandom:') 
 if #AlRdod == 0 then 
-message = message .."✮| لا توجد ردود عشوائيه مضافه !\n"
+message = message .."✮ لا توجد ردود عشوائيه مضافه !\n"
 else
 for k,v in pairs(AlRdod) do
 local incrr = redis:scard(ws..":ReplayRandom:"..v) 
@@ -3390,7 +3390,7 @@ echo '📟 •⊱ { Seystem } ⊰•\n*⇠⇠ '"$linux_version"'*'
 echo '*------------------------------\n*🔖 •⊱ { Memory } ⊰•\n*⇠⇠ '"$memUsedPrc"'*'
 echo '*------------------------------\n*💾 •⊱ { HardDisk } ⊰•\n*⇠⇠ '"$HardDisk"'*'
 echo '*------------------------------\n*⚙️ •⊱ { Processor } ⊰•\n*⇠⇠ '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '*------------------------------\n*📡 •⊱ { Location } ⊰•\n*⇠⇠ ]]..DataCenter..[[*'
+echo '*------------------------------\n*✮ •⊱ { Location } ⊰•\n*⇠⇠ ]]..DataCenter..[[*'
 echo '*------------------------------\n*👨🏾‍🔧 •⊱ { Server[_]Login } ⊰•\n*⇠⇠ '`whoami`'*'
 echo '*------------------------------\n*🔌 •⊱ { Uptime } ⊰•  \n*⇠⇠ '"$uptime"'*'
 ]]):read('*all')
@@ -3411,7 +3411,7 @@ echo '📟l •⊱ { نظام التشغيل } ⊰•\n*⇠⇠ '"$linux_version"
 echo '*------------------------------\n*🔖l •⊱ { الذاكره العشوائيه } ⊰•\n*⇠⇠ '"$memUsedPrc"'*'
 echo '*------------------------------\n*💾l •⊱ { وحـده الـتـخـزيـن } ⊰•\n*⇠⇠ '"$HardDisk"'*'
 echo '*------------------------------\n*⚙️l •⊱ { الـمــعــالــج } ⊰•\n*⇠⇠ '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '*------------------------------\n*📡l •⊱ { موقـع الـسـيـرفـر } ⊰•\n*⇠⇠ ]]..DataCenter..[[*'
+echo '*------------------------------\n*✮l •⊱ { موقـع الـسـيـرفـر } ⊰•\n*⇠⇠ ]]..DataCenter..[[*'
 echo '*------------------------------\n*👨🏾‍🔧l •⊱ { الــدخــول } ⊰•\n*⇠⇠ '`whoami`'*'
 echo '*------------------------------\n*🔌l •⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*⇠⇠ '"$uptime"'*'
 ]]):read('*all')
@@ -3934,7 +3934,7 @@ local keyboard = {
 {"اذاعه 🗣","اذاعه عام 📢","اذاعه خاص 👤"},
 {"الملفات 🗂","اذاعه عام بالتوجيه 📣"},
 {"نقل ملكيه البوت 📇"},
-{"تحديث ♻️","قائمه العام 📜","قناة السورس 📡"},
+{"تحديث ♻️","قائمه العام 📜","قناة السورس ✮"},
 {"المطورين 🕹","ايدي 🆔"},
 {"اضف رد عام ➕","الردود العامه 🗨"},
 {"تحديث السورس ™"},
@@ -3951,9 +3951,8 @@ end
 
 
 text = [[⌯ مـرحبآ آنآ بوت آسـمـي []]..redis:get(ws..':NameBot:')..[[] 🎖
-⌯ آختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
-✮ مـن آلسـبآم وآلتوجيهہ‏‏ وآلتكرآر وآلخ...
-⌯ فقط آلمـطـور يسـتطـيع تفعيل آلبوت
+⌯ يمكنني حمايه المجموعات من السبام والتوجيه الخ....
+⌯ [قـناة الـسورس](HTTPS://T.ME/WIZARD_SYSTEM) 
 ]]..SUDO_USERR..[[
 
 👨🏽‍🔧]]
@@ -4090,32 +4089,32 @@ end
 redis:sadd(ws..':KlmatRRandom:',klma) 
 redis:sadd(ws..':ReplayRandom:'..klma,":Photo:"..photo_id) 
 CaptionInsert(msg,photo_id,true)
-return sendMsg(msg.chat_id_,msg.id_,'🌃¦ تم ادراج صور للرد باقي '..CountRdod..' ✓\n🌃¦ ارسل رد اخر او ارسل {تم} .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج صور للرد باقي '..CountRdod..' ✓\n⌯ ارسل رد اخر او ارسل {تم} .')
 elseif msg.content_.ID == "MessageVoice" then
 redis:sadd(ws..':KlmatRRandom:',klma) 
 redis:sadd(ws..':ReplayRandom:'..klma,":Voice:"..msg.content_.voice_.voice_.persistent_id_) 
 CaptionInsert(msg,msg.content_.voice_.voice_.persistent_id_,true)
-return sendMsg(msg.chat_id_,msg.id_,'🎤¦ تم ادراج البصمه للرد باقي '..CountRdod..' ✓\n🎤¦  ارسل رد اخر او ارسل {تم}')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج البصمه للرد باقي '..CountRdod..' ✓\n⌯  ارسل رد اخر او ارسل {تم}')
 elseif msg.content_.ID == "MessageAnimation" then
 redis:sadd(ws..':KlmatRRandom:',klma) 
 redis:sadd(ws..':ReplayRandom:'..klma,":Animation:"..msg.content_.animation_.animation_.persistent_id_) 
 CaptionInsert(msg,msg.content_.animation_.animation_.persistent_id_,true)
-return sendMsg(msg.chat_id_,msg.id_,'🎉¦ تم ادراج المتحركه للرد باقي '..CountRdod..' ✓\n🎉¦ ارسل رد اخر او ارسل {تم} .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج المتحركه للرد باقي '..CountRdod..' ✓\n⌯ ارسل رد اخر او ارسل {تم} .')
 elseif msg.content_.ID == "MessageVideo" then
 redis:sadd(ws..':KlmatRRandom:',klma) 
 redis:sadd(ws..':ReplayRandom:'..klma,":Video:"..msg.content_.video_.video_.persistent_id_) 
 CaptionInsert(msg,msg.content_.video_.video_.persistent_id_,true)
-return sendMsg(msg.chat_id_,msg.id_,'🎥¦ تم ادراج الفيديو للرد باقي '..CountRdod..' ✓\n🎥¦ ارسل رد اخر او ارسل {تم} .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج الفيديو للرد باقي '..CountRdod..' ✓\n⌯ ارسل رد اخر او ارسل {تم} .')
 elseif msg.content_.ID == "MessageAudio" then
 redis:sadd(ws..':KlmatRRandom:',klma) 
 redis:sadd(ws..':ReplayRandom:'..klma,":Audio:"..msg.content_.audio_.audio_.persistent_id_) 
 CaptionInsert(msg,msg.content_.audio_.audio_.persistent_id_,true)
-return sendMsg(msg.chat_id_,msg.id_,'🎧¦ تم ادراج الصوت للرد باقي '..CountRdod..' ✓\n🎧¦ ارسل رد اخر او ارسل {تم} .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج الصوت للرد باقي '..CountRdod..' ✓\n⌯ ارسل رد اخر او ارسل {تم} .')
 elseif msg.content_.ID == "MessageDocument" then
 redis:sadd(ws..':KlmatRRandom:',klma) 
 redis:sadd(ws..':ReplayRandom:'..klma,":Document:"..msg.content_.document_.document_.persistent_id_) 
 CaptionInsert(msg,msg.content_.document_.document_.persistent_id_,true)
-return sendMsg(msg.chat_id_,msg.id_,'📄¦ تم ادراج الملف للرد باقي '..CountRdod..' ✓\n📄¦ ارسل رد اخر او ارسل {تم} .')  
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج الملف للرد باقي '..CountRdod..' ✓\n⌯ ارسل رد اخر او ارسل {تم} .')  
 elseif msg.content_.ID == "MessageSticker" then
 redis:sadd(ws..':KlmatRRandom:',klma) 
 redis:sadd(ws..':ReplayRandom:'..klma,":Sticker:"..msg.content_.sticker_.sticker_.persistent_id_) 
@@ -4164,32 +4163,32 @@ end
 redis:sadd(ws..':KlmatRRandom:'..msg.chat_id_,klma) 
 redis:sadd(ws..':ReplayRandom:'..msg.chat_id_..":"..klma,":Photo:"..photo_id) 
 CaptionInsert(msg,photo_id,false)
-return sendMsg(msg.chat_id_,msg.id_,'🌃¦ تم ادراج صور للرد باقي '..CountRdod..' ✓\n🌃¦ ارسل رد اخر او ارسل {تم} .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج صور للرد باقي '..CountRdod..' ✓\n⌯ ارسل رد اخر او ارسل {تم} .')
 elseif msg.content_.ID == "MessageVoice" then
 redis:sadd(ws..':KlmatRRandom:'..msg.chat_id_,klma) 
 redis:sadd(ws..':ReplayRandom:'..msg.chat_id_..":"..klma,":Voice:"..msg.content_.voice_.voice_.persistent_id_) 
 CaptionInsert(msg,msg.content_.voice_.voice_.persistent_id_,false)
-return sendMsg(msg.chat_id_,msg.id_,'🎤¦ تم ادراج البصمه للرد باقي '..CountRdod..' ✓\n🎤¦  ارسل رد اخر او ارسل {تم}')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج البصمه للرد باقي '..CountRdod..' ✓\n⌯  ارسل رد اخر او ارسل {تم}')
 elseif msg.content_.ID == "MessageAnimation" then
 redis:sadd(ws..':KlmatRRandom:'..msg.chat_id_,klma) 
 redis:sadd(ws..':ReplayRandom:'..msg.chat_id_..":"..klma,":Animation:"..msg.content_.animation_.animation_.persistent_id_) 
 CaptionInsert(msg,msg.content_.animation_.animation_.persistent_id_,false)
-return sendMsg(msg.chat_id_,msg.id_,'🎉¦ تم ادراج المتحركه للرد باقي '..CountRdod..' ✓\n🎉¦ ارسل رد اخر او ارسل {تم} .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج المتحركه للرد باقي '..CountRdod..' ✓\n⌯ ارسل رد اخر او ارسل {تم} .')
 elseif msg.content_.ID == "MessageVideo" then
 redis:sadd(ws..':KlmatRRandom:'..msg.chat_id_,klma) 
 redis:sadd(ws..':ReplayRandom:'..msg.chat_id_..":"..klma,":Video:"..msg.content_.video_.video_.persistent_id_) 
 CaptionInsert(msg,msg.content_.video_.video_.persistent_id_,false)
-return sendMsg(msg.chat_id_,msg.id_,'🎥¦ تم ادراج الفيديو للرد باقي '..CountRdod..' ✓\n🎥¦ ارسل رد اخر او ارسل {تم} .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج الفيديو للرد باقي '..CountRdod..' ✓\n⌯ ارسل رد اخر او ارسل {تم} .')
 elseif msg.content_.ID == "MessageAudio" then
 redis:sadd(ws..':KlmatRRandom:'..msg.chat_id_,klma) 
 redis:sadd(ws..':ReplayRandom:'..msg.chat_id_..":"..klma,":Audio:"..msg.content_.audio_.audio_.persistent_id_) 
 CaptionInsert(msg,msg.content_.audio_.audio_.persistent_id_,false)
-return sendMsg(msg.chat_id_,msg.id_,'🎧¦ تم ادراج الصوت للرد باقي '..CountRdod..' ✓\n🎧¦ ارسل رد اخر او ارسل {تم} .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج الصوت للرد باقي '..CountRdod..' ✓\n⌯ ارسل رد اخر او ارسل {تم} .')
 elseif msg.content_.ID == "MessageDocument" then
 redis:sadd(ws..':KlmatRRandom:'..msg.chat_id_,klma) 
 redis:sadd(ws..':ReplayRandom:'..msg.chat_id_..":"..klma,":Document:"..msg.content_.document_.document_.persistent_id_) 
 CaptionInsert(msg,msg.content_.document_.document_.persistent_id_,false)
-return sendMsg(msg.chat_id_,msg.id_,'📄¦ تم ادراج الملف للرد باقي '..CountRdod..' ✓\n📄¦ ارسل رد اخر او ارسل {تم} .')  
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم ادراج الملف للرد باقي '..CountRdod..' ✓\n⌯ ارسل رد اخر او ارسل {تم} .')  
 elseif msg.content_.ID == "MessageSticker" then
 redis:sadd(ws..':KlmatRRandom:'..msg.chat_id_,klma) 
 redis:sadd(ws..':ReplayRandom:'..msg.chat_id_..":"..klma,":Sticker:"..msg.content_.sticker_.sticker_.persistent_id_) 
@@ -4220,31 +4219,31 @@ photo_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_
 end
 redis:hset(ws..'replay_photo:group:'..msg.chat_id_,klma,photo_id)
 redis:del(ws..'addrd:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه صوره للرد بنجاح ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الصوره الاتيه .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه صوره للرد بنجاح ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الصوره الاتيه .')
 elseif msg.content_.ID == "MessageVoice" then
 redis:hset(ws..'replay_voice:group:'..msg.chat_id_,klma,msg.content_.voice_.voice_.persistent_id_)
 redis:del(ws..'addrd:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه بصمه صوت للرد بنجاح ✓\n🗂¦ يمكنك ارسال (['..klma..']) لسماع البصمه الاتيه .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه بصمه صوت للرد بنجاح ✓\n⌯ يمكنك ارسال (['..klma..']) لسماع البصمه الاتيه .')
 elseif msg.content_.ID == "MessageAnimation" then
 redis:hset(ws..'replay_animation:group:'..msg.chat_id_,klma,msg.content_.animation_.animation_.persistent_id_)
 redis:del(ws..'addrd:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه متحركه للرد بنجاح ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الصوره الاتيه .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه متحركه للرد بنجاح ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الصوره الاتيه .')
 elseif msg.content_.ID == "MessageVideo" then
 redis:hset(ws..'replay_video:group:'..msg.chat_id_,klma,msg.content_.video_.video_.persistent_id_)
 redis:del(ws..'addrd:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه فيديو للرد بنجاح ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الفيديو الاتي .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه فيديو للرد بنجاح ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الفيديو الاتي .')
 elseif msg.content_.ID == "MessageAudio" then
 redis:hset(ws..'replay_audio:group:'..msg.chat_id_,klma,msg.content_.audio_.audio_.persistent_id_)
 redis:del(ws..'addrd:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه للصوت للرد بنجاح ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الصوت الاتي .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه للصوت للرد بنجاح ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الصوت الاتي .')
 elseif msg.content_.ID == "MessageDocument" then
 redis:hset(ws..'replay_files:group:'..msg.chat_id_,klma,msg.content_.document_.document_.persistent_id_ )
 redis:del(ws..'addrd:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه ملف للرد بنجاح ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الملف الاتي .')  
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه ملف للرد بنجاح ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الملف الاتي .')  
 elseif msg.content_.ID == "MessageSticker" then
 redis:hset(ws..'replay_sticker:group:'..msg.chat_id_,klma,msg.content_.sticker_.sticker_.persistent_id_)
 redis:del(ws..'addrd:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه ملصق للرد بنجاح ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الملصق الاتي .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه ملصق للرد بنجاح ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الملصق الاتي .')
 end  
 
 end
@@ -4268,31 +4267,31 @@ photo_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_
 end
 redis:hset(ws..'replay_photo:group:',klma,photo_id)
 redis:del(ws..'addrd_all:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه صوره للرد العام ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الصوره الاتيه .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه صوره للرد العام ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الصوره الاتيه .')
 elseif msg.content_.ID == "MessageVoice" then
 redis:hset(ws..'replay_voice:group:',klma,msg.content_.voice_.voice_.persistent_id_)
 redis:del(ws..'addrd_all:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه بصمه صوت للرد العام ✓\n🗂¦ يمكنك ارسال (['..klma..']) لسماع البصمه الاتيه .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه بصمه صوت للرد العام ✓\n⌯ يمكنك ارسال (['..klma..']) لسماع البصمه الاتيه .')
 elseif msg.content_.ID == "MessageAnimation" then
 redis:hset(ws..'replay_animation:group:',klma,msg.content_.animation_.animation_.persistent_id_)
 redis:del(ws..'addrd_all:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه متحركه للرد العام ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الصوره الاتيه .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه متحركه للرد العام ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الصوره الاتيه .')
 elseif msg.content_.ID == "MessageVideo" then
 redis:hset(ws..'replay_video:group:',klma,msg.content_.video_.video_.persistent_id_)
 redis:del(ws..'addrd_all:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه فيديو للرد العام ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الفيديو الاتي .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه فيديو للرد العام ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الفيديو الاتي .')
 elseif msg.content_.ID == "MessageAudio" then
 redis:hset(ws..'replay_audio:group:',klma,msg.content_.audio_.audio_.persistent_id_)
 redis:del(ws..'addrd_all:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه للصوت للرد العام ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الصوت الاتي .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه للصوت للرد العام ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الصوت الاتي .')
 elseif msg.content_.ID == "MessageDocument" then
 redis:hset(ws..'replay_files:group:',klma,msg.content_.document_.document_.persistent_id_ )
 redis:del(ws..'addrd_all:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه ملف للرد العام ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار ملف الاتي .')  
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه ملف للرد العام ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار ملف الاتي .')  
 elseif msg.content_.ID == "MessageSticker" then
 redis:hset(ws..'replay_sticker:group:',klma,msg.content_.sticker_.sticker_.persistent_id_)
 redis:del(ws..'addrd_all:'..msg.chat_id_..msg.sender_user_id_)
-return sendMsg(msg.chat_id_,msg.id_,'🗂¦ تم اضافه ملصق للرد العام ✓\n🗂¦ يمكنك ارسال (['..klma..']) لاضهار الملصق الاتي .')
+return sendMsg(msg.chat_id_,msg.id_,'⌯ تم اضافه ملصق للرد العام ✓\n⌯ يمكنك ارسال (['..klma..']) لاضهار الملصق الاتي .')
 end  
 
 end
@@ -4839,7 +4838,7 @@ end
 
 if msg.text and msg.type == "channel" then
 if msg.text:match("^"..Bot_Name.." غادر$") and (msg.SudoBase or msg.SudoUser) then
-sendMsg(msg.chat_id_,msg.id_,'اوك باي 😢💔💯') 
+sendMsg(msg.chat_id_,msg.id_,'طيب بس متزعلش لما اقول لـ @r00t94 سلام.') 
 rem_data_group(msg.chat_id_)
 StatusLeft(msg.chat_id_,our_id)
 return false
@@ -4854,7 +4853,7 @@ else
 photo_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_
 end
 redis:set(ws..':WELCOME_BOT',photo_id)
-return sendMsg(msg.chat_id_,msg.id_,'🚸 ¦ تم تغيير صـورهہ‏‏ آلترحيب للبوت ✮\n✓')
+return sendMsg(msg.chat_id_,msg.id_,'✮ ¦ تم تغيير صـورهہ‏‏ آلترحيب للبوت ✮\n✓')
 end 
 
 if msg.content_.ID == "MessagePhoto" and msg.type == "channel" and msg.GroupActive then
@@ -4867,7 +4866,7 @@ photo_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_
 end
 tdcli_function({ID="ChangeChatPhoto",chat_id_=msg.chat_id_,photo_=GetInputFile(photo_id)},function(arg,data)
 if data.code_ == 3 then
-sendMsg(arg.chat_id_,arg.id_,'🚸 ¦ ليس لدي صلاحيه تغيير الصوره \n🤖 ¦ يجب اعطائي صلاحيه `تغيير معلومات المجموعه ` ⠀\n✓')
+sendMsg(arg.chat_id_,arg.id_,'✮ ¦ ليس لدي صلاحيه تغيير الصوره \n🤖 ¦ يجب اعطائي صلاحيه `تغيير معلومات المجموعه ` ⠀\n✓')
 end
 end,{chat_id_=msg.chat_id_,id_=msg.id_})
 return false
@@ -5009,7 +5008,7 @@ if msg.content_.ID == "MessageChatChangeTitle" then
 GetUserID(msg.sender_user_id_,function(arg,data)
 redis:set(ws..'group:name'..arg.chat_id_,arg.title_)
 if data.username_ then UserName = "@"..data.username_ else UserName = "احد المشرفين" end
-sendMsg(arg.chat_id_,arg.id_,"📡¦ قام  ["..UserName.."]\n⌯ بتغير اسم المجموعه  ✮\n⌯ الى "..Flter_Markdown(msg.content_.title_).." \n✓") 
+sendMsg(arg.chat_id_,arg.id_,"✮¦ قام  ["..UserName.."]\n⌯ بتغير اسم المجموعه  ✮\n⌯ الى "..Flter_Markdown(msg.content_.title_).." \n✓") 
 end,{chat_id_=msg.chat_id_,id_=msg.id_,title_=msg.content_.title_})
 end
 
@@ -5048,7 +5047,7 @@ gtupe = 'عضو مميز'
 elseif msg.adduser == our_id then
 gtupe = "بوت"
 else
-gtupe = 'فقط عضو 🙍🏼‍♂️'
+gtupe = 'فقط عضو'
 end
 local function get_msgs_user_chat(user_id, chat_id)
   local user_info = {}
@@ -5249,15 +5248,15 @@ local monsha = redis:smembers(ws..':MONSHA_Group:'..msg.chat_id_)
 Rwers = ""
 if msg.content_.ID == "MessagePhoto" then
 Rwers = "صوره"
-elseif msg.content_.ID == "MessageSticker"  then
+elseif msg.content_.ID == "MessageSticker" then
 Rwers = "ملصق"
-elseif msg.content_.ID == "MessageVoice"  then
+elseif msg.content_.ID == "MessageVoice" then
 Rwers = "بصمه"
-elseif msg.content_.ID == "MessageAudio"  then
+elseif msg.content_.ID == "MessageAudio" then
 Rwers = "صوت"
-elseif msg.content_.ID == "MessageVideo"  then
+elseif msg.content_.ID == "MessageVideo" then
 Rwers = "فيديو"
-elseif msg.content_.ID == "MessageAnimation"  then
+elseif msg.content_.ID == "MessageAnimation" then
 Rwers = "متحركه"
 else
 Rwers = "نصي رابط"
@@ -5265,10 +5264,10 @@ end
 if #monsha ~= 0 then 
 for k,v in pairs(monsha) do
 local info = redis:hgetall(ws..'username:'..v) if info and info.username and info.username:match("@[%a%d_]+") then usersmnc = usersmnc..info.username.." - " end
-sendMsg(v,0,"📇¦ هناك شخص قام بالتعديل \n👲🏼¦ الاسم : ⋙「 "..NameUser.." 」 "..uuseri.."\n🀄️¦ الايدي : `"..msg.sender_user_id_.."`\n⌯ رتبته : "..Getrtba(msg.sender_user_id_,msg.chat_id_).."\n🔌¦ نوع التعديل : "..Rwers.."\n📱¦ المجموعة : "..Flter_Markdown((redis:get(ws..'group:name'..msg.chat_id_) or '')).."\n🔅¦ الرابط : "..redis:get(ws..'linkGroup'..msg.chat_id_).." \n🚸" )
+sendMsg(v,0,"⌯  هناك شخص قام بالتعديل \n⌯  الاسم : ⋙「 "..NameUser.." 」 "..uuseri.."\n⌯ الايدي : `"..msg.sender_user_id_.."`\n⌯ رتبته : "..Getrtba(msg.sender_user_id_,msg.chat_id_).."\n⌯  نوع التعديل : "..Rwers.."\n⌯ المجموعة : "..Flter_Markdown((redis:get(ws..'group:name'..msg.chat_id_) or '')).."\n⌯  الرابط : "..redis:get(ws..'linkGroup'..msg.chat_id_).." \n✮" )
 end
 end
-return sendMsg(msg.chat_id_,msg.id_,"📢¦ نداء لمنشئيين : ["..usersmnc.."] \n📇¦ هناك شخص قام بالتعديل"..uuseri.."\n👲🏼¦ الاسم : ⋙「 "..NameUser.." 」 \n🀄️¦ الايدي : `"..msg.sender_user_id_.."`\n⌯ رتبته : "..Getrtba(msg.sender_user_id_,msg.chat_id_).."\n🔌¦ نوع التعديل : "..Rwers.."\n🚸" )   
+return sendMsg(msg.chat_id_,msg.id_,"⌯  نداء لمنشئيين : ["..usersmnc.."] \n⌯  هناك شخص قام بالتعديل"..uuseri.."\n⌯  الاسم : ⋙「 "..NameUser.." 」 \n⌯ الايدي : `"..msg.sender_user_id_.."`\n⌯ رتبته : "..Getrtba(msg.sender_user_id_,msg.chat_id_).."\n⌯ نوع التعديل : "..Rwers.."\n✮" )   
 
 end,{msg=msg})
 Del_msg(msg.chat_id_,msg.id_)
@@ -5295,10 +5294,10 @@ Rwers = "نصي رابط"
 if #monsha ~= 0 then 
 for k,v in pairs(monsha) do
 local info = redis:hgetall(ws..'username:'..v) if info and info.username and info.username:match("@[%a%d_]+") then usersmnc = usersmnc..info.username.." - " end
-sendMsg(v,0,"📇¦ هناك شخص قام بالتعديل \n👲🏼¦ الاسم : ⋙「 "..NameUser.." 」 "..uuseri.."\n🀄️¦ الايدي : `"..msg.sender_user_id_.."`\n⌯ رتبته : "..Getrtba(msg.sender_user_id_,msg.chat_id_).."\n🔌¦ نوع التعديل : "..Rwers.."\n📱¦ المجموعة : "..Flter_Markdown((redis:get(ws..'group:name'..msg.chat_id_) or '')).."\n🔅¦ الرابط : "..redis:get(ws..'linkGroup'..msg.chat_id_).." \n🚸" )
+sendMsg(v,0,"📇¦ هناك شخص قام بالتعديل \n👲🏼¦ الاسم : ⋙「 "..NameUser.." 」 "..uuseri.."\n🀄️¦ الايدي : `"..msg.sender_user_id_.."`\n⌯ رتبته : "..Getrtba(msg.sender_user_id_,msg.chat_id_).."\n🔌¦ نوع التعديل : "..Rwers.."\n📱¦ المجموعة : "..Flter_Markdown((redis:get(ws..'group:name'..msg.chat_id_) or '')).."\n🔅¦ الرابط : "..redis:get(ws..'linkGroup'..msg.chat_id_).." \n✮" )
 end
 end
-return sendMsg(msg.chat_id_,msg.id_,"📢¦ نداء لمنشئيين : ["..usersmnc.."] \n📇¦ هناك شخص قام بالتعديل"..uuseri.."\n👲🏼¦ الاسم : ⋙「 "..NameUser.." 」 \n🀄️¦ الايدي : `"..msg.sender_user_id_.."`\n⌯ رتبته : "..Getrtba(msg.sender_user_id_,msg.chat_id_).."\n🔌¦ نوع التعديل : "..Rwers.."\n🚸" )   
+return sendMsg(msg.chat_id_,msg.id_,"📢¦ نداء لمنشئيين : ["..usersmnc.."] \n📇¦ هناك شخص قام بالتعديل"..uuseri.."\n👲🏼¦ الاسم : ⋙「 "..NameUser.." 」 \n🀄️¦ الايدي : `"..msg.sender_user_id_.."`\n⌯ رتبته : "..Getrtba(msg.sender_user_id_,msg.chat_id_).."\n🔌¦ نوع التعديل : "..Rwers.."\n✮" )   
 
 end,{msg=msg})
 Del_msg(msg.chat_id_,msg.id_)
@@ -6224,7 +6223,7 @@ elseif Text=="اريد رابط الحذف" or Text=="اريد رابط حذف" 
 return sendMsg(msg.chat_id_,msg.id_,[[
 ✮*¦* رابط حذف حـساب التيليجرام ↯
 👨🏽‍⌯ بالتـوفيـق ...
-🚸 ¦ـ  https://telegram.org/deactivate
+✮ ¦ـ  https://telegram.org/deactivate
 ]] )
 --=====================================
 elseif Text== "انجب" or Text== "نجب" or Text=="جب" then
@@ -6542,7 +6541,7 @@ ws = {
 "^(تيست)$",
 "^(test)$",
 "^(ايدي 🆔)$",
-"^(قناة السورس 📡)$",
+"^(قناة السورس ✮)$",
 "^(الاحصائيات)$",
 "^(الاحصائيات 📈)$",
 "^(اضف رد عام)$",
