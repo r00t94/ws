@@ -269,27 +269,27 @@ msg.TheRank = 'مطور السورس'
 msg.Rank = 1
 elseif msg.sender_user_id_ == SUDO_ID then 
 msg.TheRankCmd = redis:get(ws..":RtbaNew1:"..msg.chat_id_) or 'المطور الاساسي' 
-msg.TheRank = redis:get(ws..":RtbaNew1:"..msg.chat_id_) or 'مطور اساسي 👨🏻‍✈️' 
+msg.TheRank = redis:get(ws..":RtbaNew1:"..msg.chat_id_) or 'مطور اساسي' 
 msg.Rank = 1
 elseif redis:sismember(ws..':SUDO_BOT:',msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(ws..":RtbaNew2:"..msg.chat_id_) or 'المطور'
-msg.TheRank = redis:get(ws..":RtbaNew2:"..msg.chat_id_) or 'مطور البوت 👨🏽‍💻'
+msg.TheRank = redis:get(ws..":RtbaNew2:"..msg.chat_id_) or 'مطور البوت'
 msg.Rank = 2
 elseif msg.GroupActive and redis:sismember(ws..':MONSHA_Group:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(ws..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي'
-msg.TheRank = redis:get(ws..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي 👲🏼'
+msg.TheRank = redis:get(ws..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي'
 msg.Rank = 11
 elseif msg.GroupActive and redis:sismember(ws..':MONSHA_BOT:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(ws..":RtbaNew4:"..msg.chat_id_) or 'المنشىء'
-msg.TheRank = redis:get(ws..":RtbaNew4:"..msg.chat_id_) or 'المنشىء 👷🏽'
+msg.TheRank = redis:get(ws..":RtbaNew4:"..msg.chat_id_) or 'المنشىء'
 msg.Rank = 3
 elseif msg.GroupActive and redis:sismember(ws..'owners:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(ws..":RtbaNew5:"..msg.chat_id_) or 'المدير' 
-msg.TheRank = redis:get(ws..":RtbaNew5:"..msg.chat_id_) or 'مدير البوت 👨🏼‍⚕️' 
+msg.TheRank = redis:get(ws..":RtbaNew5:"..msg.chat_id_) or 'مدير البوت' 
 msg.Rank = 4
 elseif msg.GroupActive and redis:sismember(ws..'admins:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(ws..":RtbaNew6:"..msg.chat_id_) or 'الادمن'
-msg.TheRank = redis:get(ws..":RtbaNew6:"..msg.chat_id_) or 'ادمن في البوت 👨🏼‍🎓'
+msg.TheRank = redis:get(ws..":RtbaNew6:"..msg.chat_id_) or 'ادمن في البوت'
 msg.Rank = 5
 elseif msg.GroupActive and redis:sismember(ws..'whitelist:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRank = redis:get(ws..":RtbaNew7:"..msg.chat_id_) or 'عضو مميز'
@@ -297,7 +297,7 @@ msg.Rank = 6
 elseif msg.sender_user_id_ == our_id then
 msg.Rank = 7
 else
-msg.TheRank = 'فقط عضو 🙍🏼‍♂️'
+msg.TheRank = 'فقط عضو'
 msg.Rank = 10 
 end
 
@@ -346,7 +346,7 @@ kick_user(msg.sender_user_id_, msg.chat_id_)
 end
 if msg.content_.members_[0].id_ == our_id and redis:get(ws..':WELCOME_BOT') then
 SUDO_USER = redis:hgetall(ws..'username:'..SUDO_ID).username
-sendPhoto(msg.chat_id_,msg.id_,redis:get(ws..':WELCOME_BOT'),[[💯¦ مـرحبآ آنآ بوت آسـمـي ]]..redis:get(ws..':NameBot:')..[[ 🎖
+sendPhoto(msg.chat_id_,msg.id_,redis:get(ws..':WELCOME_BOT'),[[⌯ مـرحبآ آنآ بوت آسـمـي ]]..redis:get(ws..':NameBot:')..[[ 🎖
 💰¦ آختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
 📛¦ مـن آلسـبآم وآلتوجيهہ‏‏ وآلتكرآر وآلخ...
 ⚖️¦ مـعرف آلمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ 🌿
@@ -380,7 +380,7 @@ Del_msg(msg.chat_id_,msg.id_)
 return false 
 else
 if redis:get(ws.."lock_check"..msg.chat_id_) and not redis:get(ws..":TqeedUser:"..msg.chat_id_..Senderid) then
-local text = "⚜️┇ اهلاً بك في المجموعة\n🛠┇ للتأكد بأنك لست { ربوت }\n⚠️┇ تم تقييدك اضغط الزر بالاسفل\n💡┇ للتأكد انك { عضو حقيقي }🌻👇🏾"
+local text = "⌯ اهلاً بك في المجموعة\n⌯ للتأكد بأنك لست { ربوت }\n⌯ تم تقييدك اضغط الزر بالاسفل\n⌯ للتأكد انك { عضو حقيقي }🌻👇🏾"
 local inline = {{{text="• أضـغط ۿـنا للتـأكد أنك لست ربوت ♻️",callback_data="CheckRobotJoin:"..Senderid}}}
 Restrict(msg.chat_id_,Senderid,1)
 return send_inline(msg.chat_id_,text,inline,msg.id_)
@@ -552,8 +552,8 @@ Adminn = true
 end	
 if Adminn then
 Restrict(ChatID,UserJoin,2)
-answerCallbackQuery(data.id_,"👍🏻|تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️",true)
-EditMsg(ChatID,dataid,"👍🏻|تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️")
+answerCallbackQuery(data.id_,"⌯تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️",true)
+EditMsg(ChatID,dataid,"⌯تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️")
 else
 answerCallbackQuery(data.id_,"عذرا انت لست الشخص المقيد او لا يوجد لديك صلاحيه الادارة , نعتذر منك",true)	
 end
