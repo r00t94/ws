@@ -447,7 +447,7 @@ Text = Text..Num..'- * '..Files..' * \n'
 end
 end 
 if Num == 0 then
-Text = Text.."📛| Not files ~⪼ لا يوجد ملفات !"
+Text = Text.."⌯ Not files ~⪼ لا يوجد ملفات !"
 end 
 return Text.."\n\n🗃| لتحميل المزيد من الملفات ادخلل لمتجر الملفات بالامر الاتي {` متجر الملفات `}"
 end
@@ -716,7 +716,7 @@ Name = utf8.sub(Name,0,CharNumber)..'...'
 end
 local CheckName = Name:gsub(' ','')
 if CheckName == "" then 
-Name = 'الاسم سبام 📛'
+Name = 'الاسم سبام ⌯ '
 end
 return utf8.escape(Name)
 end
@@ -764,46 +764,46 @@ function Get_Ttl(msgs)
 local MsgShow = '' 
 local NumMsg = tonumber(msgs)
 if NumMsg < 80 then 
-MsgShow = 'مش متفاعل ✘' 
+MsgShow = 'مش متفاعل' 
 elseif NumMsg < 300 then
-MsgShow = 'ضعيف 🥀' 
+MsgShow = 'ضعيف' 
 elseif NumMsg < 900 then 
-MsgShow = 'متوسط 🎋' 
+MsgShow = 'متوسط' 
 elseif NumMsg < 5000 then 
-MsgShow = 'متفاعل 💐' 
+MsgShow = 'متفاعل' 
 elseif NumMsg < 9000 then 
-MsgShow = 'قوي جدا ⚡️' 
+MsgShow = 'قوي جدا' 
 elseif NumMsg < 10000 then 
-MsgShow = 'قمه التفاعل ✨' 
+MsgShow = 'قمه التفاعل' 
 elseif NumMsg < 100000 then 
-MsgShow = 'اقوى تفاعل 🔥' 
+MsgShow = 'اقوى تفاعل' 
 elseif NumMsg > 150000 then 
-MsgShow = 'اقوى تفاعل 🔥' 
+MsgShow = 'اقوى تفاعل' 
 end
 return MsgShow 
 end
 
 function Getrtba(UserID,ChatID)
 if UserID == our_id then 
-var = 'هذا البوت 🙄☝🏿' 
+var = 'هذا البوت' 
 elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1078252131 then 
 var = 'مطور السورس'
 elseif  UserID == SUDO_ID then 
-var = redis:get(ws..":RtbaNew1:"..ChatID) or 'مطور اساسي 👨🏻‍✈️' 
+var = redis:get(ws..":RtbaNew1:"..ChatID) or 'مطور اساسي' 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then
-var = redis:get(ws..":RtbaNew2:"..ChatID) or 'مطور البوت 👨🏽‍💻' 
+var = redis:get(ws..":RtbaNew2:"..ChatID) or 'مطور البوت' 
 elseif redis:sismember(ws..':MONSHA_Group:'..ChatID,UserID) then
-var = redis:get(ws..":RtbaNew3:"..ChatID) or ' المنشىء اساسي👷🏽' 
+var = redis:get(ws..":RtbaNew3:"..ChatID) or ' المنشىء اساسي' 
 elseif redis:sismember(ws..':MONSHA_BOT:'..ChatID,UserID) then
-var = redis:get(ws..":RtbaNew4:"..ChatID) or ' المنشىء 👷🏽' 
+var = redis:get(ws..":RtbaNew4:"..ChatID) or ' المنشىء' 
 elseif redis:sismember(ws..'owners:'..ChatID,UserID) then
-var = redis:get(ws..":RtbaNew5:"..ChatID) or 'مدير البوت 👨🏼‍⚕️' 
+var = redis:get(ws..":RtbaNew5:"..ChatID) or 'مدير البوت' 
 elseif redis:sismember(ws..'admins:'..ChatID,UserID) then
-var = redis:get(ws..":RtbaNew6:"..ChatID) or 'ادمن في البوت 👨🏼‍🎓' 
+var = redis:get(ws..":RtbaNew6:"..ChatID) or 'ادمن في البوت' 
 elseif redis:sismember(ws..'whitelist:'..ChatID,UserID) then
 var = redis:get(ws..":RtbaNew7:"..ChatID) or 'عضو مميز ⭐️' 
 else
-var = 'فقط عضو 🙍🏼‍♂️' 
+var = 'فقط عضو' 
 end
 return var
 end
@@ -879,7 +879,7 @@ local monsha = redis:smembers(ws..':MONSHA_BOT:'..msg.chat_id_)
 local Owners = redis:smembers(ws..'owners:'..msg.chat_id_)
 local Admins = redis:smembers(ws..'admins:'..msg.chat_id_)
 local mmez = redis:smembers(ws..'whitelist:'..msg.chat_id_)
-if #monshaas==0 and #monsha==0 and #Owners==0 and #Admins==0 and #mmez==0 then return "* لا يوجد قائمه حاليا \n📛 *" end
+if #monshaas==0 and #monsha==0 and #Owners==0 and #Admins==0 and #mmez==0 then return "* لا يوجد قائمه حاليا \n⌯  *" end
 i = 1
 for k,v in pairs(mmez) do
 if not message:match(v) then
@@ -943,8 +943,8 @@ end
 
 function sudolist(msg)
 local list = redis:smembers(ws..':SUDO_BOT:')
-message = '👨🏽‍💻*¦* قائمه الـمـطـوريـن : \n\n`★`*_* ['..SUDO_USER..'] ➣ (' ..SUDO_ID.. '){'..redis:scard(ws..'mtwr_count'..SUDO_ID)..'}\n*----------------------------------*\n'
-if #list==0 then  message = message.."* لا يوجد مطورين حاليا \n📛 *"
+message = '*⌯* قائمه الـمـطـوريـن : \n\n`★`*_* ['..SUDO_USER..'] ➣ (' ..SUDO_ID.. '){'..redis:scard(ws..'mtwr_count'..SUDO_ID)..'}\n*----------------------------------*\n'
+if #list==0 then  message = message.."* لا يوجد مطورين حاليا \n⌯  *"
 else
 for k,v in pairs(list) do
 local info  = redis:hgetall(ws..'username:'..v)
@@ -957,7 +957,7 @@ end
 end 
 end
 if utf8.len(message) > 4096 then
-return "📛| لا يمكن عرض الردود بسبب القائمه كبيره جدا ."
+return "⌯ لا يمكن عرض الردود بسبب القائمه كبيره جدا ."
 else
 return message
 end
@@ -971,7 +971,7 @@ function conslist(msg)
 message = '*⭐️¦ المنشئيين الاساسيين:*\n\n'
 local monsha = redis:smembers(ws..':MONSHA_Group:'..msg.chat_id_)
 if #monsha == 0 then 
-message = message .."📛| Not Super Creator ~⪼  لا يوجد منشئيين ااساسيين !\n"
+message = message .."⌯ Not Super Creator ~⪼  لا يوجد منشئيين ااساسيين !\n"
 else
 for k,v in pairs(monsha) do
 local info = redis:hgetall(ws..'username:'..v)
@@ -986,7 +986,7 @@ end
 message = message..'\n\n\n*⌯ المنشئيين :*\n\n'
 local monsha = redis:smembers(ws..':MONSHA_BOT:'..msg.chat_id_)
 if #monsha == 0 then 
-message = message .."📛| Not Creator ~⪼ لا يوجد منشئيين !\n"
+message = message .."⌯ Not Creator ~⪼ لا يوجد منشئيين !\n"
 else
 for k,v in pairs(monsha) do
 local info = redis:hgetall(ws..'username:'..v)
@@ -1005,7 +1005,7 @@ function ownerlist(msg)
 message = '*⌯ قائمه المدراء :*\n\n'
 local list = redis:smembers(ws..'owners:'..msg.chat_id_)
 if #list == 0 then  
-message = message.."📛| Not Director ~⪼ لا يوجد مدراء !\n" 
+message = message.."⌯ Not Director ~⪼ لا يوجد مدراء !\n" 
 else
 for k,v in pairs(list) do
 local info = redis:hgetall(ws..'username:'..v)
@@ -1017,7 +1017,7 @@ end
 end
 end
 if utf8.len(message) > 4096 then
-return "📛| لا يمكن عرض المدراء بسبب القائمه كبيره جدا ."
+return "⌯ لا يمكن عرض المدراء بسبب القائمه كبيره جدا ."
 else
 return message
 end
@@ -1038,7 +1038,7 @@ message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' .
 end
 end
 if utf8.len(message) > 4096 then
-return "📛| لا يمكن عرض الادمنيه بسبب القائمه كبيره جدا ."
+return "⌯ لا يمكن عرض الادمنيه بسبب القائمه كبيره جدا ."
 else
 return message
 end
@@ -1059,7 +1059,7 @@ message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' .
 end
 end
 if utf8.len(message) > 4096 then
-return "📛| لا يمكن عرض المميزين بسبب القائمه كبيره جدا ."
+return "⌯ لا يمكن عرض المميزين بسبب القائمه كبيره جدا ."
 else
 return message
 end
@@ -1089,7 +1089,7 @@ message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' .
 end
 end
 if utf8.len(message) > 4096 then
-return "📛| لا يمكن عرض المكتومين بسبب القائمه كبيره جدا ."
+return "⌯ لا يمكن عرض المكتومين بسبب القائمه كبيره جدا ."
 else
 return message
 end
@@ -1120,7 +1120,7 @@ message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' .
 end 
 end 
 if utf8.len(message) > 4096 then
-return "📛| لا يمكن عرض المحظورين بسبب القائمه كبيره جدا ."
+return "⌯ لا يمكن عرض المحظورين بسبب القائمه كبيره جدا ."
 else
 return message
 end
@@ -1150,7 +1150,7 @@ message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' .
 end
 end 
 if utf8.len(message) > 4096 then
-return "📛| لا يمكن عرض المحظورين بسبب القائمه كبيره جدا ."
+return "⌯ لا يمكن عرض المحظورين بسبب القائمه كبيره جدا ."
 else
 return message
 end
@@ -1189,7 +1189,7 @@ for k,v in pairs(list) do
 filterlist = filterlist..'*'..k..'* -  '..Flter_Markdown(v)..'\n'
 end
 if utf8.len(filterlist) > 4096 then
-return "📛| لا يمكن عرض الممنوعين بسبب القائمه كبيره جدا ."
+return "⌯ لا يمكن عرض الممنوعين بسبب القائمه كبيره جدا ."
 else
 return filterlist
 end
@@ -1332,7 +1332,7 @@ end
 end
 
 if utf8.len(message) > 4096 then
-sendMsg(msg.chat_id_,1,'🚸*¦* عذرا لديك الكثير من المجموعات\n👨🏽‍💻*¦* سوف ارسل لك ملف فيها قائمه مجموعات المفعله انتظر لحظه ...')
+sendMsg(msg.chat_id_,1,'🚸*¦* عذرا لديك الكثير من المجموعات\n*⌯* سوف ارسل لك ملف فيها قائمه مجموعات المفعله انتظر لحظه ...')
 file = io.open("./inc/All_Groups.html", "w")
 file:write([[
 <html dir="rtl">
@@ -1549,7 +1549,7 @@ send_msg(SUDO_ID,'👮🏽*¦* قام شخص بتفعيل البوت ...\n\nــ
 ..'🗯¦ الاسم •⊱ ['..arg.NameGroup..']('..arg.Gp_Link..') ⊰• \n'
 ..'⌯ الايدي •⊱`'..arg.chat_id_..'`⊰•\n'
 ..'🙋🏻‍♂¦ ألاعـضـاء •⊱{ *'..arg.Groupcount..'* }⊰• \nــــــــــــــــــــــــــــــــــــــــــ\n⚖️¦ معلومات الشخص \n'
-..'👨🏽‍💻*¦* الاسـم •⊱{ ['..FlterName(datai.first_name_..' '..(datai.last_name_ or ""),23)..'](tg://user?id='..arg.sender_user_id_..') }⊰•\n\n'
+..'*⌯* الاسـم •⊱{ ['..FlterName(datai.first_name_..' '..(datai.last_name_ or ""),23)..'](tg://user?id='..arg.sender_user_id_..') }⊰•\n\n'
 ..USERNAME_T..'📆¦ التاريخ •⊱* '..os.date("%Y/%m/%d")
 ..' *⊰•\n⏱¦ الساعه •⊱* '..os.date("%I:%M%p")..' *⊰•')
 end,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,NameGroup=NameGroup,Gp_Link=Gp_Link,Groupcount=arg.Groupcount})
@@ -1842,7 +1842,7 @@ end
 
 if cmd == "DwonMshrf" then
 ResAdmin = UploadAdmin(ChatID,UserID,"")  
-if ResAdmin == '{"ok":false,"error_code":400,"description":"Bad Request: CHAT_ADMIN_REQUIRED"}' then return sendMsg(ChatID,MsgID,"⌯لا يمكنني تنزيله لانه مرفوع من قبل منشئ اخر \n📛")  end
+if ResAdmin == '{"ok":false,"error_code":400,"description":"Bad Request: CHAT_ADMIN_REQUIRED"}' then return sendMsg(ChatID,MsgID,"⌯لا يمكنني تنزيله لانه مرفوع من قبل منشئ اخر \n⌯ ")  end
 redis:srem(ws..':MONSHA_BOT:'..ChatID,UserID)
 redis:srem(ws..'owners:'..ChatID,UserID)
 redis:srem(ws..'admins:'..ChatID,UserID)
@@ -1889,7 +1889,7 @@ sendMsg(ChatID,MsgID,"🎫┇ايديه » `"..UserID.."`\n📨┇رسائله �
 end
 
 if cmd == "rfaqud" then  
-if UserID == our_id then return sendMsg(ChatID,MsgID,"⌯ لا يمكنك تنفيذ الامر بالرد ع رسالة البوت \n📛") end
+if UserID == our_id then return sendMsg(ChatID,MsgID,"⌯ لا يمكنك تنفيذ الامر بالرد ع رسالة البوت \n⌯ ") end
 Restrict(ChatID,UserID,2)
 redis:srem(ws..'banned:'..ChatID,UserID)
 StatusLeft(ChatID,UserID)
