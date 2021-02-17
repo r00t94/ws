@@ -49,7 +49,7 @@ GetPhotoUser(data.id_,function(arg,data)
 local edited = (redis:get(ws..':edited:'..arg.chat_id_..':'..arg.sender_user_id_) or 0)
 
 local KleshaID = '⚶ أســمـك •⊱ { '..arg.Namei..' } ⊰•\n'
-..'🎟¦ ايديــك •⊱ {'..arg.sender_user_id_..'} ⊰•\n'
+..'⌯ ايديــك •⊱ {'..arg.sender_user_id_..'} ⊰•\n'
 ..arg.UserNameID
 ..'📡¦ رتبتـــك •⊱ '..arg.TheRank..' ⊰•\n'
 ..'⭐️¦ تفاعـلك •⊱ '..Get_Ttl(arg.msgs)..'⊰•\n'
@@ -816,9 +816,9 @@ local namei = data.first_name_..' '..(data.last_name_ or "")
 if data.username_ then useri = '@'..data.username_ else useri = " لا يوجد " end
 SendMention(arg.ChatID,arg.UserID,arg.MsgID,'🤵🏼¦ الاسم ⇠ '..namei..'\n'
 ..'⌯ الايدي ⇠ {'..arg.UserID..'} \n'
-..'🎟¦ المعرف ⇠ '..useri..'\n'
-..'⚶ الرتبه ⇠ '..Getrtba(arg.UserID,arg.ChatID)..'\n'
-..'🕵🏻️‍♀️¦ نوع الكشف ⇠ بالرد\n✮',13,utf8.len(namei))
+..'⌯ المعرف ⇠ '..useri..'\n'
+..'⌯ الرتبه ⇠ '..Getrtba(arg.UserID,arg.ChatID)..'\n'
+..'⌯ نوع الكشف ⇠ بالرد\n✮',13,utf8.len(namei))
 end,{ChatID=arg.ChatID,UserID=UserID,MsgID=arg.MsgID})
 end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
@@ -1407,10 +1407,10 @@ redis:set(ws..'linkGroup'..msg.chat_id_,LinkGp)
 redis:setex(ws..'ExCmdLink'..msg.chat_id_,120,true)
 return sendMsg(msg.chat_id_,msg.id_,"⌯ تم انشاء رابط جديد \n⚶ ["..LinkGp.."]\n⚶ لعرض الرابط ارسل { الرابط } \n")
 else
-return sendMsg(msg.chat_id_,msg.id_,"✮ لا يمكنني انشاء رابط للمجموعه .\n🎟¦ لانني لست مشرف في المجموعه \n ✮")
+return sendMsg(msg.chat_id_,msg.id_,"✮ لا يمكنني انشاء رابط للمجموعه .\n⌯ لانني لست مشرف في المجموعه \n ✮")
 end
 else
-return sendMsg(msg.chat_id_,msg.id_,"✮ لقد قمت بانشاء الرابط سابقا .\n🎟¦ ارسل { الرابط } لرؤيه الرابط  \n ✮")
+return sendMsg(msg.chat_id_,msg.id_,"✮ لقد قمت بانشاء الرابط سابقا .\n⌯ ارسل { الرابط } لرؤيه الرابط  \n ✮")
 end
 return false
 end 
@@ -4017,7 +4017,7 @@ end
 if SendOk then
 GetUserID(FwdUser,function(arg,data)
 if data.username_ then USERNAME = '@'..data.username_ else USERNAME = FlterName(data,20) end
-SendMention(arg.sender_user_id_,data.id_,arg.id_,"⌯ تم آرسـآل آلرسـآل‏‏هہ ✮\n🎟¦ آلى : "..USERNAME.." 🏌🏻",39,utf8.len(USERNAME)) 
+SendMention(arg.sender_user_id_,data.id_,arg.id_,"⌯ تم آرسـآل آلرسـآل‏‏هہ ✮\n⌯ آلى : "..USERNAME.." 🏌🏻",39,utf8.len(USERNAME)) 
 end,{sender_user_id_=msg.sender_user_id_,id_=msg.id_})
 end
 end,{msg=msg})
