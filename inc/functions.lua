@@ -1678,11 +1678,11 @@ if cmd == "whois" then
 GetChatMember(ChatID,UserID,function(arg,data1)
 local namei = data.first_name_..' '..(data.last_name_ or "")
 if data.username_ then useri = '@'..data.username_ else useri = " لا يوجد " end
-return SendMention(ChatID,UserID,MsgID,'🤵🏼¦ الاسم » '..namei..'\n'
-..'🎫¦ الايدي » {'..UserID..'} \n'
-..'🎟¦ المعرف » '..useri..'\n'
+return SendMention(ChatID,UserID,MsgID,'⌯ الاسم » '..namei..'\n'
+..'⌯ الايدي » {'..UserID..'} \n'
+..'⌯المعرف » '..useri..'\n'
 ..'⌯ الرتبه » '..Getrtba(UserID,ChatID)..'\n'
-..'🕵🏻️‍♀️¦ نوع الكشف » بالايدي\n✮',13,utf8.len(namei))
+..'⌯ نوع الكشف » بالايدي\n✮',13,utf8.len(namei))
 end)
 end
 
