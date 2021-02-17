@@ -1,34 +1,34 @@
 local function games(msg,MsgText)
 if msg.type ~= "pv" then
 if MsgText[1] == "تفعيل الالعاب" or MsgText[1] == "اللعبه" or MsgText[1] == "اللعبة" then
-if not msg.Admin then return "📪¦ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
+if not msg.Admin then return "⌯  هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg 
 local NameUser   = Hyper_Link_Name(data)
 if not redis:get(ws..'lock_geams'..msg.chat_id_) then 
-return sendMsg(msg.chat_id_,msg.id_,"🔓¦ تم بالتأكيد تفعيل الالعاب    \n⌯ بواسطه 「 "..NameUser.." 」",40,utf8.len(msg.TheRankCmd)) 
+return sendMsg(msg.chat_id_,msg.id_,"⌯  تم بالتأكيد تفعيل الالعاب    \n⌯ بواسطه 「 "..NameUser.." 」",40,utf8.len(msg.TheRankCmd)) 
 else 
 redis:del(ws..'lock_geams'..msg.chat_id_) 
-return sendMsg(msg.chat_id_,msg.id_,"🔓¦ تم تفعيل الالعاب بنجاح   \n⌯ بواسطه 「 "..NameUser.." 」",40,utf8.len(msg.TheRankCmd)) 
+return sendMsg(msg.chat_id_,msg.id_,"⌯  تم تفعيل الالعاب بنجاح   \n⌯ بواسطه 「 "..NameUser.." 」",40,utf8.len(msg.TheRankCmd)) 
 end 
 end,{msg=msg})
 end
 if MsgText[1] == "تعطيل الالعاب" or MsgText[1] == "تعطيل اللعبه" or MsgText[1] == "تعطيل اللعبة" then
-if not msg.Admin then return "📪¦ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
+if not msg.Admin then return "⌯  هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg 
 local NameUser   = Hyper_Link_Name(data)
 if redis:get(ws..'lock_geams'..msg.chat_id_) then 
-return sendMsg(msg.chat_id_,msg.id_,"🔒¦ تم بالتأكيد تعطيل الالعاب    \n⌯ بواسطه 「 "..NameUser.." 」",40,utf8.len(msg.TheRankCmd)) 
+return sendMsg(msg.chat_id_,msg.id_,"⌯  تم بالتأكيد تعطيل الالعاب    \n⌯ بواسطه 「 "..NameUser.." 」",40,utf8.len(msg.TheRankCmd)) 
 else
 redis:set(ws..'lock_geams'..msg.chat_id_,true)  
-return sendMsg(msg.chat_id_,msg.id_,"🔒¦ تم تعطيل الالعاب بنجاح   \n⌯ بواسطه 「 "..NameUser.." 」",40,utf8.len(msg.TheRankCmd)) 
+return sendMsg(msg.chat_id_,msg.id_,"⌯  تم تعطيل الالعاب بنجاح   \n⌯ بواسطه 「 "..NameUser.." 」",40,utf8.len(msg.TheRankCmd)) 
 end  
 end,{msg=msg}) 
 end
 if MsgText[1] == "اضف رسائل" and msg.reply_to_message_id_ == 0 then       
 if not msg.Creator then 
-return "📪¦ هذا الامر يخص {المطور,المنشئ} فقط  \n" 
+return "⌯  هذا الامر يخص {المطور,المنشئ} فقط  \n" 
 end 
 local ID_USER = MsgText[2]
 redis:set(ws..'SET:ID:USER'..msg.chat_id_,ID_USER)  
@@ -36,7 +36,7 @@ redis:setex(ws.."SETEX:MSG"..msg.chat_id_..""..msg.sender_user_id_,500,true)
 sendMsg(msg.chat_id_,msg.id_,'*📊¦ ارسل لي عدد الرسائل الذي تريده*')
 end
 if MsgText[1] == "اضف نقاط" and msg.reply_to_message_id_ == 0 then       
-if not msg.Creator then return "📪¦ هذا الامر يخص {المطور,المنشئ} فقط  \n" end 
+if not msg.Creator then return "⌯  هذا الامر يخص {المطور,المنشئ} فقط  \n" end 
 local ID_USER = MsgText[2]
 redis:set(ws..'SET:ID:USER:NUM'..msg.chat_id_,ID_USER)  
 redis:setex(ws.."SETEX:NUM"..msg.chat_id_..""..msg.sender_user_id_,500,true)  
@@ -468,7 +468,7 @@ end
 if MsgText[1] == 'خمن' or MsgText[1] == 'تخمين' then   
 Num = math.random(1,20)
 redis:set(ws.."GAMES:NUM"..msg.chat_id_,Num) 
-TEST = '*\n⌯ اهلا بك عزيزي في لعبة التخمين :\nٴ━━━━━━━━━━\n'..'⚠¦ ملاحظه لديك { 3 } محاولات فقط فكر قبل ارسال تخمينك \n\n'..'🔖¦ سيتم تخمين عدد ما بين ال {1 و 20} اذا تعتقد انك تستطيع الفوز جرب واللعب الان ؟ \n💥*'
+TEST = '*\n⌯ اهلا بك عزيزي في لعبة التخمين :\nٴ━━━━━━━━━━\n'..'⚠¦ ملاحظه لديك { 3 } محاولات فقط فكر قبل ارسال تخمينك \n\n'..'⌯  سيتم تخمين عدد ما بين ال {1 و 20} اذا تعتقد انك تستطيع الفوز جرب واللعب الان ؟ \n💥*'
 sendMsg(msg.chat_id_,msg.id_,TEST)
 redis:setex(ws.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 100, true)  
 return false  
@@ -476,7 +476,7 @@ end
 if (MsgText[1] == 'اسرع' or MsgText[1] == 'الاسرع') then
 local NUM = math.random(10,1000)
 redis:set(ws..':NUM_SET:'..msg.chat_id_,(NUM * 3))
-local Smiles = {'🍏','🍎','🍐',NUM,NUM,NUM,NUM,NUM,'🍊','🍋','🍌','🍉',NUM,NUM,NUM,NUM,NUM,'🍇','🍓','🍈','🍒',NUM,NUM,NUM,NUM,NUM,'🍑','🍍','🥥','🥝','🍅',NUM,NUM,NUM,NUM,NUM,'🍆','🥑','🥦','🥒',NUM,NUM,NUM,NUM,NUM,'🌶','🌽','🥕','🥔','🍠','🥐','🍞',NUM,NUM,NUM,NUM,NUM,'🥖','🥨','🧀','🥚','🍳','🥞','🥓',NUM,NUM,NUM,NUM,NUM,'🥩','🍗','🍖','🌭','🍔','🍟',NUM,NUM,NUM,NUM,NUM,'🍕','🥪','🥙','🍼','☕️','🍵',NUM,NUM,NUM,NUM,NUM,'🥤','🍶','🍺','🍻',NUM,NUM,NUM,NUM,NUM,'🏀','⚽️','🏈','⚾️','🎾','🏐',NUM,NUM,NUM,NUM,NUM,'🏉','🎱','🏓','🏸','🥅','🎰','🎮',NUM,NUM,NUM,NUM,NUM,'🎳','🎯','🎲','🎻','🎸','🎺','🥁','🎹',NUM,NUM,NUM,NUM,NUM,'🎼','🎧','🎤','🎬','🎨','🎭',NUM,NUM,NUM,NUM,NUM,'🎪','🎟','🎫','🎗','🏵','🎖','🏆','🥌','🛷','🚕','🚗','🚙','🚌',NUM,NUM,NUM,NUM,NUM,'🚎','🏎','🚓','🚑','🚚','🚛','🚜','🇮🇶','⚔','🛡','🔮','🌡','💣','📌',NUM,NUM,NUM,NUM,NUM,'📍','📓','📗','📂','📅','📪','📫','📬',NUM,NUM,NUM,NUM,NUM,'📭','⏰','📺','🎚','☎️',NUM,NUM,NUM,NUM,NUM,'📡'}
+local Smiles = {'🍏','🍎','🍐',NUM,NUM,NUM,NUM,NUM,'🍊','🍋','🍌','🍉',NUM,NUM,NUM,NUM,NUM,'🍇','🍓','🍈','🍒',NUM,NUM,NUM,NUM,NUM,'🍑','🍍','🥥','🥝','🍅',NUM,NUM,NUM,NUM,NUM,'🍆','🥑','🥦','🥒',NUM,NUM,NUM,NUM,NUM,'🌶','🌽','🥕','🥔','🍠','🥐','🍞',NUM,NUM,NUM,NUM,NUM,'🥖','🥨','🧀','🥚','🍳','🥞','🥓',NUM,NUM,NUM,NUM,NUM,'🥩','🍗','🍖','🌭','🍔','🍟',NUM,NUM,NUM,NUM,NUM,'🍕','🥪','🥙','🍼','☕️','🍵',NUM,NUM,NUM,NUM,NUM,'🥤','🍶','🍺','🍻',NUM,NUM,NUM,NUM,NUM,'🏀','⚽️','🏈','⚾️','🎾','🏐',NUM,NUM,NUM,NUM,NUM,'🏉','🎱','🏓','🏸','🥅','🎰','🎮',NUM,NUM,NUM,NUM,NUM,'🎳','🎯','🎲','🎻','🎸','🎺','🥁','🎹',NUM,NUM,NUM,NUM,NUM,'🎼','🎧','🎤','🎬','🎨','🎭',NUM,NUM,NUM,NUM,NUM,'🎪','🎟','🎫','🎗','🏵','🎖','🏆','🥌','🛷','🚕','🚗','🚙','🚌',NUM,NUM,NUM,NUM,NUM,'🚎','🏎','🚓','🚑','🚚','🚛','🚜','🇮🇶','⚔','🛡','🔮','🌡','💣','📌',NUM,NUM,NUM,NUM,NUM,'📍','📓','📗','📂','📅','📪','📫','⌯ ',NUM,NUM,NUM,NUM,NUM,'📭','⏰','📺','🎚','☎️',NUM,NUM,NUM,NUM,NUM,'📡'}
 Emoji = Smiles[math.random(#Smiles)]
 redis:set(ws..':Set_Smile:'..msg.chat_id_,Emoji)
 if tonumber(redis:get(ws..':Set_Smile:'..msg.chat_id_)) == tonumber(redis:get(ws..':NUM_SET:'..msg.chat_id_)) then
@@ -534,63 +534,63 @@ end
 if MsgText[1] == 'عكس' or MsgText[1] == 'العكس' or MsgText[1] == 'العكسس' then   
 redis:set(ws.."GAME:S"..msg.chat_id_,true) 
 H1 = [[
-✖️¦عكس كلمه ⇠ {مافهمت} ⚜️
+⌯ عكس كلمه ⇠ {مافهمت} ⚜️
 ]]
 H2 = [[
-✖️¦عكس كلمه ⇠ {جبان} ⚜️
+⌯ عكس كلمه ⇠ {جبان} ⚜️
 ]]
 H3 =[[
-✖️¦عكس كلمه ⇠ {ميت} ⚜️
+⌯ عكس كلمه ⇠ {ميت} ⚜️
 ]]
 H4 =[[
-✖️¦عكس كلمه ⇠ {كسول} ⚜️
+⌯ عكس كلمه ⇠ {كسول} ⚜️
 ]]
 H5 =[[
-✖️¦عكس كلمه ⇠ {زين} ⚜️
+⌯ عكس كلمه ⇠ {زين} ⚜️
 ]]
 H6 =[[
-✖️¦عكس كلمه ⇠ {عطشان} ⚜️
+⌯ عكس كلمه ⇠ {عطشان} ⚜️
 ]]
 
 H7 =[[
-✖️¦عكس كلمه ⇠ {بارده} ⚜️
+⌯ عكس كلمه ⇠ {بارده} ⚜️
 ]]
 H8 =[[
-✖️¦عكس كلمه ⇠ {خايف} ⚜️
+⌯ عكس كلمه ⇠ {خايف} ⚜️
 ]]
 H9 =[[
-✖️¦عكس كلمه ⇠ {امام} ⚜️
+⌯ عكس كلمه ⇠ {امام} ⚜️
 ]]
 H11 =[[
-✖️¦عكس كلمه ⇠ {خاين} ⚜️
+⌯ عكس كلمه ⇠ {خاين} ⚜️
 ]]
 H12 =[[
-✖️¦عكس كلمه ⇠ {طويل} ⚜️
+⌯ عكس كلمه ⇠ {طويل} ⚜️
 ]]
 H13 =[[
-✖️¦عكس كلمه ⇠ {صلب} ⚜️
+⌯ عكس كلمه ⇠ {صلب} ⚜️
 ]]
 H14 =[[
-✖️¦عكس كلمه ⇠ {ناعم} ⚜️
+⌯ عكس كلمه ⇠ {ناعم} ⚜️
 ]]
 H15 =[[
-✖️¦عكس كلمه ⇠ {مجنون} ⚜️
+⌯ عكس كلمه ⇠ {مجنون} ⚜️
 ]]
 H16 =[[
-✖️¦عكس كلمه ⇠ {غبي} ⚜️
+⌯ عكس كلمه ⇠ {غبي} ⚜️
 ]]
 H17 =[[
-✖️¦عكس كلمه ⇠ {ظلمه} ⚜️
+⌯ عكس كلمه ⇠ {ظلمه} ⚜️
 ]]
 H18 =[[
-✖️¦عكس كلمه ⇠ {مسموح} ⚜️
+⌯ عكس كلمه ⇠ {مسموح} ⚜️
 ]]
 H19 =[[
-✖️¦عكس كلمه ⇠ {ماسمعك} ⚜️
+⌯ عكس كلمه ⇠ {ماسمعك} ⚜️
 ]]
 
 H20 =[[
-✖️¦عكس كلمه ⇠ {تعال} ⚜️
+⌯ عكس كلمه ⇠ {تعال} ⚜️
 ]]
 HUSSEIN = {H16,H17,H18,H19,H20,H1,H2,H3,H4,H5,H6,H7,H8,H9,H11,H12,H13,H14,H15}
 local SENDTEXT = HUSSEIN[math.random(#HUSSEIN)]
@@ -639,20 +639,20 @@ end
 if MsgText[1] == 'نقاطي' then 
 local points = redis:get(ws..':User_Points:'..msg.chat_id_..msg.sender_user_id_)
 if points and points ~= "0" then
-return '*⌯ عدد النقاط التي ربحتها هي ⇠ { '..points..' }\n📬¦ تسطيع بيع نقاطك ولحصول على (100) رساله مقابل كل نقطه من النقاط *\n'
+return '*⌯ عدد النقاط التي ربحتها هي ⇠ { '..points..' }\n⌯  تسطيع بيع نقاطك ولحصول على (100) رساله مقابل كل نقطه من النقاط *\n'
 else
-return ' *💬¦ ليس لديك نقاط ،\n📬¦ للحصول ؏ النقاط ،\n⌯ ارسل الالعاب وابدأ اللعب ! *'
+return ' *⌯  ليس لديك نقاط ،\n⌯  للحصول ؏ النقاط ،\n⌯ ارسل الالعاب وابدأ اللعب ! *'
 end
 end
 if MsgText[1] == 'بيع نقاطي' then
 if MsgText[2] == "0" then
-return '📛¦ هناك خطأ عزيزي  \n🔖¦ يجب ان يكون البيع ع الاقل 1 من النقاط . 'end
+return '⌯  هناك خطأ عزيزي  \n⌯  يجب ان يكون البيع ع الاقل 1 من النقاط . 'end
 local points = redis:get(ws..':User_Points:'..msg.chat_id_..msg.sender_user_id_)
 if tonumber(MsgText[2]) > tonumber(points) then
 return '⌯ عذرا ليس لديك النقاط بهذا العدد لبيعهن' 
 end
 if points == "0" then
-return '📛 ¦ للاسف ليس لديك النقاط \n🔖 ¦ للحصول على النقاط العب احد الالعاب الموجوده في `قائمه الالعاب`'
+return '⌯  للاسف ليس لديك النقاط \n⌯  للحصول على النقاط العب احد الالعاب الموجوده في `قائمه الالعاب`'
 else
 local Total_Point = MsgText[2] * 100
 redis:decrby(ws..':User_Points:'..msg.chat_id_..msg.sender_user_id_,MsgText[2])  
@@ -686,7 +686,7 @@ if MsgText[1] == 'روليت' then
 redis:del(ws..":Number_Add:"..msg.chat_id_..msg.sender_user_id_) 
 redis:del(ws..':List_Rolet:'..msg.chat_id_)  
 redis:setex(ws..":Start_Rolet:"..msg.chat_id_..msg.sender_user_id_,3600,true)  
-return '*🎪¦* حسننا لنلعب , ارسل عدد اللاعبين للروليت .'
+return '*⌯ * حسننا لنلعب , ارسل عدد اللاعبين للروليت .'
 end
 if MsgText[1] == 'نعم' and redis:get(ws..":Witting_StartGame:"..msg.chat_id_..msg.sender_user_id_) then
 local list = redis:smembers(ws..':List_Rolet:'..msg.chat_id_) 
@@ -790,7 +790,7 @@ if msg.text == "1" then
 Text = "*⌯* لا استطيع بدء اللعبه بلاعب واحد فقط\n"
 else
 redis:set(ws..":Number_Add:"..msg.chat_id_..msg.sender_user_id_,msg.text)  
-Text = '💬¦ تم بدء تسجيل اللسته \n💱¦ يرجى ارسال المعرفات \n🎊¦ الفائز يحصل على (5) مجوهره\n🎯¦ عدد الاعبين المطلوبه { *'..msg.text..'* } لاعب \n 🏹'
+Text = '⌯  تم بدء تسجيل اللسته \n💱¦ يرجى ارسال المعرفات \n🎊¦ الفائز يحصل على (5) مجوهره\n🎯¦ عدد الاعبين المطلوبه { *'..msg.text..'* } لاعب \n 🏹'
 end
 redis:del(ws..":Start_Rolet:"..msg.chat_id_..msg.sender_user_id_)  
 return sendMsg(msg.chat_id_,msg.id_,Text)    
@@ -806,7 +806,7 @@ local CountUser = CountAdd - CountAll
 if tonumber(CountAll) == tonumber(CountAdd) then 
 redis:del(ws..":Number_Add:"..msg.chat_id_..msg.sender_user_id_) 
 redis:setex(ws..":Witting_StartGame:"..msg.chat_id_..msg.sender_user_id_,1400,true)  
-return sendMsg(msg.chat_id_,msg.id_,"*⌯* تم ادخال المعرف { ["..msg.text.."] } \n🔖*¦* وتم اكتمال العدد الكلي \n📛¦ هل انت مستعد ؟ اجب بـ {* نعم *}")
+return sendMsg(msg.chat_id_,msg.id_,"*⌯* تم ادخال المعرف { ["..msg.text.."] } \n🔖*¦* وتم اكتمال العدد الكلي \n⌯  هل انت مستعد ؟ اجب بـ {* نعم *}")
 end 
 return sendMsg(msg.chat_id_,msg.id_,"*⌯* تم ادخال المعرف { ["..msg.text.."] } \n🔖| تبقى { *"..CountUser.."* } لاعبين ليكتمل العدد\n📑| ارسل المعرف التالي ")
 end
@@ -814,11 +814,11 @@ end
 if redis:get(ws.."SETEX:MSG"..msg.chat_id_..""..msg.sender_user_id_) then 
 if msg.text:match("^(%d+)$") then
 if tonumber(msg.text:match("^(%d+)$")) > 50000 then
-sendMsg(msg.chat_id_,msg.id_,"*📬¦ لا تستطيع اضافة اكثر من 50000 رساله\n*")   
+sendMsg(msg.chat_id_,msg.id_,"*⌯  لا تستطيع اضافة اكثر من 50000 رساله\n*")   
 redis:del(ws.."SETEX:MSG"..msg.chat_id_..""..msg.sender_user_id_)  
 return false  end 
 local GET_IDUSER = redis:get(ws..'SET:ID:USER'..msg.chat_id_)  
-sendMsg(msg.chat_id_,msg.id_,"\n📬*¦ روح خالي 😉 تم اضافة له { "..msg.text.." }* رساله")
+sendMsg(msg.chat_id_,msg.id_,"\n⌯ * روح خالي 😉 تم اضافة له { "..msg.text.." }* رساله")
 redis:incrby(ws..'msgs:'..GET_IDUSER..':'..msg.chat_id_,msg.text)  
 end
 redis:del(ws.."SETEX:MSG"..msg.chat_id_..""..msg.sender_user_id_)  
@@ -826,11 +826,11 @@ end
 if redis:get(ws.."SETEX:NUM"..msg.chat_id_..""..msg.sender_user_id_) then 
 if msg.text:match("^(%d+)$") then
 if tonumber(msg.text:match("^(%d+)$")) > 1000 then
-sendMsg(msg.chat_id_,msg.id_,"*📬¦ لا تستطيع اضافة اكثر من 1000 نقطه\n*")   
+sendMsg(msg.chat_id_,msg.id_,"*⌯  لا تستطيع اضافة اكثر من 1000 نقطه\n*")   
 redis:del(ws.."SETEX:NUM"..msg.chat_id_..""..msg.sender_user_id_)  
 return false  end 
 local GET_IDUSER = redis:get(ws..'SET:ID:USER:NUM'..msg.chat_id_)  
-sendMsg(msg.chat_id_,msg.id_,"\n📬*¦ طكو طكو عمي 😻 تم اضافة له { "..msg.text.." }* نقطه")
+sendMsg(msg.chat_id_,msg.id_,"\n⌯ * طكو طكو عمي 😻 تم اضافة له { "..msg.text.." }* نقطه")
 redis:incrby(ws..':User_Points:'..msg.chat_id_..GET_IDUSER,msg.text)  
 end
 redis:del(ws.."SETEX:NUM"..msg.chat_id_..""..msg.sender_user_id_)  
@@ -839,7 +839,7 @@ if redis:get(ws.."SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then
 if msg.text:match("^(%d+)$") then
 local NUM = msg.text:match("^(%d+)$")
 if tonumber(NUM) > 6 then
-sendMsg(msg.chat_id_,msg.id_,"*📬¦ عذرا لا يوجد سواء { 6 } اختيارات فقط ارسل اختيارك مره اخره*\n")   
+sendMsg(msg.chat_id_,msg.id_,"*⌯  عذرا لا يوجد سواء { 6 } اختيارات فقط ارسل اختيارك مره اخره*\n")   
 return false  end 
 local GETNUM = redis:get(ws.."GAMES"..msg.chat_id_)
 if tonumber(NUM) == tonumber(GETNUM) then
@@ -848,7 +848,7 @@ sendMsg(msg.chat_id_,msg.id_,'*⌯ مبروك فزت وطلعت المحيبس �
 redis:incrby(ws..':User_Points:'..msg.chat_id_..msg.sender_user_id_,3)  
 elseif tonumber(NUM) ~= tonumber(GETNUM) then
 redis:del(ws.."SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-sendMsg(msg.chat_id_,msg.id_,'\n*⌯ للاسف لقد خسرت \n📬¦ المحيبس بل ايد رقم { '..GETNUM..' }\n💥¦ حاول مره اخرى للعثور على المحيبس *')   
+sendMsg(msg.chat_id_,msg.id_,'\n*⌯ للاسف لقد خسرت \n⌯  المحيبس بل ايد رقم { '..GETNUM..' }\n💥¦ حاول مره اخرى للعثور على المحيبس *')   
 end
 end
 end
@@ -893,22 +893,22 @@ if redis:get(ws.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then
 if msg.text:match("^(%d+)$") then
 local NUM = msg.text:match("^(%d+)$")
 if tonumber(NUM) > 20 then
-sendMsg(msg.chat_id_,msg.id_,"*📬¦ عذرآ لا يمكنك تخمين عدد اكبر من ال { 20 } خمن رقم ما بين ال{ 1 و 20 } *\n")
+sendMsg(msg.chat_id_,msg.id_,"*⌯  عذرآ لا يمكنك تخمين عدد اكبر من ال { 20 } خمن رقم ما بين ال{ 1 و 20 } *\n")
 return false  end 
 local GETNUM = redis:get(ws.."GAMES:NUM"..msg.chat_id_)
 if tonumber(NUM) == tonumber(GETNUM) then
 redis:del(ws..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_)
 redis:del(ws.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
 redis:incrby(ws..':User_Points:'..msg.chat_id_..data.id_,5)
-sendMsg(msg.chat_id_,msg.id_,'*🔖¦ مبروك فزت ويانه وخمنت الرقم الصحيح\n🚸¦ تم اضافة { 5 } من النقاط *\n')
+sendMsg(msg.chat_id_,msg.id_,'*⌯  مبروك فزت ويانه وخمنت الرقم الصحيح\n🚸¦ تم اضافة { 5 } من النقاط *\n')
 elseif tonumber(NUM) ~= tonumber(GETNUM) then
 redis:incrby(ws..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_,1)
 if tonumber(redis:get(ws..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_)) >= 3 then
 redis:del(ws..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_)
 redis:del(ws.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-sendMsg(msg.chat_id_,msg.id_,'\n*⌯ اوبس لقد خسرت في اللعبه \n📬¦ حظآ اوفر في المره القادمه \n🔰¦ كان الرقم الذي تم تخمينه { '..GETNUM..' }\n*')
+sendMsg(msg.chat_id_,msg.id_,'\n*⌯ اوبس لقد خسرت في اللعبه \n⌯  حظآ اوفر في المره القادمه \n🔰¦ كان الرقم الذي تم تخمينه { '..GETNUM..' }\n*')
 else
-sendMsg(msg.chat_id_,msg.id_,'\n*📛¦ اوبس تخمينك غلط \n📌¦ ارسل رقم تخمنه مره اخره \n*')
+sendMsg(msg.chat_id_,msg.id_,'\n*⌯  اوبس تخمينك غلط \n📌¦ ارسل رقم تخمنه مره اخره \n*')
 end
 end
 end
