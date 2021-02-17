@@ -1841,7 +1841,7 @@ if not msg.Director then return "⌯ هذا الامر يخص {المطور,ال
 tdcli_function({ID="GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''),
 filter_ ={ID= "ChannelMembersBots"},offset_ = 0,limit_ = 50},function(arg,data)
 local total = data.total_count_ or 0
-AllBots = '🤖¦ قـائمه البوتات الـحالية\n\n'
+AllBots = '⌯ قـائمه البوتات الـحالية\n\n'
 local NumBot = 0
 for k, v in pairs(data.members_) do
 GetUserID(v.user_id_,function(arg,data)
@@ -1990,7 +1990,7 @@ Getrtb = Getrtba(arg.UserID,arg.ChatID)
 GetUserID(arg.UserID,function(arg,data)
 USERNAME = ResolveUserName(data)
 USERCAR  = utf8.len(USERNAME)
-SendMention(arg.ChatID,arg.UserID,arg.MsgID,'⚶ العضو ⇠ '..USERNAME..'\n\nـ⠀•⊱ { رتـبـه الشخص } ⊰•\n\n🤖¦ في البوت ⇠ '..arg.Getrtb..' \n⚶ في المجموعه ⇠ '..arg.SudoGroups..'\n✓',12,utf8.len(USERNAME)) 
+SendMention(arg.ChatID,arg.UserID,arg.MsgID,'⚶ العضو ⇠ '..USERNAME..'\n\nـ⠀•⊱ { رتـبـه الشخص } ⊰•\n\n⌯ في البوت ⇠ '..arg.Getrtb..' \n⚶ في المجموعه ⇠ '..arg.SudoGroups..'\n✓',12,utf8.len(USERNAME)) 
 end,{ChatID=arg.ChatID,UserID=arg.UserID,MsgID=arg.MsgID,Getrtb=Getrtb,SudoGroups=SudoGroups})
 end,{ChatID=arg.ChatID,UserID=data.sender_user_id_,MsgID=arg.MsgID})
 end,{ChatID=msg.chat_id_,MsgID=msg.id_})
