@@ -814,7 +814,7 @@ USERNAME = ResolveUserName(data)
 USERCAR = utf8.len(USERNAME)
 local namei = data.first_name_..' '..(data.last_name_ or "")
 if data.username_ then useri = '@'..data.username_ else useri = " لا يوجد " end
-SendMention(arg.ChatID,arg.UserID,arg.MsgID,'🤵🏼¦ الاسم ⇠ '..namei..'\n'
+SendMention(arg.ChatID,arg.UserID,arg.MsgID,'⌯ الاسم ⇠ '..namei..'\n'
 ..'⌯ الايدي ⇠ {'..arg.UserID..'} \n'
 ..'⌯ المعرف ⇠ '..useri..'\n'
 ..'⌯ الرتبه ⇠ '..Getrtba(arg.UserID,arg.ChatID)..'\n'
@@ -826,7 +826,7 @@ GetUserName(MsgText[2],function(arg,data)
 if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"⌯ لآ يوجد عضـو بهہ‌‏ذآ آلمـعرف \n✮") end 
 local UserID = data.id_
 UserName = Flter_Markdown(arg.UserName)
-sendMsg(arg.ChatID,arg.MsgID,'ـ🤵🏼*¦* الاسم ⇠ '..FlterName(data.title_,30)..'\n'..'⌯ الايدي ⇠ {`'..UserID..'`} \n'..'⌯ المعرف ⇠ '..UserName..'\n⚶ الرتبه ⇠ '..Getrtba(UserID,arg.ChatID)..'\n🕵🏻️‍♀️*¦* نوع الكشف ⇠ بالمعرف\n'..'✮')
+sendMsg(arg.ChatID,arg.MsgID,'*⌯* الاسم ⇠ '..FlterName(data.title_,30)..'\n'..'⌯ الايدي ⇠ {`'..UserID..'`} \n'..'⌯ المعرف ⇠ '..UserName..'\n⌯ الرتبه ⇠ '..Getrtba(UserID,arg.ChatID)..'\n*⌯* نوع الكشف ⇠ بالمعرف\n'..'✮')
 end,{ChatID=msg.chat_id_,MsgID=msg.id_,UserName=MsgText[2]})
 elseif MsgText[2] and MsgText[2]:match('^%d+$') then
 GetUserID(MsgText[2],action_by_id,{msg=msg,cmd="whois"}) 
