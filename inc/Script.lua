@@ -3078,7 +3078,7 @@ sendMsg(msg.chat_id_,msg.id_,'⌯ يوجد تحديث جديد الان \n⌯ ج
 redis:set(ws..":VERSION",GetVerison)
 return false
 else
-return "⚶ الاصدار الحالي : *v"..version.."* \n⌯ لديـك احدث اصدار \n✮ @r00t94"
+return "⚶ الاصدار الحالي : *v"..version.."* \n⌯ لديـك احدث اصدار"
 end
 return false
 end
