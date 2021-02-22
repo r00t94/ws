@@ -1,4 +1,4 @@
-local function iws(msg,MsgText)
+local function iWs(msg,MsgText)
 
 if msg.forward_info_ then return false end
 
@@ -3902,7 +3902,7 @@ end
 
 
 
-local function dws(msg)
+local function dWs(msg)
 
 if msg.type == "pv" then 
 
@@ -6195,7 +6195,7 @@ end
 end 
 
 return {
-ws = {
+Ws = {
 "^(اضف رد عشوائي)$",
 "^(مسح رد عشوائي)$",
 "^(مسح الردود العشوائيه)$",
@@ -6659,6 +6659,6 @@ ws = {
 "^(فتح الوسائط)$",
 "^(منع)$",
 },
-iws = iws,
-dws = dws,
+iWs = iWs,
+dWs = dWs,
 } 
