@@ -4445,7 +4445,7 @@ for k, Ws in pairs(XWs) do
 local cceck,sec = Ws:gsub("[(]"..Amr.."[)]","("..msg.text..")")
 print(cceck,sec)
 if sec ~= 0 then
-redis:hset(ws..":AwamerBotArray:"..msg.chat_id_,cceck,ws)
+redis:hset(ws..":AwamerBotArray:"..msg.chat_id_,cceck,Ws)
 redis:hset(ws..":AwamerBotArray2:"..msg.chat_id_,msg.text,Amr)
 end
 end  
@@ -4469,7 +4469,7 @@ else
 for k, Ws in pairs(XWs) do 
 local cceck,sec = Ws:gsub("[(]"..Amr.."[)]","("..msg.text..")")
 if sec ~= 0 then
-redis:hset(ws..":AwamerBotArray:"..msg.chat_id_,cceck,ws) 
+redis:hset(ws..":AwamerBotArray:"..msg.chat_id_,cceck,Ws) 
 redis:hset(ws..":AwamerBotArray2:"..msg.chat_id_,msg.text,Amr)
 end
 end 
