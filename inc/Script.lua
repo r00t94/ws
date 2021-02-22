@@ -4441,8 +4441,8 @@ end
 if checknewamr  then
 sendMsg(msg.chat_id_,msg.id_,"⌯ عذرا لايمكن اضافه امر مكرر في القائمه \n...")
 else
-for k, ws in pairs(XWs) do 
-local cceck,sec = ws:gsub("[(]"..Amr.."[)]","("..msg.text..")")
+for k, Ws in pairs(XWs) do 
+local cceck,sec = Ws:gsub("[(]"..Amr.."[)]","("..msg.text..")")
 print(cceck,sec)
 if sec ~= 0 then
 redis:hset(ws..":AwamerBotArray:"..msg.chat_id_,cceck,ws)
@@ -4466,8 +4466,8 @@ for name,Course in pairs(Awammer) do if name == msg.text then checknewamr = true
 if checknewamr  then
 sendMsg(msg.chat_id_,msg.id_,"⌯ عذرا لايمكن اضافه امر مكرر في القائمه \n...")
 else
-for k, ws in pairs(XWs) do 
-local cceck,sec = ws:gsub("[(]"..Amr.."[)]","("..msg.text..")")
+for k, Ws in pairs(XWs) do 
+local cceck,sec = Ws:gsub("[(]"..Amr.."[)]","("..msg.text..")")
 if sec ~= 0 then
 redis:hset(ws..":AwamerBotArray:"..msg.chat_id_,cceck,ws) 
 redis:hset(ws..":AwamerBotArray2:"..msg.chat_id_,msg.text,Amr)
@@ -4482,7 +4482,7 @@ end
 
 if msg.Director and redis:get(ws..":Witting_changeamr2:"..msg.chat_id_..msg.sender_user_id_) then
 local checkAmr = false
-for k, ws in pairs(XWs) do if msg.text:match(Ws) then checkAmr = true end end      
+for k, Ws in pairs(XWs) do if msg.text:match(Ws) then checkAmr = true end end      
 if checkAmr then
 sendMsg(msg.chat_id_,msg.id_,"⌯ حسننا عزيزي , لتغير امر {* "..msg.text.." *} \n¦ ارسل الامر الجديد الان \n...")
 redis:setex(ws..":firstAmrOld:"..msg.chat_id_..msg.sender_user_id_,900,msg.text)
