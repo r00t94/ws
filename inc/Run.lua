@@ -125,7 +125,7 @@ File = {}
 local login = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
 ws = Token:match("(%d+)")
 our_id = tonumber(ws)
-ApiWs = redis:get(ws..":ApiSource")
+Apiws = redis:get(ws..":ApiSource")
 ApiToken = "https://api.telegram.org/bot"..Token
 Bot_User = redis:get(ws..":UserNameBot:")
 SUDO_ID = tonumber(redis:get(ws..":SUDO_ID:"))
@@ -444,15 +444,15 @@ return false
 end 
 end 
 
-if ScriptFile and ScriptFile.Ws then 
-if msg.text and ScriptFile.iWs then
-XWs = ScriptFile.Ws
+if ScriptFile and ScriptFile.ws then 
+if msg.text and ScriptFile.iws then
+Xws = ScriptFile.ws
 local list = redis:hgetall(ws..":AwamerBotArray:"..msg.chat_id_)
-for Ws2,k in pairs(list) do
+for ws2,k in pairs(list) do
 Text = msg.text
 Text2 = k
-if Text:match(Ws2) then 
-local amrr = {Text:match(Ws2)}
+if Text:match(ws2) then 
+local amrr = {Text:match(ws2)}
 local AmrOld = redis:hgetall(ws..":AwamerBotArray2:"..msg.chat_id_)
 amrnew = "" amrold = ""
 for Amor,ik in pairs(AmrOld) do
@@ -461,7 +461,7 @@ if amrr[1] == Amor then
 amrnew = Amor ; amrold = ik   
 end end end
 Text = Text:gsub(amrnew,amrold)
-GetMsg = ScriptFile.iWs(msg,{Text:match(Text2)})
+GetMsg = ScriptFile.iws(msg,{Text:match(Text2)})
 if GetMsg then
 print("\27[1;35m¦This_Msg : "..Text2.."  | Plugin is: \27[1;32mScript.lua\27[0m")
 sendMsg(msg.chat_id_,msg.id_,GetMsg)
@@ -469,34 +469,34 @@ return false
 end 
 end
 end
-for k, Ws in pairs(XWs) do
+for k, ws in pairs(Xws) do
 Text = msg.text
 Text = Text:gsub("ی","ي")
 Text = Text:gsub("ک","ك")
 Text = Text:gsub("ه‍","ه")
-if Text:match(Ws) then -- Check Commands To admin
-GetMsg = ScriptFile.iWs(msg,{Text:match(Ws)})
+if Text:match(ws) then -- Check Commands To admin
+GetMsg = ScriptFile.iws(msg,{Text:match(ws)})
 if GetMsg then
-Ws
+print("\27[1;35m¦This_Msg : ",ws.." | Plugin is: \27[1;32mScript.lua\27[0m")
 sendMsg(msg.chat_id_,msg.id_,GetMsg)
 return false
 end 
 end
 end
-end  --- End iWs
-if ScriptFile.dWs then
-if ScriptFile.dWs(msg) == false then
+end  --- End iws
+if ScriptFile.dws then
+if ScriptFile.dws(msg) == false then
 return false
 end
 print("\27[1;35m¦Msg_IN_Process : Proc _ Script.lua\27[0m")
 end
 
 for name,Plug in pairs(File) do
-if Plug.Ws then 
-if msg.text and Plug.iWs then
-for k, Ws in pairs(Plug.Ws) do
-if msg.text:match(Ws) then
-local GetMsg = Plug.iWs(msg,{msg.text:match(Ws)})
+if Plug.ws then 
+if msg.text and Plug.iws then
+for k, ws in pairs(Plug.ws) do
+if msg.text:match(ws) then
+local GetMsg = Plug.iws(msg,{msg.text:match(ws)})
 if GetMsg then
 print("\27[1;35m¦This_Msg : ",ws.." | Plugin is: \27[1;32m"..name.."\27[0m")
 sendMsg(msg.chat_id_,msg.id_,GetMsg)
@@ -505,8 +505,8 @@ return false
 end
 end
 end
-if Plug.dWs then
-Plug.dWs(msg)
+if Plug.dws then
+Plug.dws(msg)
 print("\27[1;35m¦Msg_IN_Process : \27[1;32"..name.."\27[0m")
 end
 else
