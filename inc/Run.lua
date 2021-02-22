@@ -477,7 +477,6 @@ Text = Text:gsub("ه‍","ه")
 if Text:match(Ws) then -- Check Commands To admin
 GetMsg = ScriptFile.iWs(msg,{Text:match(Ws)})
 if GetMsg then
-Ws
 sendMsg(msg.chat_id_,msg.id_,GetMsg)
 return false
 end 
