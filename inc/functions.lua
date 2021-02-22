@@ -417,7 +417,7 @@ if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████  @r00t94
 download_file('https://raw.githubusercontent.com/r00t94/ws/main/inc/Script.lua','./inc/Script.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████ @r00t94  |') end
 download_file('https://raw.githubusercontent.com/r00t94/ws/main/inc/functions.lua','./inc/functions.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n🔝*¦* تم تحديث السورس الى اصدار *v'..redis:get(ws..":VERSION")..'*\n📟*¦* تم اعاده تشغيل السورس بنجاح') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n🔝*¦* تم تحديث السورس الى اصدار *v'..redis:get(ws..":VERSION")..'*\n📟*¦* تم اعاده تشغيل السورس بنجاح\n - @r00t94') end
 if edit then dofile("./inc/Run.lua") end
 print("Update Source And Reload ~ ./inc/Run.lua")
 
