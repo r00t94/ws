@@ -2022,16 +2022,16 @@ local edited = (redis:get(ws..':edited:'..msg.chat_id_..':'..msg.sender_user_id_
 local video = (redis:get(ws..':video:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
 
 local Get_info =  "⠀\n⠀•⊱ { الاحـصـائـيـات الـرسـائـل } ⊰•\n"
-.."⚶ الـرسـائـل •⊱ { `"..msgs.."` } ⊰•\n"
-.."📞¦ الـجـهـات •⊱ { `"..NumGha.."` } ⊰•\n"
-.."📸¦ الـصـور •⊱ { `"..photo.."` } ⊰•\n"
-.."📽¦ الـمـتـحـركـه •⊱ { `"..animation.."` } ⊰•\n"
-.."⚶ الـمـلـصـقات •⊱ { `"..sticker.."` } ⊰•\n"
-.."🎙¦ الـبـصـمـات •⊱ { `"..voice.."` } ⊰•\n"
-.."🔊¦ الـصـوت •⊱ { `"..audio.."` } ⊰•\n"
-.."🎞¦ الـفـيـديـو •⊱ { `"..video.."` } ⊰•\n"
+.."⌯ الـرسـائـل •⊱ { `"..msgs.."` } ⊰•\n"
+.."⌯¦ الـجـهـات •⊱ { `"..NumGha.."` } ⊰•\n"
+.."⌯¦ الـصـور •⊱ { `"..photo.."` } ⊰•\n"
+.."⌯¦ الـمـتـحـركـه •⊱ { `"..animation.."` } ⊰•\n"
+.."⌯ الـمـلـصـقات •⊱ { `"..sticker.."` } ⊰•\n"
+.."⌯¦ الـبـصـمـات •⊱ { `"..voice.."` } ⊰•\n"
+.."⌯¦ الـصـوت •⊱ { `"..audio.."` } ⊰•\n"
+.."⌯¦ الـفـيـديـو •⊱ { `"..video.."` } ⊰•\n"
 .."⌯ الـتـعـديـل •⊱ { `"..edited.."` } ⊰•\n\n"
-.."📊¦ تـفـاعـلـك  •⊱ "..Get_Ttl(msgs).." ⊰•\n"
+.."⌯¦ تـفـاعـلـك  •⊱ "..Get_Ttl(msgs).." ⊰•\n"
 .."ـ.——————————\n"
 return sendMsg(arg.chat_id_,arg.id_,Get_info)    
 end,{chat_id_=msg.chat_id_,id_=msg.id_})
@@ -2067,21 +2067,21 @@ local Get_info = "⌯ اهـلا بـك عزيزي في معلوماتك ✮ \n"
 .."ـ.——————————\n"
 .."⌯ الاســم •⊱{ "..FlterName(Name,25) .." }⊰•\n"
 ..USERNAME
-.."⚜️¦ الايـدي •⊱ { `"..data.id_.."` } ⊰•\n"
+.."⌯¦ الايـدي •⊱ { `"..data.id_.."` } ⊰•\n"
 .."⌯ رتبتــك •⊱ "..arg.TheRank.." ⊰•\n"
-.."🔰¦ ــ •⊱ { `"..arg.chat_id_.."` } ⊰•\n"
+.."⌯¦ ــ •⊱ { `"..arg.chat_id_.."` } ⊰•\n"
 .."ـ.——————————\n"
 .." •⊱ { الاحـصـائـيـات الـرسـائـل } ⊰•\n"
-.."⚶ الـرسـائـل •⊱ { `"..msgs.."` } ⊰•\n"
-.."📞¦ الـجـهـات •⊱ { `"..NumGha.."` } ⊰•\n"
-.."📸¦ الـصـور •⊱ { `"..photo.."` } ⊰•\n"
-.."📽¦ الـمـتـحـركـه •⊱ { `"..animation.."` } ⊰•\n"
-.."⚶ الـمـلـصـقات •⊱ { `"..sticker.."` } ⊰•\n"
-.."🎙¦ الـبـصـمـات •⊱ { `"..voice.."` } ⊰•\n"
-.."🔊¦ الـصـوت •⊱ { `"..audio.."` } ⊰•\n"
-.."🎞¦ الـفـيـديـو •⊱ { `"..video.."` } ⊰•\n"
+.."⌯ الـرسـائـل •⊱ { `"..msgs.."` } ⊰•\n"
+.."⌯¦ الـجـهـات •⊱ { `"..NumGha.."` } ⊰•\n"
+.."⌯¦ الـصـور •⊱ { `"..photo.."` } ⊰•\n"
+.."⌯¦ الـمـتـحـركـه •⊱ { `"..animation.."` } ⊰•\n"
+.."⌯ الـمـلـصـقات •⊱ { `"..sticker.."` } ⊰•\n"
+.."⌯¦ الـبـصـمـات •⊱ { `"..voice.."` } ⊰•\n"
+.."⌯¦ الـصـوت •⊱ { `"..audio.."` } ⊰•\n"
+.."⌯¦ الـفـيـديـو •⊱ { `"..video.."` } ⊰•\n"
 .."⌯ الـتـعـديـل •⊱ { `"..edited.."` } ⊰•\n\n"
-.."📊¦ تـفـاعـلـك  •⊱ "..Get_Ttl(msgs).." ⊰•\n"
+.."⌯¦ تـفـاعـلـك  •⊱ "..Get_Ttl(msgs).." ⊰•\n"
 .."ـ.——————————\n"
 ..SUDO_USERR
 sendMsg(arg.chat_id_,arg.id_,Get_info)    
@@ -3231,14 +3231,14 @@ return '⌯ لا يوجد ردود مضافه حاليا \n✮'
 end
 local ii = 1
 local message = '⌯ ردود البوت في المجموعه  :\n\n'
-for i=1, #photo 	do message = message ..ii..' - *{* '..	photo[i]..' *}_*( صوره 🏞 ) \n' 	 ii = ii + 1 end
-for i=1, #names 	do message = message ..ii..' - *{* '..	names[i]..' *}_*( نص 🗯 ) \n'  	 ii = ii + 1 end
-for i=1, #voice 	do message = message ..ii..' - *{* '..  voice[i]..' *}_*( بصمه 🎙 ) \n' 	 ii = ii + 1 end
-for i=1, #imation 	do message = message ..ii..' - *{* '..imation[i]..' *}_*( متحركه 🎭 ) \n' ii = ii + 1 end
-for i=1, #audio 	do message = message ..ii..' - *{* '..	audio[i]..' *}_*( صوتيه 🔊 ) \n'  ii = ii + 1 end
-for i=1, #sticker 	do message = message ..ii..' - *{* '..sticker[i]..' *}_*( ملصق 🗺 ) \n' 	 ii = ii + 1 end
-for i=1, #video 	do message = message ..ii..' - *{* '..	video[i]..' *}_*( فيديو  🎞 ) \n' ii = ii + 1 end
-for i=1, #files 	do message = message ..ii..' - *{* '..	files[i]..' *}_*( ملف 🗂 ) \n' ii = ii + 1 end
+for i=1, #photo 	do message = message ..ii..' - *{* '..	photo[i]..' *}_*( صوره ) \n' 	 ii = ii + 1 end
+for i=1, #names 	do message = message ..ii..' - *{* '..	names[i]..' *}_*( نص ) \n'  	 ii = ii + 1 end
+for i=1, #voice 	do message = message ..ii..' - *{* '..  voice[i]..' *}_*( بصمه ) \n' 	 ii = ii + 1 end
+for i=1, #imation 	do message = message ..ii..' - *{* '..imation[i]..' *}_*( متحركه ) \n' ii = ii + 1 end
+for i=1, #audio 	do message = message ..ii..' - *{* '..	audio[i]..' *}_*( صوتيه ) \n'  ii = ii + 1 end
+for i=1, #sticker 	do message = message ..ii..' - *{* '..sticker[i]..' *}_*( ملصق ) \n' 	 ii = ii + 1 end
+for i=1, #video 	do message = message ..ii..' - *{* '..	video[i]..' *}_*( فيديو  ) \n' ii = ii + 1 end
+for i=1, #files 	do message = message ..ii..' - *{* '..	files[i]..' *}_*( ملف ) \n' ii = ii + 1 end
 message = message..'\n✮✮✮'
 if utf8.len(message) > 4096 then
 return "✮ لا يمكن عرض الردود بسبب القائمه كبيره جدا ."
@@ -3262,14 +3262,14 @@ return '⌯ لا يوجد ردود مضافه حاليا \n✮'
 end
 local ii = 1
 local message = '⌯ الردود العامه في البوت :   :\n\n'
-for i=1, #photo 	do message = message ..ii..' - *{* '..	photo[i]..' *}_*( صوره 🏞 ) \n' 	ii = ii + 1 end
-for i=1, #names 	do message = message ..ii..' - *{* '..	names[i]..' *}_*( نص 🗯 ) \n'  	ii = ii + 1 end
-for i=1, #voice 	do message = message ..ii..' - *{* '..	voice[i]..' *}_*( بصمه 🎙 ) \n' 	ii = ii + 1 end
-for i=1, #imation 	do message = message ..ii..' - *{* '..imation[i]..' *}_*( متحركه 🎭 ) \n'ii = ii + 1 end
-for i=1, #audio 	do message = message ..ii..' - *{* '..	audio[i]..' *}_*( صوتيه 🔊 ) \n' ii = ii + 1 end
-for i=1, #sticker 	do message = message ..ii..' - *{* '..sticker[i]..' *}_*( ملصق 🗺 ) \n' 	ii = ii + 1 end
-for i=1, #video 	do message = message ..ii..' - *{* '..	video[i]..' *}_*( فيديو  🎞 ) \n'ii = ii + 1 end
-for i=1, #files 	do message = message ..ii..' - *{* '..	files[i]..' *}_*( ملف 🗂 ) \n' ii = ii + 1 end
+for i=1, #photo 	do message = message ..ii..' - *{* '..	photo[i]..' *}_*( صوره ) \n' 	ii = ii + 1 end
+for i=1, #names 	do message = message ..ii..' - *{* '..	names[i]..' *}_*( نص ) \n'  	ii = ii + 1 end
+for i=1, #voice 	do message = message ..ii..' - *{* '..	voice[i]..' *}_*( بصمه ) \n' 	ii = ii + 1 end
+for i=1, #imation 	do message = message ..ii..' - *{* '..imation[i]..' *}_*( متحركه ) \n'ii = ii + 1 end
+for i=1, #audio 	do message = message ..ii..' - *{* '..	audio[i]..' *}_*( صوتيه ) \n' ii = ii + 1 end
+for i=1, #sticker 	do message = message ..ii..' - *{* '..sticker[i]..' *}_*( ملصق ) \n' 	ii = ii + 1 end
+for i=1, #video 	do message = message ..ii..' - *{* '..	video[i]..' *}_*( فيديو  ) \n'ii = ii + 1 end
+for i=1, #files 	do message = message ..ii..' - *{* '..	files[i]..' *}_*( ملف ) \n' ii = ii + 1 end
 message = message..'\n✮✮✮'
 if utf8.len(message) > 4096 then
 return "✮ لا يمكن عرض الردود بسبب القائمه كبيره جدا ."
@@ -4057,7 +4057,7 @@ msg.klma = klma
 if msg.text == "تم" then
 redis:del(ws..'addrdRandom1Public:'..msg.chat_id_..msg.sender_user_id_)
 redis:del(ws..'addrdRandomPublic:'..msg.chat_id_..msg.sender_user_id_)
-sendMsg(msg.chat_id_,msg.id_,'♻️¦ تم اضافه رد متعدد عشوائي بنجاح ✓\n⚜️¦ يمكنك ارسال (['..klma..']) لاضهار الردود العشوائيه .')
+sendMsg(msg.chat_id_,msg.id_,'♻️¦ تم اضافه رد متعدد عشوائي بنجاح ✓\n⌯¦ يمكنك ارسال (['..klma..']) لاضهار الردود العشوائيه .')
 redis:del(ws..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_)
 return false
 end
@@ -4068,7 +4068,7 @@ local CountRdod = 9 - tonumber(CountRdod)
 if CountRdod2 == 0 then 
 redis:del(ws..'addrdRandom1Public:'..msg.chat_id_..msg.sender_user_id_)
 redis:del(ws..'addrdRandomPublic:'..msg.chat_id_..msg.sender_user_id_)
-sendMsg(msg.chat_id_,msg.id_,'⌯ وصلت الحد الاقصى لعدد الردود ✓\n⚜️¦ تم اضافه الرد (['..klma..']) للردود العشوائيه .')
+sendMsg(msg.chat_id_,msg.id_,'⌯ وصلت الحد الاقصى لعدد الردود ✓\n⌯¦ تم اضافه الرد (['..klma..']) للردود العشوائيه .')
 redis:del(ws..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_)
 return false
 end
@@ -4131,7 +4131,7 @@ msg.klma = klma
 if msg.text == "تم" then
 redis:del(ws..'addrdRandom1:'..msg.chat_id_..msg.sender_user_id_)
 redis:del(ws..'addrdRandom:'..msg.chat_id_..msg.sender_user_id_)
-sendMsg(msg.chat_id_,msg.id_,'♻️¦ تم اضافه رد متعدد عشوائي بنجاح ✓\n⚜️¦ يمكنك ارسال (['..klma..']) لاظهار الردود العشوائيه .')
+sendMsg(msg.chat_id_,msg.id_,'♻️¦ تم اضافه رد متعدد عشوائي بنجاح ✓\n⌯¦ يمكنك ارسال (['..klma..']) لاظهار الردود العشوائيه .')
 redis:del(ws..'replay1Random'..msg.chat_id_..msg.sender_user_id_)
 return false
 end
@@ -4142,7 +4142,7 @@ local CountRdod = 9 - tonumber(CountRdod)
 if CountRdod2 == 0 then 
 redis:del(ws..'addrdRandom1:'..msg.chat_id_..msg.sender_user_id_)
 redis:del(ws..'addrdRandom:'..msg.chat_id_..msg.sender_user_id_)
-sendMsg(msg.chat_id_,msg.id_,'⌯ وصلت الحد الاقصى لعدد الردود ✓\n⚜️¦ تم اضافه الرد (['..klma..']) للردود العشوائيه .')
+sendMsg(msg.chat_id_,msg.id_,'⌯ وصلت الحد الاقصى لعدد الردود ✓\n⌯¦ تم اضافه الرد (['..klma..']) للردود العشوائيه .')
 redis:del(ws..'replay1Random'..msg.chat_id_..msg.sender_user_id_)
 return false
 end
