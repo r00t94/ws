@@ -801,7 +801,7 @@ var = redis:get(ws..":RtbaNew5:"..ChatID) or 'مدير البوت'
 elseif redis:sismember(ws..'admins:'..ChatID,UserID) then
 var = redis:get(ws..":RtbaNew6:"..ChatID) or 'ادمن في البوت' 
 elseif redis:sismember(ws..'whitelist:'..ChatID,UserID) then
-var = redis:get(ws..":RtbaNew7:"..ChatID) or 'عضو مميز ⭐️' 
+var = redis:get(ws..":RtbaNew7:"..ChatID) or 'عضو مميز' 
 else
 var = 'فقط عضو' 
 end
@@ -1427,15 +1427,15 @@ lock_servicez = true
 else
 lock_servicez = false
 end
-if not msg.SudoUser and not lock_servicez then return '⌯ أنـت لـسـت الـمـطـور ⚙️' end
+if not msg.SudoUser and not lock_servicez then return '⌯ أنـت لـسـت الـمـطـور ' end
 if msg.is_post_ then return "⌯ عذرا هذا بوت حمايه للمجموعات وليس للقنوات  " end
-if msg.type ~= "channel" then return '⌯ البوت يعمل فقط في المجموعات العامه لذا يجب ترقية المجموعه ووضع معرف للمجموعه لتصبح عامه ⚙️' end
+if msg.type ~= "channel" then return '⌯ البوت يعمل فقط في المجموعات العامه لذا يجب ترقية المجموعه ووضع معرف للمجموعه لتصبح عامه او جعلها مشاهدة للجميع ' end
 
 
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg 
 local NameUser   = Hyper_Link_Name(data)
-if redis:get(ws..'group:add'..msg.chat_id_) then  return sendMsg(msg.chat_id_,msg.id_,'📬¦ المجموعه بالتأكيد ✓️ تم تفعيلها \n \n') end
+if redis:get(ws..'group:add'..msg.chat_id_) then  return sendMsg(msg.chat_id_,msg.id_,' المجموعه بالتأكيد ✓️ تم تفعيلها \n \n') end
 local UserChaneel = redis:get(ws..":UserNameChaneel")
 if UserChaneel and not msg.SudoBase then
 local url , res = https.request(ApiToken..'/getchatmember?chat_id='..UserChaneel..'&user_id='..msg.sender_user_id_)
@@ -1443,10 +1443,10 @@ if res == 200 then
 print(url) 
 local Req = JSON.decode(url)
 if Req.ok and Req.result and Req.result.status == "left" or Req.result.status == "kicked" then
-return sendMsg(msg.chat_id_,msg.id_,"🚸| آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n🔛| ثم آرجع آرسـل تفعيل .")
+return sendMsg(msg.chat_id_,msg.id_," آشـترگ بآلقنآ‌‏ه آولآ ["..UserChaneel.."] \n ثم آرجع آرسـل تفعيل .")
 end
 else
-return "🚸| آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n🔛| ثم آرجع آرسـل تفعيل ."
+return " آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n ثم آرجع آرسـل تفعيل ."
 end
 end
 
@@ -1462,15 +1462,15 @@ GetFullChat(msg.chat_id_,function(arg,data)
 local GroupUsers = tonumber(redis:get(ws..':addnumberusers') or 0)
 local Groupcount = tonumber(data.member_count_)
 if GroupUsers  >= Groupcount and not arg.SudoBase then
-return sendMsg(arg.chat_id_,arg.id_,'🚸*¦* لآ يمـگنني تفعيل آلبوت في آلمـجمـوعهہ‏ يجب آن يگون آگثر مـن *【'..GroupUsers..'】* عضـو 👤')
+return sendMsg(arg.chat_id_,arg.id_,'- لآ يمـگنني تفعيل آلبوت في آلمـجمـوعهہ‏ يجب آن يگون آگثر مـن *【'..GroupUsers..'】* عضـو ')
 end
 if data.channel_ and data.channel_.status_.ID  == "ChatMemberStatusMember" then
-return sendMsg(arg.chat_id_,arg.id_,'⌯ عذرا البوت ليس ادمن  في المجموعه ♨️\n🔙*¦* يرجى رفعه ادمن لتتمكن من تفعيل البوت ✓️')
+return sendMsg(arg.chat_id_,arg.id_,'⌯ عذرا البوت ليس ادمن  في المجموعه \n- يرجى رفعه ادمن لتتمكن من تفعيل البوت ✓️')
 end
 if arg.lock_servicez then 
-sendMsg(arg.chat_id_,arg.id_,'📬¦ تـم تـفـعـيـل الـمـجـمـوعـه ✓️ \n👨🏽‍🔧¦ وتم رفع جمـيع آلآدمـنيهہ‏‏‏ آلگروب بآلبوت \n')
+sendMsg(arg.chat_id_,arg.id_,'تـم تـفعـيل المـجمـوعه\n [CH](https://t.me/Wizard_system) \n ✮')
 else
-sendMsg(arg.chat_id_,arg.id_,'📬¦ تـم تـفـعـيـل آلمـجمـوعهہ‏‏ \n')
+sendMsg(arg.chat_id_,arg.id_,'تـم تفـعيل المجـموعه\n [CH](https://t.me/Wizard_system) \n ✮')
 end
 
 GetChannelAdministrators(arg.chat_id_,function(arg,data)
