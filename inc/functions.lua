@@ -1468,9 +1468,9 @@ if data.channel_ and data.channel_.status_.ID  == "ChatMemberStatusMember" then
 return sendMsg(arg.chat_id_,arg.id_,'⌯ عذرا البوت ليس ادمن  في المجموعه \n- يرجى رفعه ادمن لتتمكن من تفعيل البوت ✓️')
 end
 if arg.lock_servicez then 
-sendMsg(arg.chat_id_,arg.id_,'تـم تـفعـيل المـجمـوعه\n [CH](https://t.me/Wizard_system) \n ✮')
+sendMsg(arg.chat_id_,arg.id_,'تـم تـفعـيل المـجمـوعه\n [ويــزرد](https://t.me/Wizard_system) \n ✮')
 else
-sendMsg(arg.chat_id_,arg.id_,'تـم تفـعيل المجـموعه\n [CH](https://t.me/Wizard_system) \n ✮')
+sendMsg(arg.chat_id_,arg.id_,'تـم تفـعيل المجـموعه\n [ويــزرد](https://t.me/Wizard_system) \n ✮')
 end
 
 GetChannelAdministrators(arg.chat_id_,function(arg,data)
