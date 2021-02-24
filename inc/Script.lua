@@ -15,13 +15,13 @@ return modadd(msg)
 end
 
 if MsgText[1] == "تعطيل" and not MsgText[2] then
-if not msg.SudoUser then return '✮ أنـت لـسـت الـمـطـور ⚙️'end
+if not msg.SudoUser then return '✮ أنـت لـسـت الـمـطـور 'end
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg 
 local NameUser   = Hyper_Link_Name(data)
-if not redis:get(ws..'group:add'..msg.chat_id_) then return sendMsg(msg.chat_id_,msg.id_,'⌯ المجموعه بالتأكيد ✓️ تم تعطيلها \n \n') end  
+if not redis:get(ws..'group:add'..msg.chat_id_) then return sendMsg(msg.chat_id_,msg.id_,'⌯ المجموعه بالتأكيد تم تعطيلها \n \n') end  
 rem_data_group(msg.chat_id_)
-sendMsg(msg.chat_id_,msg.id_,'✮ تـم تـعـطـيـل الـمـجـمـوعـه ⚠️\n \n')
+sendMsg(msg.chat_id_,msg.id_,'✮ تـم تـعـطـيـل الـمـجـمـوعـه ⌯\n \n')
 end,{msg=msg})
 end
 
@@ -48,12 +48,12 @@ else
 GetPhotoUser(data.id_,function(arg,data)
 local edited = (redis:get(ws..':edited:'..arg.chat_id_..':'..arg.sender_user_id_) or 0)
 
-local KleshaID = '⚶ أســمـك •⊱ { '..arg.Namei..' } ⊰•\n'
+local KleshaID = '⌯ أســمـك •⊱ { '..arg.Namei..' } ⊰•\n'
 ..'⌯ ايديــك •⊱ {'..arg.sender_user_id_..'} ⊰•\n'
 ..arg.UserNameID
-..'✮¦ رتبتـــك •⊱ '..arg.TheRank..' ⊰•\n'
-..'⭐️¦ تفاعـلك •⊱ '..Get_Ttl(arg.msgs)..'⊰•\n'
-..'⚶ رسائلك •⊱ {'..arg.msgs..'} ⊰•\n✮'
+..'⌯¦ رتبتـــك •⊱ '..arg.TheRank..' ⊰•\n'
+..'⌯¦ تفاعـلك •⊱ '..Get_Ttl(arg.msgs)..'⊰•\n'
+..'⌯ رسائلك •⊱ {'..arg.msgs..'} ⊰•\n✮'
 local Kleshaidinfo = redis:get(ws..":infoiduser_public:"..arg.chat_id_) or redis:get(ws..":infoiduser")  
 
 if Kleshaidinfo then 
@@ -2039,7 +2039,7 @@ return false
 end
 
 if MsgText[1]== 'جهاتي' then
-return '⌯  عدد جهہآتك آلمـضـآفهہ‏‏ ⇠ 【'..(redis:get(ws..':adduser:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)..'】 . \n✮'
+return '⌯  عدد جهاتك يبشه‏‏ ⇠ 【'..(redis:get(ws..':adduser:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)..'】 . \n✮'
 end
 
 if MsgText[1] == 'معلوماتي' or MsgText[1] == 'موقعي' then
@@ -2056,7 +2056,7 @@ local video = (redis:get(ws..':video:'..msg.chat_id_..':'..msg.sender_user_id_) 
 USERNAME = ""
 Name = data.first_name_
 if data.last_name_ then Name = data.first_name_ .." "..data.last_name_ end
-if data.username_ then USERNAME = "💠¦ المعرف •⊱ @["..data.username_.."] ⊰•\n" end 
+if data.username_ then USERNAME = "⌯¦ المعرف •⊱ @["..data.username_.."] ⊰•\n" end 
 SUDO_USER = redis:hgetall(ws..'username:'..SUDO_ID).username
 if SUDO_USER:match('@[%a%d_]+') then 
 SUDO_USERR = "✮ مـطـور البوت •⊱ ["..SUDO_USER.."] ⊰•\n"
@@ -3950,7 +3950,7 @@ SUDO_USERR = ""
 end
 
 
-text = [[⌯ مـرحبآ آنآ بوت آسـمـي []]..redis:get(ws..':NameBot:')..[[] 🎖
+text = [[⌯ مـرحبآ آنآ بوت آسـمـي []]..redis:get(ws..':NameBot:')..[[] 
 ⌯ يمكنني حمايه المجموعات من السبام والتوجيه الخ....
 ⌯ [قـناة الـسورس](HTTPS://T.ME/WIZARD_SYSTEM) 
 ]]..SUDO_USERR..[[
@@ -4016,7 +4016,7 @@ end
 if SendOk then
 GetUserID(FwdUser,function(arg,data)
 if data.username_ then USERNAME = '@'..data.username_ else USERNAME = FlterName(data,20) end
-SendMention(arg.sender_user_id_,data.id_,arg.id_,"⌯ تم آرسـآل آلرسـآل‏‏هہ ✮\n⌯ آلى : "..USERNAME.." 🏌🏻",39,utf8.len(USERNAME)) 
+SendMention(arg.sender_user_id_,data.id_,arg.id_,"⌯ تم ارسال الرسالة ✮\n⌯ آلى : "..USERNAME.." 🏌🏻",39,utf8.len(USERNAME)) 
 end,{sender_user_id_=msg.sender_user_id_,id_=msg.id_})
 end
 end,{msg=msg})
@@ -4033,7 +4033,7 @@ else
 SUDO_USERR = ""
 end
 redis:setex(ws.."USER_MSG_TWASEL"..msg.date_,43200,msg.id_)
-sendMsg(msg.chat_id_,msg.id_,"⌯ تم آرسـآل رسـآلتك آلى آلمـطـور\n⌯ سـآرد عليك في آقرب وقت["..SUDO_USERR.."]")
+sendMsg(msg.chat_id_,msg.id_,"⌯ تـم إرسالـ رسـالتـك\n⌯ ["..SUDO_USERR.."]")
 fwdMsg(SUDO_ID,msg.chat_id_,msg.id_)
 return false
 end
@@ -4057,7 +4057,7 @@ msg.klma = klma
 if msg.text == "تم" then
 redis:del(ws..'addrdRandom1Public:'..msg.chat_id_..msg.sender_user_id_)
 redis:del(ws..'addrdRandomPublic:'..msg.chat_id_..msg.sender_user_id_)
-sendMsg(msg.chat_id_,msg.id_,'♻️¦ تم اضافه رد متعدد عشوائي بنجاح ✓\n⌯¦ يمكنك ارسال (['..klma..']) لاضهار الردود العشوائيه .')
+sendMsg(msg.chat_id_,msg.id_,'✮¦ تم اضافه رد متعدد عشوائي بنجاح ✓\n⌯¦ يمكنك ارسال (['..klma..']) لاضهار الردود العشوائيه .')
 redis:del(ws..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_)
 return false
 end
