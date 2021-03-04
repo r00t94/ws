@@ -1664,7 +1664,7 @@ chat_id_=arg.ChatID,
 photo_ = GetInputFile(photo_id)},
 function(arg,data)
 if data.code_ and data.code_ == 3 then
-return sendMsg(arg.ChatID,arg.MsgID,'✮ ¦ ليس لدي صلاحيه تغيير الصوره \n🤖 ¦ يجب اعطائي صلاحيه `تغيير معلومات المجموعه ` ⠀\n✓')
+return sendMsg(arg.ChatID,arg.MsgID,'✮ ¦ ليس لدي صلاحيه تغيير الصوره \n يجب اعطائي صلاحيه `تغيير معلومات المجموعه ` ⠀\n✓')
 end
 end,{ChatID=arg.ChatID,MsgID=arg.MsgID})
 end
@@ -1682,10 +1682,41 @@ redis:setex(ws..'about:witting'..msg.chat_id_..msg.sender_user_id_,300,true)
 return "⌯ حسننا عزيزي  ✮\n⌯ الان ارسل الوصف  للمجموعه\n✮" 
 end
 
-if MsgText[1] == "تاك للكل" then 
-if not msg.Admin then return "هذا الامر ليس لك عزيزي .  \n" end
-if not redis:get(ws.."lock_takkl"..msg.chat_id_) then  return "⌯ الامر معطل من قبل الادراة" end 
-return TagAll(msg) 
+if MsgText[1] == "تاك للكل" then
+if not msg.Admin then return " هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
+if not redis:get(Monster.."lock_takkl"..msg.chat_id_) then  return ". الامر معطل من قبل الادراة" end 
+if redis:get(Monster.."chat:tagall"..msg.chat_id_) then  return ". يمكنك عمل تاك للكل كل *5 دقائق* فقط" end 
+redis:setex(Monster..'chat:tagall'..msg.chat_id_,300,true)
+if MsgText[2] and MsgText[2]:match('^ل %d+$') then
+taglimit = MsgText[2]:match('^ل %d+$'):gsub('ل ','')
+
+else
+taglimit = 200
+end
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = taglimit
+},function(ta,moody)
+x = 0
+list = moody.members_
+for k, v in pairs(list) do
+GetUserID(v.user_id_,function(arg,data)
+x = x + 1
+if x == 1 then
+t = " قائمة الاعضاء \n\n"
+end
+if data.username_ then
+t = t..""..x.."-l {[@"..data.username_.."]} \n"
+else
+tagname = FlterName(data.first_name_..' '..(data.last_name_ or ""),20)
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t..""..x.."-l {["..tagname.."](tg://user?id="..v.user_id_..")} \n"
+end
+if k == 0 then
+send_msg(msg.chat_id_,t,msg.id_)
+end
+end)
+end
+end,nil)
 end
 
 if MsgText[1] == "منع" then 
