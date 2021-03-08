@@ -1177,9 +1177,21 @@ end
 end
 end
 end
-
+if msg.text then  
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_}, function(arg,data) 
+if redis:get(ws.."chencher"..msg.sender_user_id_) then 
+if redis:get(ws.."chencher"..msg.sender_user_id_) ~= data.first_name_ then 
+wsn = '['..(redis:get(ws.."chencher"..msg.sender_user_id_) or '')..']'
+wsm = '['..data.first_name_..']'
+sendMsg(msg.chat_id_,msg.id_,ws[math.random(#ws)])
+end  
+end
+redis:set(ws.."chencher"..msg.sender_user_id_, data.first_name_) 
+end,nil) 
+end
+end
 return {
-ws = {
+Ws = {
 "^(حزوره)$", 
 "^(كت تويت)$", 
 "^(المختلف)$",
@@ -1215,6 +1227,6 @@ ws = {
 "^(الانكليزي)$",
 "^(قائمه الالعاب)$",
  },
- iws = games,
- dws = procces,
+ iWs = games,
+ dWs = procces,
  }
