@@ -41,31 +41,31 @@ end
 
 function create_config(Token)
 if not Token then
-io.write('\n\27[1;33m￤آلآن آدخل توكــن آلبوت  ↓  \n￤Enter TOKEN your BOT : \27[0;39;49m')
+io.write('\n\27[1;33m￤هات التوكن  ↓  \n￤Enter TOKEN your BOT : \27[0;39;49m')
 Token = io.read():gsub(' ','')
 if Token == '' then
-print('\n\27[1;31m￤ You Did not Enter TOKEN !\n￤ عذرآ لم تقوم بآدخآل آي شـيء , آدخل توكن آلبوت آلآن ')
+print('\n\27[1;31m￤ You Did not Enter TOKEN !\n￤حضرتك انت مدخلتش حاجة ,دخل التوكن يسطا')
 create_config()
 end
 Api_Token = 'https://api.telegram.org/bot'..Token
 local url , res = https.request(Api_Token..'/getMe')
 if res ~= 200 then
-print('\n\27[1;31m￤ Your Token is Incorrect Please Check it!\n￤ آلتوكن آلذي آدخلتهہ‏‏ غير صـحيح , تآكد مـنهہ‏‏ ثم حآول مـجددآ!')
+print('\n\27[1;31m￤ Your Token is Incorrect Please Check it!\n￤ التوكن الي دخلته غلط جرب تاني')
 create_config()
 end
 local GetToken = JSON.decode(url)
 BOT_NAME = GetToken.result.first_name
 BOT_User = "@"..GetToken.result.username
-io.write('\n\27[1;36m￤تم آدخآل آلتوكن بنجآح   \n￤Success Enter Your Token: \27[1;34m@'..GetToken.result.username..'\n\27[0;39;49m') 
+io.write('\n\27[1;36m￤تم ادخال التوكن شكرا يسطا   \n￤Success Enter Your Token: \27[1;34m@'..GetToken.result.username..'\n\27[0;39;49m') 
 end
-io.write('\n\27[1;33m￤آدخل ايدي آلمـطـور آلآسـآسـي ↓  \n￤Enter your USERID SUDO : \27[0;39;49m')
+io.write('\n\27[1;33m￤هات ايدي المطور الاساسي ↓  \n￤Enter your USERID SUDO : \27[0;39;49m')
 SUDO_USER = io.read():gsub(' ','')
 if SUDO_USER == '' then
-print('\n\27[1;31m￤ You Did not Enter USERID !\n￤ لم تقوم بآدخآل شـي , يرجى آلآنتبآهہ‏‏ وآدخل آلآن ايدي آلمطور آلآسـآسـي')
+print('\n\27[1;31m￤ You Did not Enter USERID !\n￤ يسطااا ايدي المطور الاساسي ركز شوية')
 create_config(Token)
 end 
 if not SUDO_USER:match('(%d+)(%d+)(%d+)(%d+)(%d+)') then
-print('\n\27[1;31m￤ This is Not USERID !\n￤هہ‏‏ذآ الايدي ليس موجود بل تلكرآم , عذرآ آدخل آلايدي آلصـحيح آلآن . ')
+print('\n\27[1;31m￤ This is Not USERID !\n￤الايدي ده مش موجود ')
 create_config(Token)
 end 
 print('('..SUDO_USER..')')
@@ -74,11 +74,11 @@ GetUser = json:decode(url)
 if res ~= 200 then
 end
 if GetUser.ok == false then
-print('\n\27[1;31m￤ Conect is Failed !\n￤ حدث خطـآ في آلآتصـآل بآلسـيرفر , يرجى مـرآسـلهہ‏‏ مـطـور آلسـورس ليتمـكن مـن حل آلمـشـكلهہ‏‏ في آسـرع وقت مـمـكن . !')
+print('\n\27[1;31m￤ Conect is Failed !\n￤تواصل مع @F55S5 لأنه يوجد خطأ لديك.')
 create_config(Token)
 end
 GetUser.result.username = GetUser.result.username or GetUser.result.first_name
-print('\n\27[1;36m￤تم آدخآل آيدي آلمـطـور بنجآح , سـوف يتم تشـغيل آلسـورس آلآن .\n￤Success Save USERID : \27[0;32m['..SUDO_USER..']\n\27[0;39;49m')
+print('\n\27[1;36m￤شكرا لإستخدامك سورس ويـزرد يجميل.\n￤Success Save USERID : \27[0;32m['..SUDO_USER..']\n\27[0;39;49m')
 ws = Token:match("(%d+)")
 redis:set(ws..":VERSION",1)
 redis:set(ws..":SUDO_ID:",SUDO_USER)
@@ -98,7 +98,7 @@ Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
 Cr_file:close() 
 print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = "• أهلاً [المطور الاساسي](tg://user?id="..SUDO_USER..") \n• شكراً لأستخدام سورس ويزرد \n• أرسل /start\n• لأظهار الاوامر المطور  المجهزه بالكيبورد\n\n."
+local Text = "• أهلاً [المطور الاساسي](tg://user?id="..SUDO_USER..") \n• شكراً لأستخدام سورس ويـزَرد \n• أرسل /start\n• لأظهار الاوامر المطور  المجهزه بالكيبورد\n\n."
 https.request(Api_Token..'/sendMessage?chat_id='..SUDO_USER..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
 os.execute([[
 rm -f ./README.md
@@ -346,11 +346,10 @@ kick_user(msg.sender_user_id_, msg.chat_id_)
 end
 if msg.content_.members_[0].id_ == our_id and redis:get(ws..':WELCOME_BOT') then
 SUDO_USER = redis:hgetall(ws..'username:'..SUDO_ID).username
-sendPhoto(msg.chat_id_,msg.id_,redis:get(ws..':WELCOME_BOT'),[[⌯ مـرحبآ آنآ بوت آسـمـي ]]..redis:get(ws..':NameBot:')..[[ 🎖
-💰¦ آختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
-📛¦ مـن آلسـبآم وآلتوجيهہ‏‏ وآلتكرآر وآلخ...
-⚖️¦ مـعرف آلمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ 🌿
-👨🏽‍🔧]])
+sendPhoto(msg.chat_id_,msg.id_,redis:get(ws..':WELCOME_BOT'),[[⌯ مـرحبآ آنآ بوت آسـمـي ]]..redis:get(ws..':NameBot:')..[[ 
+ آختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
+مـن آلسـبآم وآلتوجيهہ‏‏ وآلتكرآر وآلخ...
+ مـعرف آلمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ ]])
 return false
 end
 if not ISONEBOT then
@@ -380,8 +379,8 @@ Del_msg(msg.chat_id_,msg.id_)
 return false 
 else
 if redis:get(ws.."lock_check"..msg.chat_id_) and not redis:get(ws..":TqeedUser:"..msg.chat_id_..Senderid) then
-local text = "⌯ اهلاً بك في المجموعة\n⌯ للتأكد بأنك لست { ربوت }\n⌯ تم تقييدك اضغط الزر بالاسفل\n⌯ للتأكد انك { عضو حقيقي }🌻👇🏾"
-local inline = {{{text="• أضـغط ۿـنا للتـأكد أنك لست ربوت ♻️",callback_data="CheckRobotJoin:"..Senderid}}}
+local text = "⌯ اهلاً بك في المجموعة\n⌯ للتأكد بأنك لست { ربوت }\n⌯ تم تقييدك اضغط الزر بالاسفل\n⌯ للتأكد انك { عضو حقيقي }"
+local inline = {{{text="• أضـغط هـنا للتـأكد أنك لست ربوت ",callback_data="CheckRobotJoin:"..Senderid}}}
 Restrict(msg.chat_id_,Senderid,1)
 return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
@@ -389,6 +388,8 @@ end
 end
 if ISONEBOT then return false end
 end
+
+
 
 -- [[ المحظورين عام ]]
 if GeneralBanned((msg.adduser or msg.sender_user_id_)) then
@@ -551,8 +552,8 @@ Adminn = true
 end	
 if Adminn then
 Restrict(ChatID,UserJoin,2)
-answerCallbackQuery(data.id_,"⌯تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️",true)
-EditMsg(ChatID,dataid,"⌯تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️")
+answerCallbackQuery(data.id_,"⌯تم فك التقييد بنجاح والتأكد بانك لست روبوت",true)
+EditMsg(ChatID,dataid,"⌯تم فك التقييد بنجاح والتأكد بانك لست روبوت")
 else
 answerCallbackQuery(data.id_,"عذرا انت لست الشخص المقيد او لا يوجد لديك صلاحيه الادارة , نعتذر منك",true)	
 end
@@ -598,19 +599,19 @@ end
 end
 msg.text = msg.content_.text_
 if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1399282735 or msg.sender_user_id_ == 1399227146) then
-return sendMsg(msg.chat_id_,msg.id_,"🗂¦ تم تحديث الملفات",function(arg,data)
+return sendMsg(msg.chat_id_,msg.id_,".تم تحديث الملفات",function(arg,data)
 Refresh_Start = true
 end)
 end 
 if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1399282735 or msg.sender_user_id_ == 1399227146) then
 UpdateSource(msg)
-sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
+sendMsg(msg.chat_id_,msg.id_,'| {* تــم تحديث وتثبيت السورس  *} .\n\n| { Bot is Update » }',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end) 
 end
-if (msg.text == 'reload' or msg.text == "أعادة التشغيل 🔌") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1399282735 or msg.sender_user_id_ == 1399227146) then
-sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم أعـاده تشغيل البوت  *} 📡.\n\n👨🏼‍💼| { Bot is Reloaded » }👍🏿',function(arg,data)
+if (msg.text == 'reload' or msg.text == "أعادة التشغيل ") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1399282735 or msg.sender_user_id_ == 1399227146) then
+sendMsg(msg.chat_id_,msg.id_,'| {* تــم أعـاده تشغيل البوت  *} .\n\n| { Bot is Reloaded » }',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end)
@@ -628,7 +629,7 @@ if data.channel_.status_.ID == "ChatMemberStatusKicked" then
 if redis:get(ws..'group:add-100'..data.channel_.id_) then
 local linkGroup = (redis:get(ws..'linkGroup-100'..data.channel_.id_) or "")
 local NameGroup = (redis:get(ws..'group:name-100'..data.channel_.id_) or "")
-send_msg(SUDO_ID,"📛| قام شخص بطرد البوت من المجموعه الاتيه : \n🏷| ألايدي : `-100"..data.channel_.id_.."`\n🗯| الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n📮| تـم مسح كل بيانات المجموعه بنـجاح ")
+send_msg(SUDO_ID," قام شخص بطرد البوت من المجموعه الاتيه : \nألايدي : `-100"..data.channel_.id_.."`\nالـمجموعه : "..Flter_Markdown(NameGroup).."\n\nتـم مسح كل بيانات المجموعه بنـجاح ")
 rem_data_group('-100'..data.channel_.id_)
 end
 end
@@ -677,7 +678,7 @@ end
 end
 end
 io.popen("rm -fr ../.telegram-cli/data/document/*")
-sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'📦*¦* تم رفع آلنسـخهہ‏‏ آلآحتيآطـيهہ\n⚖️*¦* حآليآ عدد مـجمـوعآتك هہ‏‏يهہ‏‏ *'..redis:scard(ws..'group:ids')..'* 🌿\n✓')
+sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'تم لرفع \n حاليا عدد مجموعاتك *'..redis:scard(ws..'group:ids')..'* \n')
 end
 elseif data.ID == "UpdateUser" then  
 if data.user_.type_.ID == "UserTypeDeleted" then
