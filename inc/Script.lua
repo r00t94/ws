@@ -4328,12 +4328,13 @@ send_key(msg.sender_user_id_,'Wizard',nil,inline,msg.id_)
 end
 
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
-local keyboard = {}
-keyboard.inline_keyboard = {
-{{text = '- SOURCE DEV .',url="https://t.me/R00t94"}},
-{{text = '- 𝒘𝒊𝒛𝒂𝒓𝒅 .',url="https://t.me/wizard_system"}},
-}   
-send_inline(msg.chat_id_,  "𓆩 𝒘𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 𝒔𝒐𝒖𝒓𝒄𝒆  𓆪" ,keyboard,'html')
+local inline = {
+{{text = '𝗛𝗘𝗟𝗟.',url="https://t.me/r00t94"}},
+{{text = '𝗨𝗙𝗢.',url="https://t.me/UFO_xXx"}},
+{{text = '𝗠𝗢𝗡𝗦𝗧𝗘𝗥.',url="https://t.me/J_69_L"}},
+{{text = '𝐬𝐨𝐮𝐫𝐜𝐞.',url="https://t.me/wizard_system"}}
+}
+return send_inline(msg.chat_id_,"𝒔𝒐𝒖𝒓𝒄𝒆 𝒘𝒊𝒛𝒂𝒓𝒅 𖣂.",inline,msg.id_)
 end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
