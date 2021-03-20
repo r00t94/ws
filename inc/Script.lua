@@ -4327,17 +4327,15 @@ local inline = {{{text="Source Channel : Wizard",url="T.ME/Wizard_System"}}}
 send_key(msg.sender_user_id_,'Wizard',nil,inline,msg.id_)
 end
 
-if MsgText[1] == "سورس" or MsgText[1]=="السورس" then
-return [[
-🧙‍♂┋Wizard System𓅆
-⌯ ⌯ ⌯ ⌯ ⌯ ⌯ ⌯ ⌯ ⌯ ⌯ 
-- [CH](https://t.me/Wizard_System)
-- [Dev](https://t.me/r00t94)
-- [Dev](https://t.me/lIIUlI)
-- [Dev](https://t.me/J_69_L) 
-💬 [For Contact](https://t.me/WiZArdSoUrCeBot)
-⌯ ⌯ ⌯ ⌯ ⌯ ⌯ ⌯ ⌯ ⌯ ⌯
-]]
+if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
+local keyboard = {}
+keyboard.inline_keyboard = {
+{{text = '𝗛𝗘𝗟𝗟.',url="https://t.me/r00t94"}},
+{{text = '𝗨𝗙𝗢.',url="https://t.me/UFO_xXx"}},
+{{text = '𝗠𝗢𝗡𝗦𝗧𝗘𝗥.',url="https://t.me/J_69_L"}},
+{{text = '𝐬𝐨𝐮𝐫𝐜𝐞.',url="https://t.me/wizard_system"}},
+}   
+send_inline(msg.chat_id_,  "𝒔𝒐𝒖𝒓𝒄𝒆 𝒘𝒊𝒛𝒂𝒓𝒅 𖣂." ,keyboard,'html')
 end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
