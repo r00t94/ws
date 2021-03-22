@@ -1,3 +1,4 @@
+
 local function iWs(msg,MsgText)
 
 if msg.forward_info_ then return false end
@@ -4379,7 +4380,7 @@ TText = " الملف موجود بالفعل \n⌯ تم تحديث الملف  \
 else
 TText = "⌯ تم تثبيت وتفعيل الملف بنجاح \n"
 end
-local Get_Files, res = https.request("https://raw.githubusercontent.com/r00t94/ws/main/plugins"..FileName)
+local Get_Files, res = https.request("https://raw.githubusercontent.com/r00t94/ws/main/plugins/"..FileName)
 if res == 200 then
 print("DONLOADING_FROM_URL: "..FileName)
 local FileD = io.open("plugins/"..FileName,'w+')
