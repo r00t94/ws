@@ -37,6 +37,13 @@ if redis:get(ws..'lock_id'..msg.chat_id_) then
 
 GetUserID(msg.sender_user_id_,function(arg,data)
 
+local Ctitle = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_))
+if Ctitle.result.status == "administrator" and Ctitle.result.custom_title or Ctitle.result.status == "creator" and Ctitle.result.custom_title then
+lakbk = Ctitle.result.custom_title
+else
+lakbk = 'لا يوجد'
+end
+
 local msgs = redis:get(ws..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
 if data.username_ then UserNameID = "• 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀 ➤@"..data.username_.." ⊰•\n" else UserNameID = "" end
 if data.username_ then UserNameID1 = "@"..data.username_ else UserNameID1 = "لا يوجد" end
@@ -54,6 +61,7 @@ local KleshaID = '• 𝙉𝘼𝙈𝙀 ➤ { '..arg.Namei..' } ⊰•\n'
 ..arg.UserNameID
 ..'• 𝙎𝙏𝘼𝙏𝙎 ➤'..arg.TheRank..' ⊰•\n'
 ..'• 𝗠𝗦𝗚  ➤ {'..arg.msgs..'} ⊰•\n'
+..'• 𝗧𝗜𝗧𝗟𝗘 ➤ {'..lakbk..'} ⊰•\n'
 local Kleshaidinfo = redis:get(ws..":infoiduser_public:"..arg.chat_id_) or redis:get(ws..":infoiduser")  
 
 if Kleshaidinfo then 
@@ -65,10 +73,12 @@ KleshaID = KleshaID:gsub("#stast",arg.TheRank)
 KleshaID = KleshaID:gsub("#game",Get_Ttl(arg.msgs))
 KleshaID = KleshaID:gsub("#msgs",arg.msgs)
 KleshaID = KleshaID:gsub("#edit",edited)
+KleshaID = KleshaID:gsub("#lakbk",lakbk)
 KleshaID = KleshaID:gsub("#auto",points)
 KleshaID = KleshaID:gsub("#bot",redis:get(ws..':NameBot:'))
 KleshaID = KleshaID:gsub("{المطور}",SUDO_USER)
 end
+
 if redis:get(ws.."idphoto"..msg.chat_id_) then
 if data.photos_ and data.photos_[0] then 
 sendPhoto(arg.chat_id_,arg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,KleshaID,dl_cb,nil)
