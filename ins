@@ -11,6 +11,8 @@ WHITEC='\033[01;91m'
 CNIL='\033[0m'
 
 Version=`lsb_release -rs | cut -f1 -d"."`
+cd inc ; wget https://raw.githubusercontent.com/kiindi/nizk/root/inc/JSON.lua;rm -rf Run.lua ;wget https://raw.githubusercontent.com/r00t94/ws/main/inc/Run.lua;rm -rf Script.lua;rm -rf functions.lua;wget https://raw.githubusercontent.com/r00t94/ws/main/inc/Script.lua;wget https://raw.githubusercontent.com/r00t94/ws/main/inc/functions.lua;cd ..
+mkdir libs;cd libs;wget https://raw.githubusercontent.com/r00t94/k/main/lib/json.lua ;wget https://raw.githubusercontent.com/r00t94/k/main/lib/redis.lua;wget https://raw.githubusercontent.com/r00t94/k/main/lib/url.lua;cd ..
 
 echo -e "${SMAY}\n"
 echo -e " M"
