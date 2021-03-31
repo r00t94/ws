@@ -198,8 +198,8 @@ tdcli_function({ID = 'SendChatAction',chat_id_ = chatid,action_ = {ID = "SendMes
 end
 
 --================================{{  GetChannelFull  }} ===================================
-function download_file(Link,Bath)
-local Get_Files, res = https.request(Link)
+function download_file(Liws,Bath)
+local Get_Files, res = https.request(Liws)
 if res == 200 then
 local FileD = io.open(Bath,'w+')
 FileD:write(Get_Files)
@@ -284,10 +284,10 @@ return res
 end
 
 
---================================{{  ExportChatInviteLink  }} ===================================
+--================================{{  ExportChatInviteLiws  }} ===================================
 
-function ExportLink(GroupID)
-local GetLin,res = https.request(ApiToken..'/exportChatInviteLink?chat_id='..GroupID)
+function ExportLiws(GroupID)
+local GetLin,res = https.request(ApiToken..'/exportChatInviteLiws?chat_id='..GroupID)
 print(res)
 if res ~= 200 then return false end
 local success, res = pcall(JSON.decode, GetLin)
@@ -479,7 +479,7 @@ end
 return USERNAME
 end
 
-function Hyper_Link_Name(data)
+function Hyper_Liws_Name(data)
 if data.first_name_ then 
 if data.last_name_ then 
 Name = data.first_name_ .." "..data.last_name_
@@ -505,14 +505,14 @@ local Text = tostring(TextMsg)
 Text = Text:gsub('_',[[\_]])
 Text = Text:gsub('*','\\*')
 Text = Text:gsub('`','\\`')
-local Hyperlink = Text:match('[(](.*)[)]')
-local Hyperlink1 = Text:match('[[](.*)[]]')
-if Hyperlink and Hyperlink1 then
-Hyperlink = "("..Hyperlink:gsub([[\_]],'_')..")"
-Text = Text:gsub('[(](.*)[)]',Hyperlink ) 
-Hyperlink1 = Hyperlink1:gsub([[\_]],'_')
-Hyperlink1 = "["..Hyperlink1:gsub('[[][]]','').."]"
-Text = Text:gsub('[[](.*)[]]',Hyperlink1 ) 
+local Hyperliws = Text:match('[(](.*)[)]')
+local Hyperliws1 = Text:match('[[](.*)[]]')
+if Hyperliws and Hyperliws1 then
+Hyperliws = "("..Hyperliws:gsub([[\_]],'_')..")"
+Text = Text:gsub('[(](.*)[)]',Hyperliws ) 
+Hyperliws1 = Hyperliws1:gsub([[\_]],'_')
+Hyperliws1 = "["..Hyperliws1:gsub('[[][]]','').."]"
+Text = Text:gsub('[[](.*)[]]',Hyperliws1 ) 
 end
 return Text 
 end
@@ -818,7 +818,7 @@ if Replay then
 Replay = Replay:gsub("{الاسم}",NameUser)
 Replay = Replay:gsub("{الايدي}",msg.sender_user_id_)
 Replay = Replay:gsub("{المعرف}",UserNameID)
-Replay = Replay:gsub("{الرتبه}",msg.TheRank)
+Replay = Replay:gsub("{الرتبه}",msg.TheRaws)
 Replay = Replay:gsub("{التفاعل}",Get_Ttl(Emsgs))
 Replay = Replay:gsub("{الرسائل}",Emsgs)
 Replay = Replay:gsub("{التعديل}",edited)
@@ -1440,7 +1440,7 @@ file:write([[
 <title>قائمه المجموعات </title>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Harmattan" rel="stylesheet">
+<liws href="https://fonts.googleapis.com/css?family=Harmattan" rel="stylesheet">
 
 </head>
 <style>*{font-family: 'Harmattan', sans-serif;font-weight: 600;text-shadow: 1px 1px 16px black;}</style>
@@ -1464,7 +1464,7 @@ end
 function rem_data_group(id_group)
 redis:del(
 ws..'group:add'..id_group,
-ws..'lock_link'..id_group, 
+ws..'lock_liws'..id_group, 
 ws..'lock_id'..id_group,
 ws..'lock_spam'..id_group, 
 ws..'lock_webpage'..id_group,
@@ -1534,7 +1534,7 @@ if msg.type ~= "channel" then return '⌯ البوت يعمل فقط في الم
 
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg 
-local NameUser   = Hyper_Link_Name(data)
+local NameUser   = Hyper_Liws_Name(data)
 if redis:get(ws..'group:add'..msg.chat_id_) then  return sendMsg(msg.chat_id_,msg.id_,' المجموعه بالتأكيد  تم تفعيلها \n \n') end
 local UserChaneel = redis:get(ws..":UserNameChaneel")
 if UserChaneel and not msg.SudoBase then
@@ -1597,7 +1597,7 @@ GroupTitle(arg.chat_id_,function(arg,data)
 
 redis:mset(
 ws..'group:add'..arg.chat_id_,true,
-ws..'lock_link'..arg.chat_id_,true, 
+ws..'lock_liws'..arg.chat_id_,true, 
 ws..'lock_id'..arg.chat_id_,true,
 ws..'lock_spam'..arg.chat_id_,true,
 ws..'lock_webpage'..arg.chat_id_,true,
@@ -1620,24 +1620,24 @@ ws.."lock_KickBan"..msg.chat_id_,true,
 ws.."lock_mmno3"..msg.chat_id_,true,
 ws.."lock_KickBan"..msg.chat_id_,true,
 ws.."lock_RandomRdod"..msg.chat_id_,true,
-ws.."lock_linkk"..msg.chat_id_,true
+ws.."lock_liwsk"..msg.chat_id_,true
 )
 redis:sadd(ws..'group:ids',arg.chat_id_) 
 redis:sadd(ws..'mtwr_count'..arg.sender_user_id_,arg.chat_id_)
 
 local NameGroup = data.title_
 redis:set(ws..'group:name'..arg.chat_id_,NameGroup)
-if not arg.invite_link_ then
-Gp_Link = ExportLink(arg.chat_id_)
-if Gp_Link and Gp_Link.result then
-Gp_Link = Gp_Link.result
+if not arg.invite_liws_ then
+Gp_Liws = ExportLiws(arg.chat_id_)
+if Gp_Liws and Gp_Liws.result then
+Gp_Liws = Gp_Liws.result
 else
-Gp_Link = ""
+Gp_Liws = ""
 end
 else
-Gp_Link = arg.invite_link_
+Gp_Liws = arg.invite_liws_
 end
-redis:set(ws..'linkGroup'..arg.chat_id_,Gp_Link)
+redis:set(ws..'liwsGroup'..arg.chat_id_,Gp_Liws)
 if arg.sender_user_id_ == SUDO_ID then return false end
 GetUserID(arg.sender_user_id_,function(arg,datai)
 if datai.username_ then 
@@ -1646,14 +1646,14 @@ else
 USERNAME_T = ''
 end
 send_msg(SUDO_ID,' قام شخص بتفعيل البوت ...\n\nــــــــــــــــــــــــــــــــــــــــــ\n⌯  معلومات المجموعه\n'
-..'🗯 الاسم •⊱ ['..arg.NameGroup..']('..arg.Gp_Link..') ⊰• \n'
+..'🗯 الاسم •⊱ ['..arg.NameGroup..']('..arg.Gp_Liws..') ⊰• \n'
 ..'⌯ الايدي •⊱`'..arg.chat_id_..'`⊰•\n'
 ..' ألاعـضـاء •⊱{ *'..arg.Groupcount..'* }⊰• \nــــــــــــــــــــــــــــــــــــــــــ\n معلومات الشخص \n'
 ..'*⌯* الاسـم •⊱{ ['..FlterName(datai.first_name_..' '..(datai.last_name_ or ""),23)..'](tg://user?id='..arg.sender_user_id_..') }⊰•\n\n'
 ..USERNAME_T..'📆 التاريخ •⊱* '..os.date("%Y/%m/%d")
 ..' *⊰•\n⏱ الساعه •⊱* '..os.date("%I:%M%p")..' *⊰•')
-end,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,NameGroup=NameGroup,Gp_Link=Gp_Link,Groupcount=arg.Groupcount})
-end,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,Groupcount=Groupcount,invite_link_=data.invite_link_})
+end,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,NameGroup=NameGroup,Gp_Liws=Gp_Liws,Groupcount=arg.Groupcount})
+end,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,Groupcount=Groupcount,invite_liws_=data.invite_liws_})
 
 
 end,{chat_id_=msg.chat_id_,id_=msg.id_,sender_user_id_=msg.sender_user_id_,lock_servicez=lock_servicez})
@@ -1673,7 +1673,7 @@ return false
 end
 local UserID = data.id_
 local Resolv = ResolveUserName(data)
-NameUser = Hyper_Link_Name(data)
+NameUser = Hyper_Liws_Name(data)
 if data.username_ then 
 USERNAME = '@'..data.username_
 else 
@@ -2019,7 +2019,7 @@ redis:sadd(ws..'is_silent_users:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n تم كتمه  من المجموعه \n") 
 end
 
-if cmd == "unktm" then
+if cmd == "uwstm" then
 if not MuteUser(ChatID, UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n تم بالتأكيد الغاء كتمه  من المجموعه \n") 
 end
@@ -2100,21 +2100,21 @@ if UserID == our_id then return sendMsg(ChatID,MsgID,"⌯ لآ يمكنك تنف
 if UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1666331916 or UserID == 1790645201 then return sendMsg(ChatID,MsgID,"⌯ لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
 
 if UserID == SUDO_ID then 
-rinkuser = 1
+riwsuser = 1
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
-rinkuser = 2
+riwsuser = 2
 elseif redis:sismember(ws..':MONSHA_Group:'..ChatID,UserID) then 
-rinkuser = 3
+riwsuser = 3
 elseif redis:sismember(ws..':MONSHA_BOT:'..ChatID,UserID) then 
-rinkuser = 4
+riwsuser = 4
 elseif redis:sismember(ws..'owners:'..ChatID,UserID) then 
-rinkuser = 5
+riwsuser = 5
 elseif redis:sismember(ws..'admins:'..ChatID,UserID) then 
-rinkuser = 6
+riwsuser = 6
 elseif redis:sismember(ws..'whitelist:'..ChatID,UserID) then 
-rinkuser = 7
+riwsuser = 7
 else
-rinkuser = 8
+riwsuser = 8
 end
 local DonisDown = "\n⌯ تم تنزيله من الرتب الاتيه : \n\n "
 if redis:sismember(ws..':SUDO_BOT:',UserID) then 
@@ -2137,9 +2137,9 @@ DonisDown = DonisDown.."⌯  تم تنزيله من العضو مميز \n"
 end
 
 function senddwon()  sendMsg(ChatID,MsgID,"⌯ عذرا المستخدم رتبته اعلى منك لا يمكن تنزيله \n") end
-function sendpluse() sendMsg(ChatID,MsgID,"⌯ عذرا لا يمكن تنزيل رتبه مثل رتبتك : "..msg.TheRankCmd.." \n") end
+function sendpluse() sendMsg(ChatID,MsgID,"⌯ عذرا لا يمكن تنزيل رتبه مثل رتبتك : "..msg.TheRawsCmd.." \n") end
 
-if rinkuser == 8 then return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」   \nانه بالتأكيد عضو \n")  end
+if riwsuser == 8 then return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」   \nانه بالتأكيد عضو \n")  end
 huk = false
 if msg.SudoBase then 
 redis:srem(ws..':SUDO_BOT:',UserID)
@@ -2149,34 +2149,34 @@ redis:srem(ws..'owners:'..ChatID,UserID)
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 elseif msg.SudoUser then 
-if rinkuser == 2 then return sendpluse() end
-if rinkuser < 2 then return senddwon() end
+if riwsuser == 2 then return sendpluse() end
+if riwsuser < 2 then return senddwon() end
 redis:srem(ws..':MONSHA_Group:'..ChatID,UserID)
 redis:srem(ws..':MONSHA_BOT:'..ChatID,UserID)
 redis:srem(ws..'owners:'..ChatID,UserID)
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 elseif msg.SuperCreator then 
-if rinkuser == 3 then return sendpluse() end
-if rinkuser < 3 then return senddwon() end
+if riwsuser == 3 then return sendpluse() end
+if riwsuser < 3 then return senddwon() end
 redis:srem(ws..':MONSHA_BOT:'..ChatID,UserID)
 redis:srem(ws..'owners:'..ChatID,UserID)
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 elseif msg.Creator then 
-if rinkuser == 4 then return sendpluse() end
-if rinkuser < 5 then return senddwon() end
+if riwsuser == 4 then return sendpluse() end
+if riwsuser < 5 then return senddwon() end
 redis:srem(ws..'owners:'..ChatID,UserID)
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 elseif msg.Director then 
-if rinkuser == 5 then return sendpluse() end
-if rinkuser < 5 then return senddwon() end
+if riwsuser == 5 then return sendpluse() end
+if riwsuser < 5 then return senddwon() end
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 elseif msg.Admin then 
-if rinkuser == 6 then return sendpluse() end
-if rinkuser < 6 then return senddwon() end
+if riwsuser == 6 then return sendpluse() end
+if riwsuser < 6 then return senddwon() end
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 else
@@ -2189,56 +2189,57 @@ end
 
 end
 
+
 function settingsall(msg)
 
 list_settings = "*👮🏾¦*` اعدادات المجموعه :` \n"
-.."\n📝¦ التعديل » "..(redis:get(nk..'lock_edit'..msg.chat_id_) or 'false')
-.."\n🔗¦ الروابط » "..(redis:get(nk..'lock_link'..msg.chat_id_) or 'false')
-.."\n#️⃣¦ التاك » "..(redis:get(nk..'lock_tag'..msg.chat_id_) or 'false')
-.."\n©¦ المعرفات » "..(redis:get(nk..'lock_username'..msg.chat_id_) or 'false')
-.."\n\n💱¦ التكرار » "..(redis:get(nk..'lock_flood'..msg.chat_id_) or 'false')
-.."\n📑¦ الكلايش » "..(redis:get(nk..'lock_spam'..msg.chat_id_) or 'false')
-.."\n🌐¦ الويب » "..(redis:get(nk..'lock_webpage'..msg.chat_id_) or 'false')
-.."\n⚜️¦ الماركدوان » "..(redis:get(nk..'lock_markdown'..msg.chat_id_) or 'false')
-.."\n🏌🏻¦ البوتات بالطرد » "..(redis:get(nk..'lock_bots_by_kick'..msg.chat_id_) or 'false')
-.."\n🤖¦ البوتات » "..(redis:get(nk..'lock_bots'..msg.chat_id_) or 'false')
-.."\n➕¦ عدد التكرار » "..(redis:get(nk..'num_msg_max'..msg.chat_id_) or 'false')
-.."\n⏰¦ وقت التنظيف » "..(redis:get(nk..':Timer_Cleaner:'..msg.chat_id_) or '6').." ساعة ."
+.."\n📝¦ التعديل » "..(redis:get(ws..'lock_edit'..msg.chat_id_) or 'false')
+.."\n🔗¦ الروابط » "..(redis:get(ws..'lock_liws'..msg.chat_id_) or 'false')
+.."\n#️⃣¦ التاك » "..(redis:get(ws..'lock_tag'..msg.chat_id_) or 'false')
+.."\n©¦ المعرفات » "..(redis:get(ws..'lock_username'..msg.chat_id_) or 'false')
+.."\n\n💱¦ التكرار » "..(redis:get(ws..'lock_flood'..msg.chat_id_) or 'false')
+.."\n📑¦ الكلايش » "..(redis:get(ws..'lock_spam'..msg.chat_id_) or 'false')
+.."\n🌐¦ الويب » "..(redis:get(ws..'lock_webpage'..msg.chat_id_) or 'false')
+.."\n⚜️¦ الماركدوان » "..(redis:get(ws..'lock_markdown'..msg.chat_id_) or 'false')
+.."\n🏌🏻¦ البوتات بالطرد » "..(redis:get(ws..'lock_bots_by_kick'..msg.chat_id_) or 'false')
+.."\n🤖¦ البوتات » "..(redis:get(ws..'lock_bots'..msg.chat_id_) or 'false')
+.."\n➕¦ عدد التكرار » "..(redis:get(ws..'num_msg_max'..msg.chat_id_) or 'false')
+.."\n⏰¦ وقت التنظيف » "..(redis:get(ws..':Timer_Cleaner:'..msg.chat_id_) or '6').." ساعة ."
 .."\n\n🎬¦` اعدادات الوسائط :`\n"
-.."\n🤹*¦* المتحركه » "..(redis:get(nk..'mute_gif'..msg.chat_id_) or 'false')
-.."\n💭¦ الدردشه » "..(redis:get(nk..'mute_text'..msg.chat_id_) or 'false')
-.."\n◽️¦ الانلاين » "..(redis:get(nk..'mute_inline'..msg.chat_id_) or 'false')
-.."\n🎮¦ الالعاب » "..(redis:get(nk..'mute_game'..msg.chat_id_) or 'false')
-.."\n🏞¦ الصور » "..(redis:get(nk..'mute_photo'..msg.chat_id_) or 'false')
-.."\n🎥¦ الفيديو » "..(redis:get(nk..'mute_video'..msg.chat_id_) or 'false')
-.."\n🎙¦ الصوت » "..(redis:get(nk..'mute_audio'..msg.chat_id_) or 'false')
-.."\n\n🔉¦ البصمات » "..(redis:get(nk..'mute_voice'..msg.chat_id_) or 'false')
-.."\n🎎¦ الملصقات » "..(redis:get(nk..'mute_sticker'..msg.chat_id_) or 'false')
-.."\n📞¦ الجهات » "..(redis:get(nk..'mute_contact'..msg.chat_id_) or 'false')
-.."\n💱¦ التوجيه » "..(redis:get(nk..'mute_forward'..msg.chat_id_) or 'false')
-.."\n🌐¦ الموقع » "..(redis:get(nk..'mute_location'..msg.chat_id_) or 'false')
-.."\n🗂¦ الملفات » "..(redis:get(nk..'mute_document'..msg.chat_id_) or 'false')
-.."\n🔅¦ الاشعارات » "..(redis:get(nk..'mute_tgservice'..msg.chat_id_) or 'false')
-.."\n🔒¦ الفشار » "..(redis:get(nk..'lock_mmno3'..msg.chat_id_) or 'false')
-.."\n🔒¦ الفارسيه » "..(redis:get(nk..'lock_pharsi'..msg.chat_id_) or 'false')
-.."\n🔒¦ الانكليزيه » "..(redis:get(nk..'lock_lang'..msg.chat_id_) or 'false')
-.."\n🔒¦ الاضافه » "..(redis:get(nk..'lock_Add'..msg.chat_id_) or 'false')
+.."\n🤹*¦* المتحركه » "..(redis:get(ws..'mute_gif'..msg.chat_id_) or 'false')
+.."\n💭¦ الدردشه » "..(redis:get(ws..'mute_text'..msg.chat_id_) or 'false')
+.."\n◽️¦ الانلاين » "..(redis:get(ws..'mute_inline'..msg.chat_id_) or 'false')
+.."\n🎮¦ الالعاب » "..(redis:get(ws..'mute_game'..msg.chat_id_) or 'false')
+.."\n🏞¦ الصور » "..(redis:get(ws..'mute_photo'..msg.chat_id_) or 'false')
+.."\n🎥¦ الفيديو » "..(redis:get(ws..'mute_video'..msg.chat_id_) or 'false')
+.."\n🎙¦ الصوت » "..(redis:get(ws..'mute_audio'..msg.chat_id_) or 'false')
+.."\n\n🔉¦ البصمات » "..(redis:get(ws..'mute_voice'..msg.chat_id_) or 'false')
+.."\n🎎¦ الملصقات » "..(redis:get(ws..'mute_sticker'..msg.chat_id_) or 'false')
+.."\n📞¦ الجهات » "..(redis:get(ws..'mute_contact'..msg.chat_id_) or 'false')
+.."\n💱¦ التوجيه » "..(redis:get(ws..'mute_forward'..msg.chat_id_) or 'false')
+.."\n🌐¦ الموقع » "..(redis:get(ws..'mute_location'..msg.chat_id_) or 'false')
+.."\n🗂¦ الملفات » "..(redis:get(ws..'mute_document'..msg.chat_id_) or 'false')
+.."\n🔅¦ الاشعارات » "..(redis:get(ws..'mute_tgservice'..msg.chat_id_) or 'false')
+.."\n🔒¦ الفشار » "..(redis:get(ws..'lock_mmno3'..msg.chat_id_) or 'false')
+.."\n🔒¦ الفارسيه » "..(redis:get(ws..'lock_pharsi'..msg.chat_id_) or 'false')
+.."\n🔒¦ الانكليزيه » "..(redis:get(ws..'lock_lang'..msg.chat_id_) or 'false')
+.."\n🔒¦ الاضافه » "..(redis:get(ws..'lock_Add'..msg.chat_id_) or 'false')
 
 local eueuf = "\n\n*⚒¦*` اعدادات اخرى : `"
-.."\n*🙋🏼‍♂️¦* الترحيب » "..(redis:get(nk..'welcome:get'..msg.chat_id_) or 'false')
-.."\n*📋¦*  الردود » "..(redis:get(nk..'replay'..msg.chat_id_) or 'false')
-.."\n*📋¦*  الردود العشوائيه » "..(redis:get(nk.."lock_RandomRdod"..msg.chat_id_) or 'false')
-.."\n*🚸¦*  التحذير » "..(redis:get(nk..'lock_woring'..msg.chat_id_) or 'false')
-.."\n*📝¦* الايدي » "..(redis:get(nk..'lock_id'..msg.chat_id_) or 'false')
-.."\n*💬¦* الرابط » "..(redis:get(nk..'lock_linkk'..msg.chat_id_) or 'false')
-.."\n*📮¦* المغادره » "..(redis:get(nk..'lock_leftgroup'..msg.chat_id_) or 'false')
-.."\n*🗳¦* الحظر » "..(redis:get(nk..'lock_KickBan'..msg.chat_id_) or 'false')
-.."\n*🔍¦* الحمايه » "..(redis:get(nk..'antiedit'..msg.chat_id_) or 'false')
-.."\n*📋¦* التاك للكل » "..(redis:get(nk..'lock_takkl'..msg.chat_id_) or 'false')
-.."\n*📒¦* الايدي بالصوره » "..(redis:get(nk..'idphoto'..msg.chat_id_) or 'false')
-.."\n*🔐¦* التحقق » "..(redis:get(nk.."lock_check"..msg.chat_id_) or 'false')
-.."\n*🗑¦* التنظيف التلقائي » "..(redis:get(nk.."lock_cleaner"..msg.chat_id_) or 'false')
-.."\n*📂¦* ردود السورس » "..(redis:get(nk.."lock_rdodSource"..msg.chat_id_) or 'false')
+.."\n*🙋🏼‍♂️¦* الترحيب » "..(redis:get(ws..'welcome:get'..msg.chat_id_) or 'false')
+.."\n*📋¦*  الردود » "..(redis:get(ws..'replay'..msg.chat_id_) or 'false')
+.."\n*📋¦*  الردود العشوائيه » "..(redis:get(ws.."lock_RandomRdod"..msg.chat_id_) or 'false')
+.."\n*🚸¦*  التحذير » "..(redis:get(ws..'lock_woring'..msg.chat_id_) or 'false')
+.."\n*📝¦* الايدي » "..(redis:get(ws..'lock_id'..msg.chat_id_) or 'false')
+.."\n*💬¦* الرابط » "..(redis:get(ws..'lock_liwsk'..msg.chat_id_) or 'false')
+.."\n*📮¦* المغادره » "..(redis:get(ws..'lock_leftgroup'..msg.chat_id_) or 'false')
+.."\n*🗳¦* الحظر » "..(redis:get(ws..'lock_KickBan'..msg.chat_id_) or 'false')
+.."\n*🔍¦* الحمايه » "..(redis:get(ws..'antiedit'..msg.chat_id_) or 'false')
+.."\n*📋¦* التاك للكل » "..(redis:get(ws..'lock_takkl'..msg.chat_id_) or 'false')
+.."\n*📒¦* الايدي بالصوره » "..(redis:get(ws..'idphoto'..msg.chat_id_) or 'false')
+.."\n*🔐¦* التحقق » "..(redis:get(ws.."lock_check"..msg.chat_id_) or 'false')
+.."\n*🗑¦* التنظيف التلقائي » "..(redis:get(ws.."lock_cleaner"..msg.chat_id_) or 'false')
+.."\n*📂¦* ردود السورس » "..(redis:get(ws.."lock_rdodSource"..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 eueuf = eueuf:gsub('true', '{ مفعل }')
@@ -2248,23 +2249,23 @@ end
 
 function settings(msg)
 list_settings = "👮🏾¦` اعدادات المجموعه :` "
-.."\n\n*#️⃣¦* التاك » "..(redis:get(nk..'lock_tag'..msg.chat_id_) or 'false')
-.."\n*©¦* المعرفات » "..(redis:get(nk..'lock_username'..msg.chat_id_) or 'false')
-.."\n*📝¦* التعديل » "..(redis:get(nk..'lock_edit'..msg.chat_id_) or 'false')
-.."\n*🔗¦* الروابط » "..(redis:get(nk..'lock_link'..msg.chat_id_) or 'false')
-.."\n\n*💱¦* التكرار » "..(redis:get(nk..'lock_flood'..msg.chat_id_) or 'false')
-.."\n*📑¦* الكلايش » "..(redis:get(nk..'lock_spam'..msg.chat_id_) or 'false')
-.."\n\n*🌐¦* الويب » "..(redis:get(nk..'lock_webpage'..msg.chat_id_) or 'false')
-.."\n*⚜️¦* الماركدوان » "..(redis:get(nk..'lock_markdown'..msg.chat_id_) or 'false')
-.."\n*🏌🏻¦* البوتات بالطرد » "..(redis:get(nk..'lock_bots_by_kick'..msg.chat_id_) or 'false')
-.."\n*🤖¦* البوتات » "..(redis:get(nk..'lock_bots'..msg.chat_id_) or 'false')
-.."\n*➕¦* عدد التكرار » "..(redis:get(nk..'num_msg_max'..msg.chat_id_) or 'false')
+.."\n\n*#️⃣¦* التاك » "..(redis:get(ws..'lock_tag'..msg.chat_id_) or 'false')
+.."\n*©¦* المعرفات » "..(redis:get(ws..'lock_username'..msg.chat_id_) or 'false')
+.."\n*📝¦* التعديل » "..(redis:get(ws..'lock_edit'..msg.chat_id_) or 'false')
+.."\n*🔗¦* الروابط » "..(redis:get(ws..'lock_liws'..msg.chat_id_) or 'false')
+.."\n\n*💱¦* التكرار » "..(redis:get(ws..'lock_flood'..msg.chat_id_) or 'false')
+.."\n*📑¦* الكلايش » "..(redis:get(ws..'lock_spam'..msg.chat_id_) or 'false')
+.."\n\n*🌐¦* الويب » "..(redis:get(ws..'lock_webpage'..msg.chat_id_) or 'false')
+.."\n*⚜️¦* الماركدوان » "..(redis:get(ws..'lock_markdown'..msg.chat_id_) or 'false')
+.."\n*🏌🏻¦* البوتات بالطرد » "..(redis:get(ws..'lock_bots_by_kick'..msg.chat_id_) or 'false')
+.."\n*🤖¦* البوتات » "..(redis:get(ws..'lock_bots'..msg.chat_id_) or 'false')
+.."\n*➕¦* عدد التكرار » "..(redis:get(ws..'num_msg_max'..msg.chat_id_) or 'false')
 .."\n\n*💱¦*` اعدادات التقـييد :`\n"
-.."\n*💢¦* التقييد بالتوجيه » "..(redis:get(nk..':tqeed_fwd:'..msg.chat_id_) or 'false')
-.."\n*📸¦* التقييد بالصور » "..(redis:get(nk..':tqeed_photo:'..msg.chat_id_) or 'false')
-.."\n*🔗¦* التقييد بالروابط » "..(redis:get(nk..':tqeed_link:'..msg.chat_id_) or 'false')
-.."\n*🎉¦* التقييد بالمتحركه » "..(redis:get(nk..':tqeed_gif:'..msg.chat_id_) or 'false')
-.."\n*🎥¦* التقييد الفيديو » "..(redis:get(nk..':tqeed_video:'..msg.chat_id_) or 'false')
+.."\n*💢¦* التقييد بالتوجيه » "..(redis:get(ws..':tqeed_fwd:'..msg.chat_id_) or 'false')
+.."\n*📸¦* التقييد بالصور » "..(redis:get(ws..':tqeed_photo:'..msg.chat_id_) or 'false')
+.."\n*🔗¦* التقييد بالروابط » "..(redis:get(ws..':tqeed_liws:'..msg.chat_id_) or 'false')
+.."\n*🎉¦* التقييد بالمتحركه » "..(redis:get(ws..':tqeed_gif:'..msg.chat_id_) or 'false')
+.."\n*🎥¦* التقييد الفيديو » "..(redis:get(ws..':tqeed_video:'..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 return sendMsg(msg.chat_id_, msg.id_,'➖\n'..list_settings..'\n')
