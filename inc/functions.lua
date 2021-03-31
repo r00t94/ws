@@ -818,7 +818,7 @@ if Replay then
 Replay = Replay:gsub("{الاسم}",NameUser)
 Replay = Replay:gsub("{الايدي}",msg.sender_user_id_)
 Replay = Replay:gsub("{المعرف}",UserNameID)
-Replay = Replay:gsub("{الرتبه}",msg.TheRaws)
+Replay = Replay:gsub("{الرتبه}",msg.TheRank)
 Replay = Replay:gsub("{التفاعل}",Get_Ttl(Emsgs))
 Replay = Replay:gsub("{الرسائل}",Emsgs)
 Replay = Replay:gsub("{التعديل}",edited)
@@ -2137,7 +2137,7 @@ DonisDown = DonisDown.."⌯  تم تنزيله من العضو مميز \n"
 end
 
 function senddwon()  sendMsg(ChatID,MsgID,"⌯ عذرا المستخدم رتبته اعلى منك لا يمكن تنزيله \n") end
-function sendpluse() sendMsg(ChatID,MsgID,"⌯ عذرا لا يمكن تنزيل رتبه مثل رتبتك : "..msg.TheRawsCmd.." \n") end
+function sendpluse() sendMsg(ChatID,MsgID,"⌯ عذرا لا يمكن تنزيل رتبه مثل رتبتك : "..msg.TheRankCmd.." \n") end
 
 if riwsuser == 8 then return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」   \nانه بالتأكيد عضو \n")  end
 huk = false
