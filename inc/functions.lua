@@ -417,7 +417,7 @@ if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████  @r00t94
 download_file('https://raw.githubusercontent.com/r00t94/ws/main/inc/Script.lua','./inc/Script.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████ @r00t94  |') end
 download_file('https://raw.githubusercontent.com/r00t94/ws/main/inc/functions.lua','./inc/functions.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n تم تحديث السورس الى اصدار *v'..redis:get(ws..":VERSION")..'*\n تم اعاده تشغيل السورس بنجاح\n - @Wizard_System') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n تم تحديث السورس الى اصدار *v'..redis:get(ws..":VERSION")..'*\n تم اعاده تشغيل السورس بنجاح\n - @Wzsss') end
 if edit then dofile("./inc/Run.lua") end
 print("Update Source And Reload ~ ./inc/Run.lua")
 
@@ -486,10 +486,10 @@ Name = data.first_name_ .." "..data.last_name_
 else 
 Name = data.first_name_ 
 end
-usernn = data.username_ or "Wizard_System"
+usernn = data.username_ or "Wzsss"
 else 
 Name = data.title_
-usernn = data.type_.user_.username_ or "Wizard_System"
+usernn = data.type_.user_.username_ or "Wzsss"
 end
 Name = Name:gsub('[[][]]','')
 Name = FlterName(Name,10)
@@ -887,7 +887,7 @@ local info  = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."-l ["..info.username..'] \n'
 else
-message = message ..i.. '-l ['..info.username..'](t.me/Wizard_System) \n'
+message = message ..i.. '-l ['..info.username..'](t.me/Wzsss) \n'
 end
 
 i=i+1
@@ -899,7 +899,7 @@ local info  = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."-l ["..info.username..'] \n'
 else
-message = message ..i.. '-l ['..info.username..'](t.me/Wizard_System) \n'
+message = message ..i.. '-l ['..info.username..'](t.me/Wzsss) \n'
 end
 i=i+1
 end 
@@ -910,7 +910,7 @@ local info  = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."-l ["..info.username..'] \n'
 else
-message = message ..i.. '-l ['..info.username..'](t.me/Wizard_System) \n'
+message = message ..i.. '-l ['..info.username..'](t.me/Wzsss) \n'
 end
 i=i+1
 end 
@@ -921,7 +921,7 @@ local info  = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."-l ["..info.username..'] \n'
 else
-message = message ..i.. '-l ['..info.username..'](t.me/Wizard_System) \n'
+message = message ..i.. '-l ['..info.username..'](t.me/Wzsss) \n'
 end
 i=i+1
 end 
@@ -933,7 +933,7 @@ local info  = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."-l ["..info.username..'] \n'
 else
-message = message ..i.. '-l ['..info.username..'](t.me/Wizard_System) \n'
+message = message ..i.. '-l ['..info.username..'](t.me/Wzsss) \n'
 end
 i=i+1
 end 
@@ -952,7 +952,7 @@ local count = redis:scard(ws..'mtwr_count'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.."-l ["..info.username..'] » (`' ..v.. '`){'..count..'} \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`){'..count..'} \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`){'..count..'} \n'
 end
 end 
 end
@@ -968,7 +968,7 @@ function conslist(msg)
 
 
 
-message = '* المنشئيين الاساسيين:\n\n'
+message = '*⌯ المنشئيين الاساسيين:*\n\n'
 local monsha = redis:smembers(ws..':MONSHA_Group:'..msg.chat_id_)
 if #monsha == 0 then 
 message = message .."⌯ Not Super Creator ~⪼  لا يوجد منشئيين ااساسيين !\n"
@@ -978,7 +978,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.."-l ["..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 end
@@ -993,7 +993,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.."-l ["..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 end
@@ -1012,7 +1012,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..(info.username or '')..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 end
@@ -1034,7 +1034,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1055,7 +1055,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1064,10 +1064,10 @@ else
 return message
 end
 end
---================================{{  List basel  }} ===================================
+--================================{{  List salem  }} ===================================
 
-function basel(msg)
-local list = redis:smembers(ws..'basel:'..msg.chat_id_)
+function salem(msg)
+local list = redis:smembers(ws..'salem:'..msg.chat_id_)
 if #list == 0 then return "*⌯ لا يوجد قرده في القائمه *" end
 message = '⌯ قائمه القرده:\n'   
 for k,v in pairs(list) do
@@ -1075,7 +1075,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1084,10 +1084,10 @@ else
 return message
 end
 end
---================================{{  List basel1  }} ===================================
+--================================{{  List salem1  }} ===================================
 
-function basel1(msg)
-local list = redis:smembers(ws..'basel1:'..msg.chat_id_)
+function salem1(msg)
+local list = redis:smembers(ws..'salem1:'..msg.chat_id_)
 if #list == 0 then return "*⌯ لا يوجد قلوب في القائمه *" end
 message = '⌯ قائمه القلوب:\n'   
 for k,v in pairs(list) do
@@ -1095,7 +1095,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1104,10 +1104,10 @@ else
 return message
 end
 end
---================================{{  List basel2  }} ===================================
+--================================{{  List salem2  }} ===================================
 
-function basel2(msg)
-local list = redis:smembers(ws..'basel2:'..msg.chat_id_)
+function salem2(msg)
+local list = redis:smembers(ws..'salem2:'..msg.chat_id_)
 if #list == 0 then return "*⌯ لا يوجد وتك في القائمه *" end
 message = '⌯ قائمه الوتك:\n'   
 for k,v in pairs(list) do
@@ -1115,7 +1115,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1124,10 +1124,10 @@ else
 return message
 end
 end
---================================{{  List basel3  }} ===================================
+--================================{{  List salem3  }} ===================================
 
-function basel3(msg)
-local list = redis:smembers(ws..'basel3:'..msg.chat_id_)
+function salem3(msg)
+local list = redis:smembers(ws..'salem3:'..msg.chat_id_)
 if #list == 0 then return "*⌯ لا يوجد زوجات في القائمه *" end
 message = '⌯ قائمه الزوجات:\n'   
 for k,v in pairs(list) do
@@ -1135,7 +1135,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1144,10 +1144,10 @@ else
 return message
 end
 end
---================================{{  List basel4  }} ===================================
+--================================{{  List salem4  }} ===================================
 
-function basel4(msg)
-local list = redis:smembers(ws..'basel4:'..msg.chat_id_)
+function salem4(msg)
+local list = redis:smembers(ws..'salem4:'..msg.chat_id_)
 if #list == 0 then return "*⌯ لا يوجد ازواج في القائمه *" end
 message = '⌯ قائمه الازواج:\n'   
 for k,v in pairs(list) do
@@ -1155,7 +1155,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1185,7 +1185,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -1216,7 +1216,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end 
 end 
 if utf8.len(message) > 4096 then
@@ -1246,7 +1246,7 @@ local info = redis:hgetall(ws..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. '-l ['..info.username..'] » (`' ..v.. '`) \n'
 else
-message = message ..k.. '-l ['..info.username..'](t.me/Wizard_System) l » (`' ..v.. '`) \n'
+message = message ..k.. '-l ['..info.username..'](t.me/Wzsss) l » (`' ..v.. '`) \n'
 end
 end 
 if utf8.len(message) > 4096 then
@@ -1543,7 +1543,7 @@ if res == 200 then
 print(url) 
 local Req = JSON.decode(url)
 if Req.ok and Req.result and Req.result.status == "left" or Req.result.status == "kicked" then
-return sendMsg(msg.chat_id_,msg.id_," آشـترگ بآلقنآ‌‏ه آولآ ["..UserChaneel.."] \n ثم آرجع آرسـل تفعيل .")
+return sendMsg(msg.chat_id_,msg.id_," إشـتركـ بالقناة أولاََ ["..UserChaneel.."] \n ثـم إرسل تفعيـل .")
 end
 else
 return " آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n ثم آرجع آرسـل تفعيل ."
@@ -1568,9 +1568,9 @@ if data.channel_ and data.channel_.status_.ID  == "ChatMemberStatusMember" then
 return sendMsg(arg.chat_id_,arg.id_,'⌯ عذرا البوت ليس ادمن  في المجموعه \n- يرجى رفعه ادمن لتتمكن من تفعيل البوت ')
 end
 if arg.lock_servicez then 
-sendMsg(arg.chat_id_,arg.id_,'تـم تـفعـيل المـجمـوعه\n [ويـزَرد](https://t.me/Wizard_System) \n ')
+sendMsg(arg.chat_id_,arg.id_,'تـم تـفعـيل المـجمـوعه\n [ويـزَرد](https://t.me/Wzsss) \n ')
 else
-sendMsg(arg.chat_id_,arg.id_,'تـم تفـعيل المجـموعه\n [ويـزَرد](https://t.me/Wizard_System) \n ')
+sendMsg(arg.chat_id_,arg.id_,'تـم تفـعيل المجـموعه\n [ويـزَرد](https://t.me/Wzsss) \n ')
 end
 
 GetChannelAdministrators(arg.chat_id_,function(arg,data)
@@ -1714,93 +1714,93 @@ end
 
 
 
-if cmd == "raf3basel" then
-if redis:sismember(ws..'basel:'..ChatID,UserID) then 
+if cmd == "raf3salem" then
+if redis:sismember(ws..'salem:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم بالتأكيد رفعه قرد  في المجموعه \n") 
 end
 
 redis:hset(ws..'username:'..UserID, 'username', Resolv)
-redis:sadd(ws..'basel:'..ChatID,UserID)
+redis:sadd(ws..'salem:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم رفعه قرد مجموعه \n") 
 end
 
-if cmd == "tnzelbasel" then
-if not redis:sismember(ws..'basel:'..ChatID,UserID) then 
+if cmd == "tnzelsalem" then
+if not redis:sismember(ws..'salem:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم بالتأكيد تنزيل القرد \n") 
 end
-redis:srem(ws..'basel:'..ChatID,UserID)
+redis:srem(ws..'salem:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم تنزيله من قائمه القرده\n") 
 end
 
-if cmd == "raf3basel1" then
-if redis:sismember(ws..'basel1:'..ChatID,UserID) then 
+if cmd == "raf3salem1" then
+if redis:sismember(ws..'salem1:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم بالتأكيد رفعه قلبك في المجموعه \n") 
 end
 
 redis:hset(ws..'username:'..UserID, 'username', Resolv)
-redis:sadd(ws..'basel1:'..ChatID,UserID)
+redis:sadd(ws..'salem1:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم رفعه قلبك \n") 
 end
 
-if cmd == "tnzelbasel1" then
-if not redis:sismember(ws..'basel1:'..ChatID,UserID) then 
+if cmd == "tnzelsalem1" then
+if not redis:sismember(ws..'salem1:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم بالتأكيد تنزيل قلبك \n") 
 end
-redis:srem(ws..'basel1:'..ChatID,UserID)
+redis:srem(ws..'salem1:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم تنزيله من قائمه القلوب\n") 
 end
 
-if cmd == "raf3basel2" then
-if redis:sismember(ws..'basel2:'..ChatID,UserID) then 
+if cmd == "raf3salem2" then
+if redis:sismember(ws..'salem2:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم بالتأكيد رفعه العضو وتكه في المجموعه \n") 
 end
 
 redis:hset(ws..'username:'..UserID, 'username', Resolv)
-redis:sadd(ws..'basel2:'..ChatID,UserID)
+redis:sadd(ws..'salem2:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم رفعه وتكه \n") 
 end
 
-if cmd == "tnzelbasel2" then
-if not redis:sismember(ws..'basel2:'..ChatID,UserID) then 
+if cmd == "tnzelsalem2" then
+if not redis:sismember(ws..'salem2:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم بالتأكيد تنزيل الوتكه \n") 
 end
-redis:srem(ws..'basel2:'..ChatID,UserID)
+redis:srem(ws..'salem2:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم تنزيله من قائمه الوتك\n") 
 end
 
-if cmd == "raf3basel3" then
-if redis:sismember(ws..'basel3:'..ChatID,UserID) then 
+if cmd == "raf3salem3" then
+if redis:sismember(ws..'salem3:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم بالتأكيد رفعها زوجتك في المجموعه \n") 
 end
 
 redis:hset(ws..'username:'..UserID, 'username', Resolv)
-redis:sadd(ws..'basel3:'..ChatID,UserID)
+redis:sadd(ws..'salem3:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم رفعها زوجتك \n") 
 end
 
-if cmd == "tnzelbasel3" then
-if not redis:sismember(ws..'basel3:'..ChatID,UserID) then 
+if cmd == "tnzelsalem3" then
+if not redis:sismember(ws..'salem3:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم بالتأكيد تنزيل الجثه من زوجاتك \n") 
 end
-redis:srem(ws..'basel3:'..ChatID,UserID)
+redis:srem(ws..'salem3:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم تنزيله من قائمه زوجاتك\n") 
 end
 
-if cmd == "raf3basel4" then
-if redis:sismember(ws..'basel4:'..ChatID,UserID) then 
+if cmd == "raf3salem4" then
+if redis:sismember(ws..'salem4:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم بالتأكيد رفعه زوجك في المجموعه \n") 
 end
 
 redis:hset(ws..'username:'..UserID, 'username', Resolv)
-redis:sadd(ws..'basel4:'..ChatID,UserID)
+redis:sadd(ws..'salem4:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم رفعه زوجك دلعيه \n") 
 end
 
-if cmd == "tnzelbasel4" then
-if not redis:sismember(ws..'basel4:'..ChatID,UserID) then 
+if cmd == "tnzelsalem4" then
+if not redis:sismember(ws..'salem4:'..ChatID,UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم بالتأكيد تنزيل العضو من قائمه ازواجك \n") 
 end
-redis:srem(ws..'basel4:'..ChatID,UserID)
+redis:srem(ws..'salem4:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n⌯ تم تنزيله من قائمه ازواجك\n") 
 end
 
@@ -2032,7 +2032,7 @@ if cmd == "upMshrf" then
 redis:hset(ws..'username:'..UserID,'username',Resolv)
 redis:setex(ws..":uploadingsomeon:"..ChatID..msg.sender_user_id_,500,NameUser)
 redis:setex(ws..":uploadingsomeon2:"..ChatID..msg.sender_user_id_,500,UserID)
-sendMsg(ChatID,MsgID,"  » حسننا الان ارسل صلاحيات المشرف :\n\n|1- صلاحيه تغيير المعلومات\n|2- صلاحيه حذف الرسائل\n|3- صلاحيه دعوه مستخدمين\n|4- صلاحيه حظر وتقيد المستخدمين \n|5- صلاحيه تثبيت الرسائل \n|6- صلاحيه رفع مشرفين اخرين\n\n|[*]- لرفع كل الصلاحيات ما عدا رفع المشرفين \n|[**] - لرفع كل الصلاحيات مع رفع المشرفين \n\n يمكنك اختيار الارقام معا وتعيين الكنيه للمشرف في ان واحد مثلا : \n\n| 136 ويـزَرد\n") 
+sendMsg(ChatID,MsgID,"  » حسننا الان ارسل صلاحيات المشرف :\n\n|1- صلاحيه تغيير المعلومات\n|2- صلاحيه حذف الرسائل\n|3- صلاحيه دعوه مستخدمين\n|4- صلاحيه حظر وتقيد المستخدمين \n|5- صلاحيه تثبيت الرسائل \n|6- صلاحيه رفع مشرفين اخرين\n\n|[*]- لرفع كل الصلاحيات ما عدا رفع المشرفين \n|[**] - لرفع كل الصلاحيات مع رفع المشرفين \n\n يمكنك اختيار الارقام معا وتعيين الكنيه للمشرف في ان واحد مثلا : \n\n| 136 ويزرد\n") 
 return false
 end
 
@@ -2188,7 +2188,6 @@ if not huk then sendMsg(ChatID,UserID,"⌯ المستخدم  ⋙「 "..NameUser.
 end
 
 end
-
 
 function settingsall(msg)
 
