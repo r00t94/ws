@@ -505,11 +505,11 @@ local Text = tostring(TextMsg)
 Text = Text:gsub('_',[[\_]])
 Text = Text:gsub('*','\\*')
 Text = Text:gsub('`','\\`')
-local Hyperliws = Text:match('[(](.*)[)]')
+local Hyperlink = Text:match('[(](.*)[)]')
 local Hyperlink1 = Text:match('[[](.*)[]]')
-if Hyperliws and Hyperlink1 then
-Hyperliws = "("..Hyperliws:gsub([[\_]],'_')..")"
-Text = Text:gsub('[(](.*)[)]',Hyperliws ) 
+if Hyperlink and Hyperlink1 then
+Hyperlink = "("..Hyperlink:gsub([[\_]],'_')..")"
+Text = Text:gsub('[(](.*)[)]',Hyperlink ) 
 Hyperlink1 = Hyperlink1:gsub([[\_]],'_')
 Hyperlink1 = "["..Hyperlink1:gsub('[[][]]','').."]"
 Text = Text:gsub('[[](.*)[]]',Hyperlink1 ) 
