@@ -182,7 +182,7 @@ uuuu = arg.UserName:gsub("@","")
 sendMsg(arg.ChatID,arg.MsgID,"["..data.title_.."](t.me/"..uuuu..")")
 end,{ChatID=msg.chat_id_,MsgID=msg.id_,UserName=info.username})
 else
-message = message..' ['..info.username..'](T.ME/Wizard_System)  \n'
+message = message..' ['..info.username..'](T.ME/wzsss)  \n'
 sendMsg(msg.chat_id_,msg.id_,message)
 end
 
@@ -3289,7 +3289,7 @@ SUDO_USERR = ""
 end
 sendPhoto(msg.chat_id_,msg.id_,Photo_Weloame,[[⌯  مـرحبا أنا بوت آسـمـي ]]..redis:get(ws..':NameBot:')..[[ 🎖
 ⌯  يمكنني حمايه المجموعات من السبام والتوجيه الخ....
-⌯ [قـناة الـسورس](HTTPS://T.ME/WIZARD_SYSTEM) 
+⌯ [قـناة الـسورس](HTTPS://T.ME/wzsss) 
 ]]..SUDO_USERR) 
 return false
 else
@@ -3595,7 +3595,7 @@ sendMsg(msg.chat_id_,msg.id_,'⌯  يوجد تحديث جديد الان \n⌯  
 redis:set(ws..":VERSION",GetVerison)
 return false
 else
-return "⌯ الاصدار الحالي : *v"..version.."* \n⌯  لديـك احدث اصدار\n - [ويـزَرد](t.me/Wizard_System)"
+return "⌯ الاصدار الحالي : *v"..version.."* \n⌯  لديـك احدث اصدار\n - [ويـزَرد](t.me/wzsss)"
 end
 return false
 end
@@ -3654,8 +3654,8 @@ end
 if (MsgText[1]== "ايديي" or MsgText[1]=="ايدي 🆔") and msg.type == "pv" then return  "\n"..msg.sender_user_id_.."\n"  end
 
 if MsgText[1]== "قناة السورس" and msg.type == "pv" then
-local inline = {{{text="Source Channel : Wizard",url="T.ME/Wizard_System"}}}
-send_key(msg.sender_user_id_,'  [Source : Wizard ](T.ME/Wizard_System)',nil,inline,msg.id_)
+local inline = {{{text="Source Channel : Wizard",url="T.ME/wzsss"}}}
+send_key(msg.sender_user_id_,'  [Source : Wizard ](T.ME/wzsss)',nil,inline,msg.id_)
 return false
 end
 
@@ -4324,18 +4324,16 @@ end
 end 
 
 if MsgText[1]== "ويزرد" or MsgText[1]=="ويزرد" then
-local inline = {{{text="Source Channel : Wizard",url="T.ME/Wizard_System"}}}
+local inline = {{{text="Source Channel : Wizard",url="T.ME/wzsss"}}}
 send_key(msg.sender_user_id_,'Wizard',nil,inline,msg.id_)
 end
 
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
 local inline = {
-{{text = '𝗛𝗘𝗟𝗟.',url="https://t.me/r00t94"}},
-{{text = '𝗨𝗙𝗢.',url="https://t.me/UFO_xXx"}},
-{{text = '𝗠𝗢𝗡𝗦𝗧𝗘𝗥.',url="https://t.me/J_69_L"}},
-{{text = '𝐬𝐨𝐮𝐫𝐜𝐞.',url="https://t.me/wizard_system"}}
+{{text = '⌯ 𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍',url="https://t.me/Wizard_System"}},
+{{text = '⌯ 𝘾𝙃𝘼𝙉𝙉𝙀𝙇',url="https://t.me/wzsss"}}
 }
-return send_inline(msg.chat_id_,"𝒔𝒐𝒖𝒓𝒄𝒆 𝒘𝒊𝒛𝒂𝒓𝒅 𖣂.",inline,msg.id_)
+return send_inline(msg.chat_id_,"- [ 𝙎𝙊𝙐𝙍𝘾𝙀 𝙒𝙄𝙕𝘼𝙍𝘿 ]",inline,msg.id_)
 end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
@@ -4514,7 +4512,7 @@ end
 
 text = [[⌯  مـرحبآ آنآ بوت آسـمـي []]..redis:get(ws..':NameBot:')..[[] 
 ⌯  يمكنني حمايه المجموعات من السبام والتوجيه الخ....
-⌯ [قـناة الـسورس](T.ME/Wizard_System) 
+⌯ [قـناة الـسورس](T.ME/wzsss) 
 ]]..SUDO_USERR..[[
 
 ⌯ ]]
