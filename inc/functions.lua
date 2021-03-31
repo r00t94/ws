@@ -198,8 +198,8 @@ tdcli_function({ID = 'SendChatAction',chat_id_ = chatid,action_ = {ID = "SendMes
 end
 
 --================================{{  GetChannelFull  }} ===================================
-function download_file(Liws,Bath)
-local Get_Files, res = https.request(Liws)
+function download_file(Link,Bath)
+local Get_Files, res = https.request(Link)
 if res == 200 then
 local FileD = io.open(Bath,'w+')
 FileD:write(Get_Files)
@@ -284,10 +284,10 @@ return res
 end
 
 
---================================{{  ExportChatInviteLiws  }} ===================================
+--================================{{  ExportChatInviteLink  }} ===================================
 
-function ExportLiws(GroupID)
-local GetLin,res = https.request(ApiToken..'/exportChatInviteLiws?chat_id='..GroupID)
+function ExportLink(GroupID)
+local GetLin,res = https.request(ApiToken..'/exportChatInviteLink?chat_id='..GroupID)
 print(res)
 if res ~= 200 then return false end
 local success, res = pcall(JSON.decode, GetLin)
@@ -479,7 +479,7 @@ end
 return USERNAME
 end
 
-function Hyper_Liws_Name(data)
+function Hyper_Link_Name(data)
 if data.first_name_ then 
 if data.last_name_ then 
 Name = data.first_name_ .." "..data.last_name_
@@ -1534,7 +1534,7 @@ if msg.type ~= "channel" then return '⌯ البوت يعمل فقط في الم
 
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg 
-local NameUser   = Hyper_Liws_Name(data)
+local NameUser   = Hyper_Link_Name(data)
 if redis:get(ws..'group:add'..msg.chat_id_) then  return sendMsg(msg.chat_id_,msg.id_,' المجموعه بالتأكيد  تم تفعيلها \n \n') end
 local UserChaneel = redis:get(ws..":UserNameChaneel")
 if UserChaneel and not msg.SudoBase then
@@ -1628,16 +1628,16 @@ redis:sadd(ws..'mtwr_count'..arg.sender_user_id_,arg.chat_id_)
 local NameGroup = data.title_
 redis:set(ws..'group:name'..arg.chat_id_,NameGroup)
 if not arg.invite_link_ then
-Gp_Liws = ExportLiws(arg.chat_id_)
-if Gp_Liws and Gp_Liws.result then
-Gp_Liws = Gp_Liws.result
+Gp_Link = ExportLink(arg.chat_id_)
+if Gp_Link and Gp_Link.result then
+Gp_Link = Gp_Link.result
 else
-Gp_Liws = ""
+Gp_Link = ""
 end
 else
-Gp_Liws = arg.invite_link_
+Gp_Link = arg.invite_link_
 end
-redis:set(ws..'linkGroup'..arg.chat_id_,Gp_Liws)
+redis:set(ws..'linkGroup'..arg.chat_id_,Gp_Link)
 if arg.sender_user_id_ == SUDO_ID then return false end
 GetUserID(arg.sender_user_id_,function(arg,datai)
 if datai.username_ then 
@@ -1646,13 +1646,13 @@ else
 USERNAME_T = ''
 end
 send_msg(SUDO_ID,' قام شخص بتفعيل البوت ...\n\nــــــــــــــــــــــــــــــــــــــــــ\n⌯  معلومات المجموعه\n'
-..'🗯 الاسم •⊱ ['..arg.NameGroup..']('..arg.Gp_Liws..') ⊰• \n'
+..'🗯 الاسم •⊱ ['..arg.NameGroup..']('..arg.Gp_Link..') ⊰• \n'
 ..'⌯ الايدي •⊱`'..arg.chat_id_..'`⊰•\n'
 ..' ألاعـضـاء •⊱{ *'..arg.Groupcount..'* }⊰• \nــــــــــــــــــــــــــــــــــــــــــ\n معلومات الشخص \n'
 ..'*⌯* الاسـم •⊱{ ['..FlterName(datai.first_name_..' '..(datai.last_name_ or ""),23)..'](tg://user?id='..arg.sender_user_id_..') }⊰•\n\n'
 ..USERNAME_T..'📆 التاريخ •⊱* '..os.date("%Y/%m/%d")
 ..' *⊰•\n⏱ الساعه •⊱* '..os.date("%I:%M%p")..' *⊰•')
-end,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,NameGroup=NameGroup,Gp_Liws=Gp_Liws,Groupcount=arg.Groupcount})
+end,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,NameGroup=NameGroup,Gp_Link=Gp_Link,Groupcount=arg.Groupcount})
 end,{chat_id_=arg.chat_id_,sender_user_id_=arg.sender_user_id_,Groupcount=Groupcount,invite_link_=data.invite_link_})
 
 
@@ -1673,7 +1673,7 @@ return false
 end
 local UserID = data.id_
 local Resolv = ResolveUserName(data)
-NameUser = Hyper_Liws_Name(data)
+NameUser = Hyper_Link_Name(data)
 if data.username_ then 
 USERNAME = '@'..data.username_
 else 
