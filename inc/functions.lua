@@ -298,9 +298,9 @@ function Restrict(chat_id,user_id,right)
 if right == 1 then
 ii = https.request(ApiToken..'/restrictChatMember?chat_id='..chat_id..'&user_id='..user_id..'&can_send_messages=false')
 elseif right == 2 then
-ii = https.request(ApiToken..'/restrictChatMember?chat_id='..chat_id..'&user_id='..user_id..'&can_send_messages=true&can_send_media_messages=true&can_send_other_messages=true&can_add_web_page_previews=true')
+ii = https.request(ApiToken..'/restrictChatMember?chat_id='..chat_id..'&user_id='..user_id..'&can_send_messages=true&can_send_media_messages=true&can_send_other_messages=true&can_add_web_page_previenk=true')
 elseif right == 3 then
-ii = https.request(ApiToken..'/restrictChatMember?chat_id='..chat_id..'&user_id='..user_id..'&can_send_messages=true&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false')
+ii = https.request(ApiToken..'/restrictChatMember?chat_id='..chat_id..'&user_id='..user_id..'&can_send_messages=true&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previenk=false')
 end
 print(ii)
 return ii
@@ -2019,7 +2019,7 @@ redis:sadd(ws..'is_silent_users:'..ChatID,UserID)
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n تم كتمه  من المجموعه \n") 
 end
 
-if cmd == "uwstm" then
+if cmd == "unktm" then
 if not MuteUser(ChatID, UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」 \n تم بالتأكيد الغاء كتمه  من المجموعه \n") 
 end
@@ -2100,21 +2100,21 @@ if UserID == our_id then return sendMsg(ChatID,MsgID,"⌯ لآ يمكنك تنف
 if UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1666331916 or UserID == 1790645201 then return sendMsg(ChatID,MsgID,"⌯ لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
 
 if UserID == SUDO_ID then 
-riwsuser = 1
+rinkuser = 1
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
-riwsuser = 2
+rinkuser = 2
 elseif redis:sismember(ws..':MONSHA_Group:'..ChatID,UserID) then 
-riwsuser = 3
+rinkuser = 3
 elseif redis:sismember(ws..':MONSHA_BOT:'..ChatID,UserID) then 
-riwsuser = 4
+rinkuser = 4
 elseif redis:sismember(ws..'owners:'..ChatID,UserID) then 
-riwsuser = 5
+rinkuser = 5
 elseif redis:sismember(ws..'admins:'..ChatID,UserID) then 
-riwsuser = 6
+rinkuser = 6
 elseif redis:sismember(ws..'whitelist:'..ChatID,UserID) then 
-riwsuser = 7
+rinkuser = 7
 else
-riwsuser = 8
+rinkuser = 8
 end
 local DonisDown = "\n⌯ تم تنزيله من الرتب الاتيه : \n\n "
 if redis:sismember(ws..':SUDO_BOT:',UserID) then 
@@ -2139,7 +2139,7 @@ end
 function senddwon()  sendMsg(ChatID,MsgID,"⌯ عذرا المستخدم رتبته اعلى منك لا يمكن تنزيله \n") end
 function sendpluse() sendMsg(ChatID,MsgID,"⌯ عذرا لا يمكن تنزيل رتبه مثل رتبتك : "..msg.TheRankCmd.." \n") end
 
-if riwsuser == 8 then return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」   \nانه بالتأكيد عضو \n")  end
+if rinkuser == 8 then return sendMsg(ChatID,MsgID,"⌯ المستخدم  ⋙「 "..NameUser.." 」   \nانه بالتأكيد عضو \n")  end
 huk = false
 if msg.SudoBase then 
 redis:srem(ws..':SUDO_BOT:',UserID)
@@ -2149,34 +2149,34 @@ redis:srem(ws..'owners:'..ChatID,UserID)
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 elseif msg.SudoUser then 
-if riwsuser == 2 then return sendpluse() end
-if riwsuser < 2 then return senddwon() end
+if rinkuser == 2 then return sendpluse() end
+if rinkuser < 2 then return senddwon() end
 redis:srem(ws..':MONSHA_Group:'..ChatID,UserID)
 redis:srem(ws..':MONSHA_BOT:'..ChatID,UserID)
 redis:srem(ws..'owners:'..ChatID,UserID)
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 elseif msg.SuperCreator then 
-if riwsuser == 3 then return sendpluse() end
-if riwsuser < 3 then return senddwon() end
+if rinkuser == 3 then return sendpluse() end
+if rinkuser < 3 then return senddwon() end
 redis:srem(ws..':MONSHA_BOT:'..ChatID,UserID)
 redis:srem(ws..'owners:'..ChatID,UserID)
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 elseif msg.Creator then 
-if riwsuser == 4 then return sendpluse() end
-if riwsuser < 5 then return senddwon() end
+if rinkuser == 4 then return sendpluse() end
+if rinkuser < 5 then return senddwon() end
 redis:srem(ws..'owners:'..ChatID,UserID)
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 elseif msg.Director then 
-if riwsuser == 5 then return sendpluse() end
-if riwsuser < 5 then return senddwon() end
+if rinkuser == 5 then return sendpluse() end
+if rinkuser < 5 then return senddwon() end
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 elseif msg.Admin then 
-if riwsuser == 6 then return sendpluse() end
-if riwsuser < 6 then return senddwon() end
+if rinkuser == 6 then return sendpluse() end
+if rinkuser < 6 then return senddwon() end
 redis:srem(ws..'admins:'..ChatID,UserID)
 redis:srem(ws..'whitelist:'..ChatID,UserID)
 else
