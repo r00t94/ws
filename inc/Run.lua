@@ -6,14 +6,15 @@ local function download(file_id, dl_cb, cmd)
 end
 
 
+Er_cjson , JSON  = pcall(require, "cjson")
 Er_ssl   , https = pcall(require, "ssl.https")
+Er_url   , URL   = pcall(require, "socket.url")
 Er_http  , http  = pcall(require, "socket.http")
-http.TIMEOUT = 5
-JSON   = (loadfile "./libs/json.lua")()
-redis  = (loadfile "./libs/redis.lua")()
-URL    = (loadfile "./libs/url.lua")()
 Er_utf8  , utf8  = pcall(require, "lua-utf8")
+Er_redis , redis = pcall(require, "redis")
+json  = dofile('./inc/JSON.lua')
 redis = redis.connect('127.0.0.1',6379)
+http.TIMEOUT = 5
 
 if not Er_cjson then
 print("('\n\27[1;31m￤Pkg _ Cjson is Not installed.'\n\27[0m￤")
