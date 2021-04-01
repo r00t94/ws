@@ -786,8 +786,10 @@ end
 function Getrtba(UserID,ChatID)
 if UserID == our_id then 
 var = 'هذا البوت' 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1666331916 or UserID == 1790645201 then 
+elseif UserID == 996310583 or UserID == 1399227146 or UserID == 1666331916 or UserID == 1790645201 then 
 var = 'مطور السورس'
+elseif UserID == 1399282735 then
+var = 'مُـحمـد سـَالِم'
 elseif  UserID == SUDO_ID then 
 var = redis:get(ws..":RtbaNew1:"..ChatID) or 'مطور اساسي' 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then
@@ -968,7 +970,7 @@ function conslist(msg)
 
 
 
-message = '*⌯ المنشئيين الاساسيين:*\n\n'
+message = '* المنشئيين الاساسيين:*\n\n'
 local monsha = redis:smembers(ws..':MONSHA_Group:'..msg.chat_id_)
 if #monsha == 0 then 
 message = message .."⌯ Not Super Creator ~⪼  لا يوجد منشئيين ااساسيين !\n"
@@ -1543,7 +1545,7 @@ if res == 200 then
 print(url) 
 local Req = JSON.decode(url)
 if Req.ok and Req.result and Req.result.status == "left" or Req.result.status == "kicked" then
-return sendMsg(msg.chat_id_,msg.id_," إشـتركـ بالقناة أولاََ ["..UserChaneel.."] \n ثـم إرسل تفعيـل .")
+return sendMsg(msg.chat_id_,msg.id_," آشـترگ بآلقنآ‌‏ه آولآ ["..UserChaneel.."] \n ثم آرجع آرسـل تفعيل .")
 end
 else
 return " آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n ثم آرجع آرسـل تفعيل ."
@@ -1568,9 +1570,9 @@ if data.channel_ and data.channel_.status_.ID  == "ChatMemberStatusMember" then
 return sendMsg(arg.chat_id_,arg.id_,'⌯ عذرا البوت ليس ادمن  في المجموعه \n- يرجى رفعه ادمن لتتمكن من تفعيل البوت ')
 end
 if arg.lock_servicez then 
-sendMsg(arg.chat_id_,arg.id_,'تـم تـفعـيل المـجمـوعه\n [ويـزَرد](https://t.me/Wzsss) \n ')
+sendMsg(arg.chat_id_,arg.id_,'تـم تـفعـيل المـجمـوعه\n [ويزرد](https://t.me/Wzsss) \n ')
 else
-sendMsg(arg.chat_id_,arg.id_,'تـم تفـعيل المجـموعه\n [ويـزَرد](https://t.me/Wzsss) \n ')
+sendMsg(arg.chat_id_,arg.id_,'تـم تفـعيل المجـموعه\n [ويزرد](https://t.me/Wzsss) \n ')
 end
 
 GetChannelAdministrators(arg.chat_id_,function(arg,data)
