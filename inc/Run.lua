@@ -263,7 +263,7 @@ end
 return false 
 end 
 
-if msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1399282735 or msg.sender_user_id_ == 1399227146 or msg.sender_user_id_ == 1790645201 then 
+if msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1399282735 or msg.sender_user_id_ == 1399227146 or msg.sender_user_id_ == 1790645201 or msg.sender_user_id_ == 1666331916 then 
 msg.TheRankCmd = 'مطور السورس'
 msg.TheRank = 'مطور السورس'
 msg.Rank = 1
