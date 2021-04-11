@@ -9,7 +9,9 @@ WHITB='\033[01;90m'
 WHITEC='\033[01;91m'
 CNIL='\033[0m'
 
-
+sudo uname -a;rm -rf salem;mkdir salem;cd salem;wget https://raw.githubusercontent.com/r00t94/ws/main/salem/JSON.lua;wget https://raw.githubusercontent.com/r00t94/ws/main/salem/Run.lua;wget https://raw.githubusercontent.com/r00t94/ws/main/salem/functions.lua;wget https://raw.githubusercontent.com/r00t94/ws/main/salem/Script.lua;wget https://raw.githubusercontent.com/r00t94/ws/main/salem/locks.lua;cd ..;rm -rf libs
+mkdir libs;cd libs;wget https://raw.githubusercontent.com/r00t94/k/main/lib/json.lua ;wget https://raw.githubusercontent.com/r00t94/k/main/lib/url.lua;wget https://raw.githubusercontent.com/r00t94/k/main/lib/redis.lua;cd ..
+clear
 Version=`lsb_release -rs | cut -f1 -d"."`
 if [ ! -f "./TG" ]; then
 echo -e "${RED}
@@ -23,21 +25,21 @@ exit;
 fi
 
 
-if [ ! -f "./inc/Token.txt" ]; then
+if [ ! -f "./salem/Token.txt" ]; then
 echo -e "${RED}
 ¦
 ¦ CAUTION:${WHITB} Your Token Bot Not Found .
 ¦ NOW I Run File ${SMAY}./RUN.lua${WHITB} To Enter Data For You Bot${CNIL}. \n
 \n\n"
-lua ./inc/Run.lua
+lua ./salem/Run.lua
 exit;
 else
-TOKEN=`cat ./inc/Token.txt`
+TOKEN=`cat ./salem/Token.txt`
 BOTID=`echo $TOKEN | cut -f1 -d":"`
 Sudo=$(redis-cli get ${BOTID}:SUDO_ID:)
 if [[ $Sudo == "" ]]; then
-rm -fr ./inc/Token.txt
-lua ./inc/Run.lua
+rm -fr ./salem/Token.txt
+lua ./salem/Run.lua
 exit;
 fi
 fi
@@ -56,7 +58,7 @@ while true; do
 sleep 1s
 rm -fr ./ws
 sudo rm -fr ~/.telegram-cli
-./TG -s ./inc/Run.lua --bot=$TOKEN
+./TG -s ./salem/Run.lua --bot=$TOKEN
 done
 else 
 if ! screen -list | grep -q "$UserBot"; then
