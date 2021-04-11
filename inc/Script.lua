@@ -2,7 +2,7 @@
 local function iWs(msg,MsgText)
 
 if msg.forward_info_ then return false end
-
+--[t.me/r00t94]--
 
 if msg.Director 
 and (redis:get(ws..":Witting_changeamr:"..msg.chat_id_..msg.sender_user_id_) 
