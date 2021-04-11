@@ -86,7 +86,7 @@ redis:set(ws..":DataCenter:",'German')
 redis:set(ws..":UserNameBot:",BOT_User)
 redis:set(ws..":NameBot:",BOT_NAME)
 redis:hset(ws..'username:'..SUDO_USER,'username','@'..GetUser.result.username:gsub('_',[[\_]]))
-redis:set("TH3ws_INSTALL","Yes")
+redis:set("ws_INSTALL","Yes")
 info = {} 
 info.namebot = BOT_NAME
 info.userbot = BOT_User
