@@ -24,7 +24,7 @@ chmod +x ./ins
 ./ins
 exit;
 fi
-
+#F55s5
 
 if [ ! -f "./salem/Token.txt" ]; then
 echo -e "${RED}
