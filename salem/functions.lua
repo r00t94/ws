@@ -408,15 +408,15 @@ end
 ----------------------{ End Api Token Bot }-----------------------------
 
 function UpdateSource(msg,edit)
-if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |█    @r00t94     |') end
-if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |███  @r00t94       |') end
-download_file('https://raw.githubusercontent.com/r00t94/ws/main/salem/Run.lua','./salem/Run.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████  @r00t94     |') end
-download_file('https://raw.githubusercontent.com/r00t94/ws/main/salem/locks.lua','./salem/locks.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████  @r00t94   |') end
-download_file('https://raw.githubusercontent.com/r00t94/ws/main/salem/Script.lua','./salem/Script.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████ @r00t94  |') end
-download_file('https://raw.githubusercontent.com/r00t94/ws/main/salem/functions.lua','./salem/functions.lua')
+if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |█    @SalemEgy     |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |███  @SalemEgy       |') end
+download_file('https://raw.githubusercontent.com/SalemEgy/ws/main/salem/Run.lua','./salem/Run.lua')
+if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████  @SalemEgy     |') end
+download_file('https://raw.githubusercontent.com/SalemEgy/ws/main/salem/locks.lua','./salem/locks.lua')
+if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████  @SalemEgy   |') end
+download_file('https://raw.githubusercontent.com/SalemEgy/ws/main/salem/Script.lua','./salem/Script.lua')
+if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████ @SalemEgy  |') end
+download_file('https://raw.githubusercontent.com/SalemEgy/ws/main/salem/functions.lua','./salem/functions.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n تم تحديث السورس الى اصدار *v'..redis:get(ws..":VERSION")..'*\n تم اعاده تشغيل السورس بنجاح\n - @Wzsss') end
 if edit then dofile("./salem/Run.lua") end
 print("Update Source And Reload ~ ./salem/Run.lua")
@@ -662,7 +662,7 @@ Name = utf8.gsub(Name,"✿","")
 Name = utf8.gsub(Name,"✺","")
 Name = utf8.gsub(Name,"̐","")
 Name = utf8.gsub(Name,"ྀ","")
-Name = utf8.gsub(Name,"←","")
+Name = utf8.gsub(Name,"↞","")
 Name = utf8.gsub(Name,"↝","")
 Name = utf8.gsub(Name,"ؒ","")
 Name = utf8.gsub(Name,"̷","")
@@ -786,7 +786,7 @@ end
 function Getrtba(UserID,ChatID)
 if UserID == our_id then 
 var = 'هذا البوت' 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 var = 'مطور السورس'
 elseif  UserID == SUDO_ID then 
 var = redis:get(ws..":RtbaNew1:"..ChatID) or 'مطور اساسي' 
@@ -1686,7 +1686,7 @@ if UserID == our_id then
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك طرد البوت\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك طرد المطور الاساسي\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك طرد مطور السورس\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك طرد المطور\n") 
@@ -1919,7 +1919,7 @@ end
 if cmd == "ban" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك حظر البوت\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك حظر مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك حظر المطور الاساسي\n") 
@@ -1948,7 +1948,7 @@ end
 if cmd == "kick" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك طرد البوت\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك طرد مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك طرد المطور الاساسي\n") 
@@ -1991,7 +1991,7 @@ end
 if cmd == "ktm" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك كتم البوت\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك كتم مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك كتم المطور الاساسي\n") 
@@ -2050,7 +2050,7 @@ end
 if cmd == "bandall" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك حظر البوت\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك حظر مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"⌯ لا يمكنك حظر المطور الاساسي\n")
@@ -2097,7 +2097,7 @@ end
 if cmd == "DwnAll" then ----------- تنزيل الكل
 print(UserID..":"..SUDO_ID)
 if UserID == our_id then return sendMsg(ChatID,MsgID,"⌯ لآ يمكنك تنفيذ الامر مع البوت\n") end
-if UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then return sendMsg(ChatID,MsgID,"⌯ لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
+if UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then return sendMsg(ChatID,MsgID,"⌯ لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
 
 if UserID == SUDO_ID then 
 rinkuser = 1
@@ -2191,54 +2191,54 @@ end
 
 function settingsall(msg)
 
-list_settings = "*👮🏾¦*` اعدادات المجموعه :` \n"
-.."\n📝¦ التعديل » "..(redis:get(ws..'lock_edit'..msg.chat_id_) or 'false')
-.."\n🔗¦ الروابط » "..(redis:get(ws..'lock_link'..msg.chat_id_) or 'false')
-.."\n#️⃣¦ التاك » "..(redis:get(ws..'lock_tag'..msg.chat_id_) or 'false')
-.."\n©¦ المعرفات » "..(redis:get(ws..'lock_username'..msg.chat_id_) or 'false')
-.."\n\n💱¦ التكرار » "..(redis:get(ws..'lock_flood'..msg.chat_id_) or 'false')
-.."\n📑¦ الكلايش » "..(redis:get(ws..'lock_spam'..msg.chat_id_) or 'false')
-.."\n🌐¦ الويب » "..(redis:get(ws..'lock_webpage'..msg.chat_id_) or 'false')
-.."\n⚜️¦ الماركدوان » "..(redis:get(ws..'lock_markdown'..msg.chat_id_) or 'false')
-.."\n🏌🏻¦ البوتات بالطرد » "..(redis:get(ws..'lock_bots_by_kick'..msg.chat_id_) or 'false')
-.."\n🤖¦ البوتات » "..(redis:get(ws..'lock_bots'..msg.chat_id_) or 'false')
-.."\n➕¦ عدد التكرار » "..(redis:get(ws..'num_msg_max'..msg.chat_id_) or 'false')
-.."\n⏰¦ وقت التنظيف » "..(redis:get(ws..':Timer_Cleaner:'..msg.chat_id_) or '6').." ساعة ."
-.."\n\n🎬¦` اعدادات الوسائط :`\n"
-.."\n🤹*¦* المتحركه » "..(redis:get(ws..'mute_gif'..msg.chat_id_) or 'false')
-.."\n💭¦ الدردشه » "..(redis:get(ws..'mute_text'..msg.chat_id_) or 'false')
-.."\n◽️¦ الانلاين » "..(redis:get(ws..'mute_inline'..msg.chat_id_) or 'false')
-.."\n🎮¦ الالعاب » "..(redis:get(ws..'mute_game'..msg.chat_id_) or 'false')
-.."\n🏞¦ الصور » "..(redis:get(ws..'mute_photo'..msg.chat_id_) or 'false')
-.."\n🎥¦ الفيديو » "..(redis:get(ws..'mute_video'..msg.chat_id_) or 'false')
-.."\n🎙¦ الصوت » "..(redis:get(ws..'mute_audio'..msg.chat_id_) or 'false')
-.."\n\n🔉¦ البصمات » "..(redis:get(ws..'mute_voice'..msg.chat_id_) or 'false')
-.."\n🎎¦ الملصقات » "..(redis:get(ws..'mute_sticker'..msg.chat_id_) or 'false')
-.."\n📞¦ الجهات » "..(redis:get(ws..'mute_contact'..msg.chat_id_) or 'false')
-.."\n💱¦ التوجيه » "..(redis:get(ws..'mute_forward'..msg.chat_id_) or 'false')
-.."\n🌐¦ الموقع » "..(redis:get(ws..'mute_location'..msg.chat_id_) or 'false')
-.."\n🗂¦ الملفات » "..(redis:get(ws..'mute_document'..msg.chat_id_) or 'false')
-.."\n🔅¦ الاشعارات » "..(redis:get(ws..'mute_tgservice'..msg.chat_id_) or 'false')
-.."\n🔒¦ الفشار » "..(redis:get(ws..'lock_mmno3'..msg.chat_id_) or 'false')
-.."\n🔒¦ الفارسيه » "..(redis:get(ws..'lock_pharsi'..msg.chat_id_) or 'false')
-.."\n🔒¦ الانكليزيه » "..(redis:get(ws..'lock_lang'..msg.chat_id_) or 'false')
-.."\n🔒¦ الاضافه » "..(redis:get(ws..'lock_Add'..msg.chat_id_) or 'false')
+list_settings = "*⌯* ` اعدادات المجموعه :` \n"
+.."\n*⌯  التعديل ↞* "..(redis:get(ws..'lock_edit'..msg.chat_id_) or 'false')
+.."\n*⌯  الروابط ↞* "..(redis:get(ws..'lock_link'..msg.chat_id_) or 'false')
+.."\n*⌯  التاك ↞* "..(redis:get(ws..'lock_tag'..msg.chat_id_) or 'false')
+.."\n*⌯  المعرفات ↞* "..(redis:get(ws..'lock_username'..msg.chat_id_) or 'false')
+.."\n\n*⌯  التكرار ↞* "..(redis:get(ws..'lock_flood'..msg.chat_id_) or 'false')
+.."\n*⌯  الكلايش ↞* "..(redis:get(ws..'lock_spam'..msg.chat_id_) or 'false')
+.."\n*⌯  الويب ↞* "..(redis:get(ws..'lock_webpage'..msg.chat_id_) or 'false')
+.."\n*⌯  الماركدوان ↞* "..(redis:get(ws..'lock_markdown'..msg.chat_id_) or 'false')
+.."\n*⌯  البوتات بالطرد ↞* "..(redis:get(ws..'lock_bots_by_kick'..msg.chat_id_) or 'false')
+.."\n*⌯  البوتات ↞* "..(redis:get(ws..'lock_bots'..msg.chat_id_) or 'false')
+.."\n*⌯  عدد التكرار ↞* "..(redis:get(ws..'num_msg_max'..msg.chat_id_) or 'false')
+.."\n*⌯  وقت التنظيف ↞* "..(redis:get(ws..':Timer_Cleaner:'..msg.chat_id_) or '6').." ساعة ."
+.."\n\n*⌯*  ` اعدادات الوسائط :`\n"
+.."\n*⌯  المتحركه ↞* "..(redis:get(ws..'mute_gif'..msg.chat_id_) or 'false')
+.."\n*⌯  الدردشه ↞* "..(redis:get(ws..'mute_text'..msg.chat_id_) or 'false')
+.."\n*⌯  الانلاين ↞* "..(redis:get(ws..'mute_inline'..msg.chat_id_) or 'false')
+.."\n*⌯  الالعاب ↞* "..(redis:get(ws..'mute_game'..msg.chat_id_) or 'false')
+.."\n*⌯  الصور ↞* "..(redis:get(ws..'mute_photo'..msg.chat_id_) or 'false')
+.."\n*⌯  الفيديو ↞* "..(redis:get(ws..'mute_video'..msg.chat_id_) or 'false')
+.."\n*⌯  الصوت ↞* "..(redis:get(ws..'mute_audio'..msg.chat_id_) or 'false')
+.."\n\n*⌯  البصمات ↞* "..(redis:get(ws..'mute_voice'..msg.chat_id_) or 'false')
+.."\n*⌯  الملصقات ↞* "..(redis:get(ws..'mute_sticker'..msg.chat_id_) or 'false')
+.."\n*⌯  الجهات ↞* "..(redis:get(ws..'mute_contact'..msg.chat_id_) or 'false')
+.."\n*⌯  التوجيه ↞* "..(redis:get(ws..'mute_forward'..msg.chat_id_) or 'false')
+.."\n*⌯  الموقع ↞* "..(redis:get(ws..'mute_location'..msg.chat_id_) or 'false')
+.."\n*⌯  الملفات ↞* "..(redis:get(ws..'mute_document'..msg.chat_id_) or 'false')
+.."\n*⌯  الاشعارات ↞* "..(redis:get(ws..'mute_tgservice'..msg.chat_id_) or 'false')
+.."\n*⌯  الفشار ↞* "..(redis:get(ws..'lock_mmno3'..msg.chat_id_) or 'false')
+.."\n*⌯  الفارسيه ↞* "..(redis:get(ws..'lock_pharsi'..msg.chat_id_) or 'false')
+.."\n*⌯  الانكليزيه ↞* "..(redis:get(ws..'lock_lang'..msg.chat_id_) or 'false')
+.."\n*⌯  الاضافه ↞* "..(redis:get(ws..'lock_Add'..msg.chat_id_) or 'false')
 
-local eueuf = "\n\n*⚒¦*` اعدادات اخرى : `"
-.."\n*🙋🏼‍♂️¦* الترحيب » "..(redis:get(ws..'welcome:get'..msg.chat_id_) or 'false')
-.."\n*📋¦*  الردود » "..(redis:get(ws..'replay'..msg.chat_id_) or 'false')
-.."\n*📋¦*  الردود العشوائيه » "..(redis:get(ws.."lock_RandomRdod"..msg.chat_id_) or 'false')
-.."\n*🚸¦*  التحذير » "..(redis:get(ws..'lock_woring'..msg.chat_id_) or 'false')
-.."\n*📝¦* الايدي » "..(redis:get(ws..'lock_id'..msg.chat_id_) or 'false')
-.."\n*💬¦* الرابط » "..(redis:get(ws..'lock_linkk'..msg.chat_id_) or 'false')
-.."\n*📮¦* المغادره » "..(redis:get(ws..'lock_leftgroup'..msg.chat_id_) or 'false')
-.."\n*🗳¦* الحظر » "..(redis:get(ws..'lock_KickBan'..msg.chat_id_) or 'false')
-.."\n*🔍¦* الحمايه » "..(redis:get(ws..'antiedit'..msg.chat_id_) or 'false')
-.."\n*📋¦* التاك للكل » "..(redis:get(ws..'lock_takkl'..msg.chat_id_) or 'false')
-.."\n*📒¦* الايدي بالصوره » "..(redis:get(ws..'idphoto'..msg.chat_id_) or 'false')
-.."\n*🔐¦* التحقق » "..(redis:get(ws.."lock_check"..msg.chat_id_) or 'false')
-.."\n*🗑¦* التنظيف التلقائي » "..(redis:get(ws.."lock_cleaner"..msg.chat_id_) or 'false')
-.."\n*📂¦* ردود السورس » "..(redis:get(ws.."lock_rdodSource"..msg.chat_id_) or 'false')
+local eueuf = "\n\n*⌯*` اعدادات اخرى : `"
+.."\n*⌯  الترحيب ↞* "..(redis:get(ws..'welcome:get'..msg.chat_id_) or 'false')
+.."\n*⌯   الردود ↞* "..(redis:get(ws..'replay'..msg.chat_id_) or 'false')
+.."\n*⌯   الردود العشوائيه ↞* "..(redis:get(ws.."lock_RandomRdod"..msg.chat_id_) or 'false')
+.."\n*⌯   التحذير ↞* "..(redis:get(ws..'lock_woring'..msg.chat_id_) or 'false')
+.."\n*⌯  الايدي ↞* "..(redis:get(ws..'lock_id'..msg.chat_id_) or 'false')
+.."\n*⌯  الرابط ↞* "..(redis:get(ws..'lock_linkk'..msg.chat_id_) or 'false')
+.."\n*⌯  المغادره ↞* "..(redis:get(ws..'lock_leftgroup'..msg.chat_id_) or 'false')
+.."\n*⌯  الحظر ↞* "..(redis:get(ws..'lock_KickBan'..msg.chat_id_) or 'false')
+.."\n*⌯  الحمايه ↞* "..(redis:get(ws..'antiedit'..msg.chat_id_) or 'false')
+.."\n*⌯  التاك للكل ↞* "..(redis:get(ws..'lock_takkl'..msg.chat_id_) or 'false')
+.."\n*⌯  الايدي بالصوره ↞* "..(redis:get(ws..'idphoto'..msg.chat_id_) or 'false')
+.."\n*⌯  التحقق ↞* "..(redis:get(ws.."lock_check"..msg.chat_id_) or 'false')
+.."\n*⌯  التنظيف التلقائي ↞* "..(redis:get(ws.."lock_cleaner"..msg.chat_id_) or 'false')
+.."\n*⌯  ردود السورس ↞* "..(redis:get(ws.."lock_rdodSource"..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 eueuf = eueuf:gsub('true', '{ مفعل }')
@@ -2247,24 +2247,24 @@ return sendMsg(msg.chat_id_,1,'➖\n'..list_settings..eueuf..'\n')
 end
 
 function settings(msg)
-list_settings = "👮🏾¦` اعدادات المجموعه :` "
-.."\n\n*#️⃣¦* التاك » "..(redis:get(ws..'lock_tag'..msg.chat_id_) or 'false')
-.."\n*©¦* المعرفات » "..(redis:get(ws..'lock_username'..msg.chat_id_) or 'false')
-.."\n*📝¦* التعديل » "..(redis:get(ws..'lock_edit'..msg.chat_id_) or 'false')
-.."\n*🔗¦* الروابط » "..(redis:get(ws..'lock_link'..msg.chat_id_) or 'false')
-.."\n\n*💱¦* التكرار » "..(redis:get(ws..'lock_flood'..msg.chat_id_) or 'false')
-.."\n*📑¦* الكلايش » "..(redis:get(ws..'lock_spam'..msg.chat_id_) or 'false')
-.."\n\n*🌐¦* الويب » "..(redis:get(ws..'lock_webpage'..msg.chat_id_) or 'false')
-.."\n*⚜️¦* الماركدوان » "..(redis:get(ws..'lock_markdown'..msg.chat_id_) or 'false')
-.."\n*🏌🏻¦* البوتات بالطرد » "..(redis:get(ws..'lock_bots_by_kick'..msg.chat_id_) or 'false')
-.."\n*🤖¦* البوتات » "..(redis:get(ws..'lock_bots'..msg.chat_id_) or 'false')
-.."\n*➕¦* عدد التكرار » "..(redis:get(ws..'num_msg_max'..msg.chat_id_) or 'false')
-.."\n\n*💱¦*` اعدادات التقـييد :`\n"
-.."\n*💢¦* التقييد بالتوجيه » "..(redis:get(ws..':tqeed_fwd:'..msg.chat_id_) or 'false')
-.."\n*📸¦* التقييد بالصور » "..(redis:get(ws..':tqeed_photo:'..msg.chat_id_) or 'false')
-.."\n*🔗¦* التقييد بالروابط » "..(redis:get(ws..':tqeed_link:'..msg.chat_id_) or 'false')
-.."\n*🎉¦* التقييد بالمتحركه » "..(redis:get(ws..':tqeed_gif:'..msg.chat_id_) or 'false')
-.."\n*🎥¦* التقييد الفيديو » "..(redis:get(ws..':tqeed_video:'..msg.chat_id_) or 'false')
+list_settings = "*⌯*` اعدادات المجموعه :` "
+.."\n\n*⌯  التاك ↞* "..(redis:get(ws..'lock_tag'..msg.chat_id_) or 'false')
+.."\n*⌯  المعرفات ↞* "..(redis:get(ws..'lock_username'..msg.chat_id_) or 'false')
+.."\n*⌯  التعديل ↞* "..(redis:get(ws..'lock_edit'..msg.chat_id_) or 'false')
+.."\n*⌯  الروابط ↞* "..(redis:get(ws..'lock_link'..msg.chat_id_) or 'false')
+.."\n\n*⌯  التكرار ↞* "..(redis:get(ws..'lock_flood'..msg.chat_id_) or 'false')
+.."\n*⌯  الكلايش ↞* "..(redis:get(ws..'lock_spam'..msg.chat_id_) or 'false')
+.."\n\n*⌯  الويب ↞* "..(redis:get(ws..'lock_webpage'..msg.chat_id_) or 'false')
+.."\n*⌯  الماركدوان ↞* "..(redis:get(ws..'lock_markdown'..msg.chat_id_) or 'false')
+.."\n*⌯  البوتات بالطرد ↞* "..(redis:get(ws..'lock_bots_by_kick'..msg.chat_id_) or 'false')
+.."\n*⌯  البوتات ↞* "..(redis:get(ws..'lock_bots'..msg.chat_id_) or 'false')
+.."\n*⌯  عدد التكرار ↞* "..(redis:get(ws..'num_msg_max'..msg.chat_id_) or 'false')
+.."\n\n*⌯* ` اعدادات التقـييد :`\n"
+.."\n*⌯  التقييد بالتوجيه ↞* "..(redis:get(ws..':tqeed_fwd:'..msg.chat_id_) or 'false')
+.."\n*⌯  التقييد بالصور ↞* "..(redis:get(ws..':tqeed_photo:'..msg.chat_id_) or 'false')
+.."\n*⌯  التقييد بالروابط ↞* "..(redis:get(ws..':tqeed_link:'..msg.chat_id_) or 'false')
+.."\n*⌯  التقييد بالمتحركه ↞* "..(redis:get(ws..':tqeed_gif:'..msg.chat_id_) or 'false')
+.."\n*⌯  التقييد الفيديو ↞* "..(redis:get(ws..':tqeed_video:'..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 return sendMsg(msg.chat_id_, msg.id_,'➖\n'..list_settings..'\n')
@@ -2272,21 +2272,21 @@ end
 
 function media(msg)
 list_settings = "`اعدادات الوسائط:`\n"
-.."\n*⌯* المتحركه » "..(redis:get(ws..'mute_gif'..msg.chat_id_) or 'false')
-.."\n*⌯* الدردشه » "..(redis:get(ws..'mute_text'..msg.chat_id_) or 'false')
-.."\n*⌯* الانلاين » "..(redis:get(ws..'mute_inline'..msg.chat_id_) or 'false')
-.."\n*⌯* الالعاب » "..(redis:get(ws..'mute_game'..msg.chat_id_) or 'false')
-.."\n*⌯* الصور » "..(redis:get(ws..'mute_photo'..msg.chat_id_) or 'false')
-.."\n*⌯* الفيديو » "..(redis:get(ws..'mute_video'..msg.chat_id_) or 'false')
-.."\n*⌯* الصوت » "..(redis:get(ws..'mute_audio'..msg.chat_id_) or 'false')
-.."\n\n*⌯* البصمات » "..(redis:get(ws..'mute_voice'..msg.chat_id_) or 'false')
-.."\n*⌯* الملصقات » "..(redis:get(ws..'mute_sticker'..msg.chat_id_) or 'false')
-.."\n*⌯* الجهات » "..(redis:get(ws..'mute_contact'..msg.chat_id_) or 'false')
-.."\n*⌯ * التوجيه » "..(redis:get(ws..'mute_forward'..msg.chat_id_) or 'false')
-.."\n*⌯ * الموقع » "..(redis:get(ws..'mute_location'..msg.chat_id_) or 'false')
-.."\n*⌯* الملفات » "..(redis:get(ws..'mute_document'..msg.chat_id_) or 'false')
-.."\n*⌯* الاشعارات » "..(redis:get(ws..'mute_tgservice'..msg.chat_id_) or 'false')
-.."\n*⌯* الكيبورد » "..(redis:get(ws..'mute_keyboard'..msg.chat_id_) or 'false')
+.."\n*⌯ المتحركه ↞* "..(redis:get(ws..'mute_gif'..msg.chat_id_) or 'false')
+.."\n*⌯ الدردشه ↞* "..(redis:get(ws..'mute_text'..msg.chat_id_) or 'false')
+.."\n*⌯ الانلاين ↞* "..(redis:get(ws..'mute_inline'..msg.chat_id_) or 'false')
+.."\n*⌯ الالعاب ↞* "..(redis:get(ws..'mute_game'..msg.chat_id_) or 'false')
+.."\n*⌯ الصور ↞* "..(redis:get(ws..'mute_photo'..msg.chat_id_) or 'false')
+.."\n*⌯ الفيديو ↞* "..(redis:get(ws..'mute_video'..msg.chat_id_) or 'false')
+.."\n*⌯ الصوت ↞* "..(redis:get(ws..'mute_audio'..msg.chat_id_) or 'false')
+.."\n\n*⌯ البصمات ↞* "..(redis:get(ws..'mute_voice'..msg.chat_id_) or 'false')
+.."\n*⌯ الملصقات ↞* "..(redis:get(ws..'mute_sticker'..msg.chat_id_) or 'false')
+.."\n*⌯ الجهات ↞* "..(redis:get(ws..'mute_contact'..msg.chat_id_) or 'false')
+.."\n*⌯ التوجيه ↞* "..(redis:get(ws..'mute_forward'..msg.chat_id_) or 'false')
+.."\n*⌯ الموقع ↞* "..(redis:get(ws..'mute_location'..msg.chat_id_) or 'false')
+.."\n*⌯ الملفات ↞* "..(redis:get(ws..'mute_document'..msg.chat_id_) or 'false')
+.."\n*⌯ الاشعارات ↞* "..(redis:get(ws..'mute_tgservice'..msg.chat_id_) or 'false')
+.."\n*⌯ الكيبورد ↞* "..(redis:get(ws..'mute_keyboard'..msg.chat_id_) or 'false')
 list_settings = list_settings:gsub('true', '{ مقفول }')
 list_settings = list_settings:gsub('false', '{ مفتوح }')
 return sendMsg(msg.chat_id_,msg.id_,'\n'..list_settings..'\n')
