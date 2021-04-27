@@ -137,7 +137,7 @@ redis:setex(ws..":Witing_DelNewRtba:"..msg.chat_id_..msg.sender_user_id_,1000,tr
 return "- ارسل الرتبه المراد حذفها :\n\n• مطور اساسي \n• مطور \n• منشئ اساسي \n• منشئ \n• مدير \n• ادمن \n• مميز \n"
 end
 if MsgText[1] == "مسح قائمه الرتب" then
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 redis:del(ws..":RtbaNew1:"..msg.chat_id_)
 redis:del(ws..":RtbaNew2:"..msg.chat_id_)
 redis:del(ws..":RtbaNew3:"..msg.chat_id_)
@@ -259,7 +259,7 @@ if not data.sender_user_id_ then return sendMsg(arg.ChatID,arg.MsgID,"⌯  عذ�
 local UserID = data.sender_user_id_
 if UserID == our_id then  
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكن تقييد البوت  \n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then  
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then  
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك تقييد مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك تقييد المطور الاساسي\n") 
@@ -300,7 +300,7 @@ local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك تقييد البوت\n") 
-elseif  UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916  then 
+elseif  UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415  then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯   لا يمكنك تقييد مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك تقييد المطور الاساسي\n") 
@@ -337,7 +337,7 @@ elseif MsgText[2] and MsgText[2]:match('^%d+$') then  -- By UserID
 UserID =  MsgText[2] 
 if UserID == our_id then   
 return sendMsg(msg.chat_id_,msg.id_,"⌯  لا يمكنك تقييد البوت\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(msg.chat_id_,msg.id_,"⌯  لا يمكنك تقييد مطور السورس\n") 
 elseif UserID == tostring(SUDO_ID) then 
 return sendMsg(msg.chat_id_,msg.id_,"⌯  لا يمكنك تقييد المطور الاساسي\n") 
@@ -1352,7 +1352,7 @@ if not data.sender_user_id_ then return sendMsg(arg.ChatID,arg.MsgID,"⌯  عذ�
 local UserID = data.sender_user_id_
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك طرد البوت\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك طرد مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك طرد المطور الاساسي\n") 
@@ -1391,7 +1391,7 @@ UserName = arg.UserName
 NameUser = Hyper_Link_Name(data)
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك طرد البوت\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك طرد مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك طرد المطور الاساسي\n") 
@@ -1438,7 +1438,7 @@ if UserID == our_id then
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر البوت\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر المطور الاساسي\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر مطور السورس\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر المطور\n") 
@@ -1487,7 +1487,7 @@ if UserID == our_id then
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر البوت\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر المطور الاساسي\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر مطور السورس\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر المطور\n") 
@@ -1672,7 +1672,7 @@ if UserID == our_id then
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك كتم البوت\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك كتم المطور الاساسي\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك كتم مطور السورس\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك كتم المطور\n") 
@@ -1711,7 +1711,7 @@ if UserID == our_id then
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك كتم البوت\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك كتم المطور الاساسي\n") 
-elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك كتم مطور السورس\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك كتم المطور\n") 
@@ -1926,7 +1926,7 @@ end
 
 
 if MsgText[1] == "مسح المنشئيين الاساسيين" or MsgText[1] == "مسح المنشئين الاساسيين" or MsgText[1] == "مسح المنشئيين الاساسين" or MsgText[1] == "مسح المنشئين الاساسين" then 
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 
 local Admins = redis:scard(ws..':MONSHA_Group:'..msg.chat_id_)
 if Admins == 0 then  
@@ -2418,7 +2418,7 @@ return false
 end  
 
 if MsgText[1] == 'شحن' and MsgText[2] then
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 if tonumber(MsgText[2]) > 0 and tonumber(MsgText[2]) < 1001 then
 local extime = (tonumber(MsgText[2]) * 86400)
 redis:setex(ws..'ExpireDate:'..msg.chat_id_, extime, true)
@@ -2433,7 +2433,7 @@ return false
 end
 
 if MsgText[1] == 'الاشتراك' and MsgText[2] then 
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 if MsgText[2] == '1' then
 redis:setex(ws..'ExpireDate:'..msg.chat_id_, 2592000, true)
 if not redis:get(ws..'CheckExpire::'..msg.chat_id_) then 
@@ -2693,7 +2693,7 @@ return "⌯  تـم مـسـح { *"..addbannds.." *} من قائمه العام\
 end 
 
 if MsgText[1] == "رفع منشئ اساسي" or MsgText[1] == "رفع منشى اساسي" then
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 
 if not MsgText[2] and msg.reply_id then 
 GetMsgInfo(msg.chat_id_,msg.reply_id,function(arg,data)
@@ -2738,7 +2738,7 @@ return false
 end
 
 if MsgText[1] == "تنزيل منشئ اساسي" or MsgText[1] == "تنزيل منشى اساسي" then
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 
 if not MsgText[2] and msg.reply_id then 
 GetMsgInfo(msg.chat_id_,msg.reply_id,function(arg,data)
@@ -2822,7 +2822,7 @@ NameUser = Hyper_Link_Name(data)
 msg = arg.msg
 UserID = msg.UserID
 if UserID == our_id then return sendMsg(msg.chat_id_,msg.id_,"⌯  لآ يمكنك تنفيذ الامر مع البوت\n") end
-if UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then return sendMsg(msg.chat_id_,msg.id_,"⌯  لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
+if UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then return sendMsg(msg.chat_id_,msg.id_,"⌯  لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
 
 if UserID == SUDO_ID then 
 rinkuser = 1
@@ -2921,7 +2921,7 @@ local UserID = data.id_
 if UserID == our_id then return sendMsg(arg.ChatID,arg.MsgID,"⌯  لآ يمكنك تنفيذ الامر مع البوت\n") end
 
 msg = arg.msg
-if UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then return sendMsg(msg.chat_id_,msg.id_,"⌯  لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
+if UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then return sendMsg(msg.chat_id_,msg.id_,"⌯  لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
 NameUser = Hyper_Link_Name(data)
 
 if UserID == SUDO_ID then 
@@ -3313,19 +3313,19 @@ end
 end
 
 if MsgText[1] == 'المجموعات' or MsgText[1] == "المجموعات 🔝" then 
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 return '⌯ عدد المجموعات المفعلة ⇠ `'..redis:scard(ws..'group:ids')..'`  ➼' 
 end
 
 if MsgText[1] == 'مسح كليشه الايدي عام' or MsgText[1] == 'مسح الايدي عام' or MsgText[1] == 'مسح ايدي عام'  or MsgText[1] == 'مسح كليشة الايدي عام' or MsgText[1] == 'مسح كليشه الايدي عام ' then 
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 if not msg.SudoBase and not redis:get(ws.."lockidedit") then return "⌯  الامر معطل من قبل المطور الاساسي  \n" end
 redis:del(ws..":infoiduser")
 return sendMsg(msg.chat_id_,msg.id_,"⌯  تم مسح كليشة الايدي العام بنجاح \n")
 end
 
 if MsgText[1] == 'تعيين كليشه الايدي عام' or MsgText[1] == 'عام تعيين الايدي' or MsgText[1] == 'تعيين ايدي عام'  or MsgText[1] == 'تعيين كليشة الايدي عام'  or MsgText[1] == 'تعيين كليشه الايدي عام 📄' then 
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 if not msg.SudoBase and not redis:get(ws.."lockidedit") then return "⌯  تعيين الايدي معطل من قبل المطور الاساسي  \n" end
 redis:setex(ws..":Witting_KleshaID"..msg.chat_id_..msg.sender_user_id_,1000,true)
 return '⌯ حسننا , الان ارسل كليشه الايدي الجديده \n علما ان الاختصارات كالاتي : \n \n#name : لوضع اسم المستخدم\n#id : لوضع ايدي المستخدم\n#username : لوضع معرف المستخدم \n#stast : لوضع نوع رتبه المستخدم \n#game : لوضع تفاعل المستخدم \n#msgs : لاضهار عدد الرسائل \n#auto : لاضهار عدد النقاط \n#edit : لاضهار عدد السحكات \n#bot : لاضهار اسم البوت\n{المطور} : لاضهار معرف المطور الاساسي\n قناه تعليمات ونشر كلايش الايدي \n قناه الكلايش : [@Wizard_id] \n➼' 
@@ -3333,13 +3333,13 @@ end
 
 
 if MsgText[1] == 'قائمه المجموعات' then 
-if not msg.SudoBase then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoBase then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 return chat_list(msg) 
 end
 
 
 if MsgText[1] == 'تعطيل' and MsgText[2] and MsgText[2]:match("(%d+)") then
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 local idgrup = "-100"..MsgText[2]
 local name_gp = redis:get(ws..'group:name'..idgrup)
 GroupTitle(idgrup,function(arg,data)
@@ -3365,21 +3365,18 @@ return false
 end
 
 if MsgText[1] == 'المطور' then
-GetUserID(SUDO_ID,function(arg,data)
-local SUDO_NAME = '['..Flter_Markdown(data.first_name_..' '..(data.last_name_ or ""))..'](tg://user?id='..SUDO_ID..')'
-return send_msg(msg.chat_id_,redis:get(ws..":TEXT_SUDO") or SUDO_NAME,msg.id_)
-end,nil)
+return redis:get(ws..":TEXT_SUDO") or 'لا توجد كليشه المطور .\n يمكنك اضافه كليشه من خلال الامر\n       " `ضع كليشه المطور` " \n'
 end
 
 
 if MsgText[1] == "اذاعه بالتثبيت"  or MsgText[1] =="اذاعه بالتثبيت " then
-if not msg.SudoUser then return"⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SUDO_ID then return"⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 redis:setex(ws..':prod_pin:'..msg.chat_id_..msg.sender_user_id_,300, true) 
 return "⌯  حسننا الان ارسل رساله ليتم اذاعتها بالتثبيت  \n" 
 end
 
 if MsgText[1] == "اذاعه عام بالتوجيه" or MsgText[1] == "اذاعه عام بالتوجيه " then
-if not msg.SudoUser then return"⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return"⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 if not msg.SudoBase and not redis:get(ws..'lock_brod') then 
 return "⌯  الاذاعه مقفوله من قبل المطور الاساسي  " 
 end
@@ -3388,7 +3385,7 @@ return "⌯  حسننا الان ارسل التوجيه للاذاعه \n"
 end
 
 if MsgText[1] == "اذاعه عام" or MsgText[1] == "اذاعه عام " then		
-if not msg.SudoUser then return"⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return"⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 if not msg.SudoBase and not redis:get(ws..'lock_brod') then 
 return "⌯  الاذاعه مقفوله من قبل المطور الاساسي  " 
 end
@@ -3397,7 +3394,7 @@ return "⌯  حسننا الان ارسل الكليشه للاذاعه عام \
 end
 
 if MsgText[1] == "اذاعه خاص" or MsgText[1] == "اذاعه خاص " then		
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 if not msg.SudoBase and not redis:get(ws..'lock_brod') then 
 return "⌯  الاذاعه مقفوله من قبل المطور الاساسي  " 
 end
@@ -3406,7 +3403,7 @@ return "⌯  حسننا الان ارسل الكليشه للاذاعه خاص \
 end
 
 if MsgText[1] == "اذاعه" or MsgText[1] == "اذاعه " then		
-if not msg.SudoUser then return"⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return"⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 if not msg.SudoBase and not redis:get(ws..'lock_brod') then 
 return "⌯  الاذاعه مقفوله من قبل المطور الاساسي  " 
 end
@@ -3415,12 +3412,12 @@ return "⌯  حسننا الان ارسل الكليشه للاذاعه للمج
 end
 
 if MsgText[1] == "المطورين" or MsgText[1] == "المطورين " then
-if not msg.SudoUser then return"⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return"⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 return sudolist(msg) 
 end
 
 if MsgText[1] == "قائمه العام" or MsgText[1]=="قائمه العام " then 
-if not msg.SudoUser then return"⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return"⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 return GetListGeneralBanned(msg) 
 end
 
@@ -3442,7 +3439,7 @@ if not data.sender_user_id_ then return sendMsg(arg.ChatID,arg.MsgID,"⌯  عذ�
 local UserID = data.sender_user_id_
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر البوت\n") 
-elseif  UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif  UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر مطور السورس\n")
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر المطور الاساسي\n")
@@ -3472,7 +3469,7 @@ NameUser = Hyper_Link_Name(data)
 
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر البوت\n") 
-elseif  UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 then 
+elseif  UserID == 996310583 or UserID == 1399282735 or UserID == 1399227146 or UserID == 1790645201 or UserID == 1666331916 or UserID == 1706625415 then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر مطور السورس\n")
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"⌯  لا يمكنك حظر المطور الاساسي\n")
@@ -3846,7 +3843,7 @@ end
 ----=================================|كود الرد العشوائي العام|===============================================
 
 if MsgText[1]=="اضف رد عشوائي عام" then
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 redis:setex(ws..'addrdRandom1Public:'..msg.chat_id_..msg.sender_user_id_,1400,true) 
 redis:del(ws..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_)
 return "⌯  حسننا ,  الان ارسل كلمه الرد للعشوائي العام \n-"
@@ -3854,13 +3851,13 @@ end
 
 
 if MsgText[1]== "مسح رد عشوائي عام" then
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 redis:setex(ws..':DelrdRandomPublic:'..msg.chat_id_..msg.sender_user_id_,300,true)
 return "⌯  حسننا عزيزي  \n⌯  الان ارسل الرد العشوائي العام لمسحها "
 end
 
 if MsgText[1] == "مسح الردود العشوائيه العامه" then
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 local AlRdod = redis:smembers(ws..':KlmatRRandom:') 
 if #AlRdod == 0 then return "⌯  الردود العشوائيه محذوفه بالفعل\n" end
 for k,v in pairs(AlRdod) do redis:del(ws..":ReplayRandom:"..v) redis:del(ws..':caption_replay:Random:'..v)  end
@@ -3869,7 +3866,7 @@ return "⌯  أهلا عزيزي "..msg.TheRankCmd.."  \n⌯  تم مسح جمي
 end
 
 if MsgText[1] == "الردود العشوائيه العام" then
-if not msg.SudoUser then return "⌯  هذا الامر يخص {المطور} فقط  \n" end
+if not msg.SudoUser then return "⌯  هذا الأمر لا يخصك أعتذر.  \n" end
 message = "⌯  الردود العشـوائيه العام :\n\n"
 local AlRdod = redis:smembers(ws..':KlmatRRandom:') 
 if #AlRdod == 0 then 
@@ -7253,7 +7250,6 @@ Ws = {
 "^(تعطيل التواصل)$",
 "^(قفل الكل)$",
 "^(فتح الكل)$",
-"^(المطور)$",
 "^(قفل الوسائط)$",
 "^(فتح الوسائط)$",
 "^(منع)$",
